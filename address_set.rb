@@ -3,7 +3,8 @@ class AddressSet
   attr_reader :addresses
 
   def initialize
-    @addresses = [1,3]
+    @addresses = []
+    @stats = {}
   end
 
   def each
@@ -14,6 +15,7 @@ class AddressSet
     addresses << address
   end
 
+  # TODO allow x number of address sets  
   def merge address_set
     unless address_set.class == self.class
       raise 'Can only merge another AddressSet'
