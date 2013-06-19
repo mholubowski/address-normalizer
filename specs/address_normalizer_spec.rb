@@ -1,5 +1,5 @@
 require 'csv'
-require_relative 'address_normalizer'
+require_relative '../address_normalizer'
 
 describe FileNormalizer do
 
