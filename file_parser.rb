@@ -11,15 +11,15 @@ class FileParser
 		@normalized_address_index = 0
 	end
 
-	def create_address_set(filename)
+  #TODO line_limit for dev
+	def create_address_set(filename, line_limit = nil)
 		@set = AddressSet.new
 
 		source_encoding = get_encoding(filename)
 
-		process_csv(filename, source_encoding)
+		process_csv(filename, source_encoding, line_limit)
 
 		return @set
-
 		#TODO handle malformed (in address_set?)
 		#     create Malformed class?
 	end
@@ -32,15 +32,15 @@ class FileParser
     return source_encoding
   end
 
-  def process_csv(filename, source_encoding)
+  def process_csv(filename, source_encoding, line_limit)
     counter = 0
     IO.foreach(filename, :encoding => source_encoding) do |line|
+      puts "On row #{counter}"
       if counter == 0
         handle_first_row(line)
-        puts "Here"
       else
+        return if (line_limit && counter == line_limit)
         normalize_line(line)
-        puts "Now here"
       end
       counter += 1
     end
@@ -62,7 +62,7 @@ class FileParser
     begin
       CSV.parse(line) do |row|
         begin
-          tokenized = TokenizedAddress.new(row[address_index])
+          tokenized = TokenizedAddress.new(row[address_index],{informal: true})
           # Catch empty address
         rescue NoMethodError
           strt_ad = ""

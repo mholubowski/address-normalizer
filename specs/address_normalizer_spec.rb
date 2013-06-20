@@ -8,7 +8,7 @@ describe FileNormalizer do
 		@filename  = "test1_NormalizedAddresses_#{@timestamp}.csv"
 		@malformed = "AddressNormalizer_MalformedRows_#{@timestamp}.txt"
 
-		@normalized = FileNormalizer.new('example_data/test1.csv')
+		@normalized = FileNormalizer.new('../example_data/test1.csv')
 	end
 
 	it "should create a normalized output file" do

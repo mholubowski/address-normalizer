@@ -26,10 +26,3 @@ class AddressSet
   end
 
 end
-
-a = AddressSet.new
-b = AddressSet.new
-
-p a.addresses
-a.merge b
-p a.addresses
