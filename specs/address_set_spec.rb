@@ -1,0 +1,1 @@
+# Will serve as a smart collection for TokenizedAddress's
