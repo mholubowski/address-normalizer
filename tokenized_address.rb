@@ -10,8 +10,9 @@ class TokenizedAddress
 
 	def initialize string, options = {informal: false}
 		obj = StreetAddress::US.parse(string, options)
+		#TODO catch malformed
 		return if obj.nil?
-		
+
 		@address 					= obj.to_s
 		@number  					= obj.number 
 		@street  					= obj.street

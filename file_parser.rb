@@ -2,6 +2,7 @@ require 'csv'
 require 'cmess/guess_encoding'
 require_relative 'address_set.rb'
 require_relative 'tokenized_address.rb'
+require_relative 'address_tokenizer.rb'
 
 class FileParser
 	attr_accessor :address_index, :normalized_address_index
@@ -59,10 +60,11 @@ class FileParser
   end
 
   def normalize_line(line)
+    address_tokenizer = AddressTokenizer.new
     begin
       CSV.parse(line) do |row|
         begin
-          tokenized = TokenizedAddress.new(row[address_index],{informal: true})
+          tokenized = address_tokenizer.tokenize(row[address_index], {informal: true})
           # Catch empty address
         rescue NoMethodError
           strt_ad = ""
