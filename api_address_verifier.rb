@@ -16,7 +16,7 @@ class ApiAddressVerifier
 		addr.delete_if {|key,val| !val}
 
 		addr[:zip]		 = addr[:postal_code]
-		addr[:street1] = "#{addr[:number]} #{addr[:street]} #{addr[:street_type]}"
+		addr[:street1] = addr[:line1]
 	end
 
 end
