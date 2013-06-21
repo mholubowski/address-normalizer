@@ -13,6 +13,13 @@ describe ApiAddressVerifier do
   	@address.any? {|key,value| value.nil?}.should eq(false)
   end
 
+  it "should convert has to EasyPost form" do 
+		@AV.create_easypost_call(@address)
+
+		@address[:street1].should eq("6587 Del Playa Dr")  	
+		@address[:zip].should eq("93117")
+  end
+
 	it "should accept a hash and create a lambda Easypost call" do
     ep_call = @AV.create_easypost_call(@address)
 

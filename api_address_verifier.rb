@@ -7,13 +7,16 @@ class ApiAddressVerifier
 		
 	end
 
-	def create_easypost_call(address_hash)
-		parse_address_for_easypost(address_hash)
-		lambda { EasyPost::Address.verify(address_hash) }
+	def create_easypost_call(addr)
+		parse_address_for_easypost(addr)
+		lambda { EasyPost::Address.verify(addr) }
 	end
 
-	def parse_address_for_easypost(address_hash)
-		address_hash.delete_if {|key,val| !val}
+	def parse_address_for_easypost(addr)
+		addr.delete_if {|key,val| !val}
+
+		addr[:zip]		 = addr[:postal_code]
+		addr[:street1] = "#{addr[:number]} #{addr[:street]} #{addr[:street_type]}"
 	end
 
 end
