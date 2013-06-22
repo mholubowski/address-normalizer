@@ -26,7 +26,8 @@ describe ApiAddressVerifier do
     ep_call.class.should eq(Proc)
   end
 
-  it "should get a response from EasyPost in this form" do
+  #TODO use VCR? to speed up the api calls
+  it "should get an API response from EasyPost in this form" do
   	easypost_lambda = @AV.create_easypost_call(@address)
 
   	response = easypost_lambda.call
