@@ -44,5 +44,16 @@ test2 = Benchmark.measure do
 	p responses
 end
 
+test3 = Benchmark.measure do
+	responses = []
+
+	10.times do
+		Thread.start do
+			5.times { responses << l.call}
+			puts "Thread Done"
+		end
+	end
+end
+
 p "One: #{test1}"
 p "Two: #{test2}"
