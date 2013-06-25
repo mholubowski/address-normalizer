@@ -30,4 +30,13 @@ class AddressNormalizer < Sinatra::Base
 
     erb :index
   end
+
+  get '/info' do 
+    erb :info
+  end
+
+  get '/normalize' do
+    erb :normalize
+  end
+
 end

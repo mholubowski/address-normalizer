@@ -3,6 +3,16 @@
 	padding: 20px 40px;
 }
 
+.logo {
+	font-size: 24px;
+	color: inherit;
+	&:hover {
+		text-decoration: none;
+		cursor: hand;
+		cursor: pointer;
+	}
+}
+
 .navbar-in {
 
 }
