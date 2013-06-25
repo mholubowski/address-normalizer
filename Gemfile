@@ -6,6 +6,7 @@ gem 'sinatra-named-routes', require: 'sinatra/named_routes'
 gem 'sprockets'
 gem 'sass'
 gem 'compass'
+gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'uglifier'
 
 gem 'thin'
