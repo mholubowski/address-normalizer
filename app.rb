@@ -24,10 +24,13 @@ class AddressNormalizer < Sinatra::Base
     sprockets.js_compressor = Uglifier.new
   end
 
+  # Includes
+  require_relative 'address_set'
+
+  @@sets = []
   # ROUTES
   get '/' do
     @title = 'Hello, World!'
-
     erb :index
   end
 
@@ -36,6 +39,8 @@ class AddressNormalizer < Sinatra::Base
   end
 
   get '/normalize' do
+    # @set = AddressSet.new
+    # @set << {street: 'Denrock', number: '7462', state: 'CA'}
     erb :normalize
   end
 
@@ -43,7 +48,15 @@ class AddressNormalizer < Sinatra::Base
     File.open('uploads/' + params['thefile'][:filename], "w") do |f|
       f.write(params['thefile'][:tempfile].read)
     end
+
     return "The file was successfully uploaded!"
+  end
+
+  post '/address_set/new' do
+    @set = AddressSet.new
+    @set << {street: 'Denrock', number: '7462', state: 'CA'}
+    @@sets << @set
+    redirect to('/normalize')
   end
 
   get '/download/:filename' do

@@ -9,6 +9,7 @@ Usage Examples
 
 Current Contributors
 --------------------
+Mike Holubowski
 Dave Guarino ([https://github.com/daguar](https://github.com/daguar))
 
 Contributing
