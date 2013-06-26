@@ -125,6 +125,7 @@ DEPENDENCIES
   compass
   guard
   guard-rspec
+  pry
   rack-test
   rspec
   sass

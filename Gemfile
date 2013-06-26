@@ -8,17 +8,18 @@ gem 'sass'
 gem 'compass'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'uglifier'
+gem 'pry'
 
 gem 'thin'
 
 # gem 'unicorn'
 
 group :development, :test do
-    gem 'shotgun'
-    gem 'rspec'
-    gem 'capybara', require: 'capybara/rspec'
-    gem 'rack-test'
-    gem 'guard'
-    gem 'guard-rspec'
-    gem 'simplecov'
+	gem 'shotgun'
+	gem 'rspec'
+	gem 'capybara', require: 'capybara/rspec'
+	gem 'rack-test'
+	gem 'guard'
+	gem 'guard-rspec'
+	gem 'simplecov'
 end
