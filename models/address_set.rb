@@ -1,10 +1,18 @@
+require_relative 'tokenized_address'
+
 class AddressSet
+  #-- DataMapper
+  include DataMapper::Resource
+  has n, :tokenized_addresses, through: Resource
+
+  property :id, Serial
+  #--
+
   include Enumerable
-  attr_accessor :addresses
 
   def initialize
     @addresses = []
-    @stats = {}
+    # @stats = {}
   end
 
   def each
@@ -45,6 +53,10 @@ class AddressSet
 
   def &(other_set)
     @addresses & other_set.addresses
+  end
+
+  def tester 
+    @tokenized_addresses
   end
 
 end

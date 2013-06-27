@@ -9,6 +9,13 @@ gem 'compass'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'uglifier'
 gem 'pry'
+gem 'StreetAddress', :require => "street_address"
+
+gem "dm-core"
+gem "dm-migrations"
+gem "pg", group: :production
+gem "dm-postgres-adapter", group: :production
+gem "dm-sqlite-adapter", group: :development
 
 gem 'thin'
 

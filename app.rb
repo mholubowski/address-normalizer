@@ -1,4 +1,4 @@
-# coding: utf-8
+# Look http://datamapper.org/docs/associations.html many-to-many
 
 class AddressNormalizer < Sinatra::Base
   enable :sessions
@@ -10,6 +10,15 @@ class AddressNormalizer < Sinatra::Base
   set :sprockets, Sprockets::Environment.new(root)
 
   # CONFIGURATION
+  configure :development do 
+    DataMapper::Logger.new(STDOUT, :debug)
+    DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+  end
+
+  configure :production do
+    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+  end
+
   configure do 
     set :session_secret, '12345'
     
@@ -25,9 +34,11 @@ class AddressNormalizer < Sinatra::Base
   end
 
   # Includes
-  require_relative 'address_set'
+  require_relative 'models/address_set'
+  require_relative 'models/tokenized_address'
 
-  @@sets = []
+  DataMapper.finalize
+
   # ROUTES
   get '/' do
     @title = 'Hello, World!'
@@ -39,8 +50,7 @@ class AddressNormalizer < Sinatra::Base
   end
 
   get '/normalize' do
-    # @set = AddressSet.new
-    # @set << {street: 'Denrock', number: '7462', state: 'CA'}
+    @sets = AddressSet.all
     erb :normalize
   end
 
@@ -53,9 +63,9 @@ class AddressNormalizer < Sinatra::Base
   end
 
   post '/address_set/new' do
-    @set = AddressSet.new
-    @set << {street: 'Denrock', number: '7462', state: 'CA'}
-    @@sets << @set
+    # AddressSet.new
+    # @set << {street: 'Denrock', number: '7462', state: 'CA'}
+    # @@sets << @set
     redirect to('/normalize')
   end
 

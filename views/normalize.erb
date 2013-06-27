@@ -6,7 +6,15 @@
 	<input type="submit" value="create new tester">
 
 </form>
+<%= @sets.count %>
 
-<% @@sets.each do |set| %>
-	<%= erb :_AddressSet_view %>
+<% @sets.each do |set| %>
+<p><%= set.inspect %></p>
+	
+	<% set.each do |addr| %>
+	<li>street: <%= addr[:street] %></li>
+	<li>number: <%= addr[:number] %></li>
+	<li>state: <%= addr[:state] %></li>		
+	<% end %>
+<%#= erb :_AddressSet_view %>
 <% end %>
