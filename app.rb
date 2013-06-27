@@ -12,7 +12,7 @@ class AddressNormalizer < Sinatra::Base
   # CONFIGURATION
   configure :development do 
     DataMapper::Logger.new(STDOUT, :debug)
-    DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+    DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/address_normalizer.db")
   end
 
   configure :production do

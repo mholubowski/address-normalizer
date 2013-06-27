@@ -10,10 +10,9 @@ class AddressSet
 
   include Enumerable
 
-  def initialize
-    @addresses = []
-    # @stats = {}
-  end
+  # def initialize
+  #   # @stats = {}
+  # end
 
   def each
     @addresses.each {|ad| yield ad}

@@ -19,25 +19,31 @@ class TokenizedAddress
 	property :state, String
 	property :postal_code, String
 	property :postal_code_ext, String
+	property :init_string, String
 	#--
 
-	def initialize string, options = {informal: false}
+	before :save, :create_using_street_address_gem
+
+	def create_using_street_address_gem 
+		options = {informal: true}
+		string  = @init_string
+
 		obj = StreetAddress::US.parse(string, options)
 		#TODO catch malformed
 		return if obj.nil?
 
-		@address 					= obj.to_s
-		@number  					= obj.number 
-		@street  					= obj.street
-		@street_type 			= obj.street_type
-		@unit 			 			= obj.unit
-		@unit_prefix 			= obj.unit_prefix
-		@suffix 					= obj.suffix
-		@prefix 					= obj.prefix
-		@city   					= obj.city
-		@state  					= obj.state
-		@postal_code 			= obj.postal_code
-		@postal_code_ext  = obj.postal_code_ext
+		self.address 					= obj.to_s
+		self.number  					= obj.number 
+		self.street  					= obj.street
+		self.street_type 			= obj.street_type
+		self.unit 			 			= obj.unit
+		self.unit_prefix 			= obj.unit_prefix
+		self.suffix 					= obj.suffix
+		self.prefix 					= obj.prefix
+		self.city   					= obj.city
+		self.state  					= obj.state
+		self.postal_code 			= obj.postal_code
+		self.postal_code_ext  = obj.postal_code_ext
 	end
 
 end
