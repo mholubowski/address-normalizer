@@ -3,47 +3,49 @@ require_relative 'address_set'
 
 class TokenizedAddress
   #-- DataMapper
-  include DataMapper::Resource
-  has n, :address_sets, through: Resource
+  # include DataMapper::Resource
+  # has n, :address_sets, through: Resource
 
-  property :id, Serial
-  property :address, String
-  property :number, String
-  property :street, String
-  property :street_type, String
-  property :unit, String
-  property :unit_prefix, String
-  property :suffix, String
-  property :prefix, String
-  property :city, String
-  property :state, String
-  property :postal_code, String
-  property :postal_code_ext, String
-  property :init_string, String
-  #--
+  # property :id, Serial
+  # property :address, String
+  # property :number, String
+  # property :street, String
+  # property :street_type, String
+  # property :unit, String
+  # property :unit_prefix, String
+  # property :suffix, String
+  # property :prefix, String
+  # property :city, String
+  # property :state, String
+  # property :postal_code, String
+  # property :postal_code_ext, String
+  # property :init_string, String
+  # #--
 
-  before :save, :create_using_street_address_gem
+  # before :save, :create_using_street_address_gem
 
-  def create_using_street_address_gem 
-    options = {informal: true}
-    string  = @init_string
+  attr_accessor :address, :number, :street, :street_type, :unit, 
+                :unit_prefix, :suffix, :prefix, :city, :state, 
+                :postal_code, :postal_code_ext
+
+  def initialize (string, options = {informal: true})
 
     obj = StreetAddress::US.parse(string, options)
     #TODO catch malformed
     return if obj.nil?
 
-    self.address          = obj.to_s
-    self.number           = obj.number 
-    self.street           = obj.street
-    self.street_type      = obj.street_type
-    self.unit             = obj.unit
-    self.unit_prefix      = obj.unit_prefix
-    self.suffix           = obj.suffix
-    self.prefix           = obj.prefix
-    self.city             = obj.city
-    self.state            = obj.state
-    self.postal_code      = obj.postal_code
-    self.postal_code_ext  = obj.postal_code_ext
+    @address          = obj.to_s
+    @number           = obj.number 
+    @street           = obj.street
+    @street_type      = obj.street_type
+    @unit             = obj.unit
+    @unit_prefix      = obj.unit_prefix
+    @suffix           = obj.suffix
+    @prefix           = obj.prefix
+    @city             = obj.city
+    @state            = obj.state
+    @postal_code      = obj.postal_code
+    @postal_code_ext  = obj.postal_code_ext
   end
 
   def == (other_object)
@@ -53,18 +55,18 @@ class TokenizedAddress
   def to_hash
     obj = {}
 
-    obj[:address]         = self.address          
-    obj[:number]          = self.number           
-    obj[:street]          = self.street           
-    obj[:street_type]     = self.street_type      
-    obj[:unit]            = self.unit             
-    obj[:unit_prefix]     = self.unit_prefix      
-    obj[:suffix]          = self.suffix           
-    obj[:prefix]          = self.prefix           
-    obj[:city]            = self.city             
-    obj[:state]           = self.state            
-    obj[:postal_code]     = self.postal_code      
-    obj[:postal_code_ext] = self.postal_code_ext
+    obj[:address]         = @address          
+    obj[:number]          = @number           
+    obj[:street]          = @street           
+    obj[:street_type]     = @street_type      
+    obj[:unit]            = @unit             
+    obj[:unit_prefix]     = @unit_prefix      
+    obj[:suffix]          = @suffix           
+    obj[:prefix]          = @prefix           
+    obj[:city]            = @city             
+    obj[:state]           = @state            
+    obj[:postal_code]     = @postal_code      
+    obj[:postal_code_ext] = @postal_code_ext
 
     return obj  
   end

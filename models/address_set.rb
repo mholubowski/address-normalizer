@@ -2,20 +2,22 @@ require_relative 'tokenized_address'
 
 class AddressSet
   #-- DataMapper
-  include DataMapper::Resource
-  has n, :tokenized_addresses, through: Resource
+  # include DataMapper::Resource
+  # has n, :tokenized_addresses, through: Resource
 
-  property :id, Serial
+  # property :id, Serial
   #--
 
   include Enumerable
 
-  # def initialize
-  #   # @stats = {}
-  # end
+  attr_accessor :tokenized_addresses
+
+  def initialize
+    @tokenized_addresses = []
+  end
 
   def each
-    self.tokenized_addresses.each {|ad| yield ad}
+    @tokenized_addresses.each {|ad| yield ad}
   end
 
   # TODO allow x number of address sets  
@@ -29,29 +31,25 @@ class AddressSet
   end
 
   def +(other_set)
-   self.tokenized_addresses + other_set.addresses
+   @tokenized_addresses + other_set.tokenized_addresses
   end
 
   def concat(other_set)
-   self.tokenized_addresses.concat other_set.tokenized_addresses
+   @tokenized_addresses.concat other_set.tokenized_addresses
   end
 
   def count_unique_occurences
     h = Hash.new(0)
-   self.tokenized_addresses.each {|address| h[address] += 1}
+    self.each {|address| h[address] += 1}
     return h      
   end
 
   def to_ary
-   self.tokenized_addresses
+   @tokenized_addresses
   end
 
   # def &(other_set)
   #   self.tokenized_addresses & other_set.tokenized_addresses
   # end
-
-  def tester 
-    @tokenized_addresses
-  end
 
 end

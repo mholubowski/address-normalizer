@@ -1,11 +1,12 @@
 # Set rack environment to TEST
 
+
 # Require Bundler and require all necessary gems
 require 'bundler'
 Bundler.require :default, :test
 
 # Start SimpleCov for code coverage report.
-SimpleCov.start
+# SimpleCov.start
 
 # Include our application.
 ENV['running_rspec'] = 'true'
@@ -16,9 +17,9 @@ ENV['RACK_ENV'] = 'test'
 
 RSpec.configure do |config|
   # config.include Rack::Test::Methods
-  DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/test_address_normalizer.db")
-  DataMapper.finalize
-	DataMapper.auto_migrate!
+  # DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/test_address_normalizer.db")
+  # DataMapper.finalize
+	# DataMapper.auto_migrate!
 end
 
 # Set up Capybara with our application.

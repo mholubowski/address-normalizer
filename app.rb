@@ -15,12 +15,12 @@ class AddressNormalizer < Sinatra::Base
   end
 
   configure :development do 
-    DataMapper::Logger.new(STDOUT, :debug) unless ENV['running_rspec'] || false
-    DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/address_normalizer.db")
+    # DataMapper::Logger.new(STDOUT, :debug) unless ENV['running_rspec'] || false
+    # DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/address_normalizer.db")
   end
 
   configure :production do
-    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+    # DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
   end
 
   configure do 
@@ -41,7 +41,7 @@ class AddressNormalizer < Sinatra::Base
   require_relative 'models/address_set'
   require_relative 'models/tokenized_address'
 
-  DataMapper.finalize
+  # DataMapper.finalize
 
   # ROUTES
   get '/' do
