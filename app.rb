@@ -10,8 +10,12 @@ class AddressNormalizer < Sinatra::Base
   set :sprockets, Sprockets::Environment.new(root)
 
   # CONFIGURATION
+  configure :test do
+
+  end
+
   configure :development do 
-    DataMapper::Logger.new(STDOUT, :debug)
+    DataMapper::Logger.new(STDOUT, :debug) unless ENV['running_rspec'] || false
     DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/address_normalizer.db")
   end
 
@@ -63,9 +67,6 @@ class AddressNormalizer < Sinatra::Base
   end
 
   post '/address_set/new' do
-    # AddressSet.new
-    # @set << {street: 'Denrock', number: '7462', state: 'CA'}
-    # @@sets << @set
     redirect to('/normalize')
   end
 

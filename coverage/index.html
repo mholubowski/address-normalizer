@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.7.1/application.js' type='text/javascript'></script>    
     <link href='./assets/0.7.1/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.7.1/favicon_red.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.7.1/favicon_yellow.png" />
     <link rel="icon" type="image/png" href="./assets/0.7.1/favicon.png" />
   </head>
   
@@ -14,27 +14,27 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-06-27T13:04:17-07:00">2013-06-27T13:04:17-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-06-28T10:03:27-07:00">2013-06-28T10:03:27-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">74.29%</span></span>
+    (<span class="covered_percent"><span class="yellow">86.3%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.73
+       <span class="green">
+         13.68
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>3</b> files in total.
-    <b>105</b> relevant lines. 
-    <span class="green"><b>78</b> lines covered</span> and
-    <span class="red"><b>27</b> lines missed </span>
+    <b>5</b> files in total.
+    <b>146</b> relevant lines. 
+    <span class="green"><b>126</b> lines covered</span> and
+    <span class="red"><b>20</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,30 +52,50 @@
       
       <tr>
         <td class="strong"><a href="#8acab2f3f439684afd21662840312a89f6979f6d" class="src_link" title="app.rb">app.rb</a></td>
-        <td class="red strong">66.67 %</td>
-        <td>77</td>
-        <td>39</td>
-        <td>26</td>
+        <td class="red strong">67.5 %</td>
+        <td>78</td>
+        <td>40</td>
+        <td>27</td>
         <td>13</td>
         <td>0.7</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#8fbfd38cc67ab74057c68af4b872abd1e18dea99" class="src_link" title="models/address_set.rb">models/address_set.rb</a></td>
-        <td class="red strong">51.72 %</td>
-        <td>61</td>
-        <td>29</td>
-        <td>15</td>
-        <td>14</td>
-        <td>0.5</td>
+        <td class="red strong">72.0 %</td>
+        <td>57</td>
+        <td>25</td>
+        <td>18</td>
+        <td>7</td>
+        <td>1.4</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#e353c3886d227039d3d2cd2bef34acdd8ae7d1eb" class="src_link" title="models/tokenized_address.rb">models/tokenized_address.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>49</td>
-        <td>37</td>
-        <td>37</td>
+        <td>79</td>
+        <td>58</td>
+        <td>58</td>
+        <td>0</td>
+        <td>65.3</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#8e377a2865e53b1dac9b1c645afbb3f74dce98e4" class="src_link" title="spec/app_spec.rb">spec/app_spec.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#0cba1001257e1343b94cbed86ba3bcbcb2cbdd04" class="src_link" title="spec/tokenized_address_spec.rb">spec/tokenized_address_spec.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>41</td>
+        <td>23</td>
+        <td>23</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -99,10 +119,10 @@
         <div class="source_table" id="8acab2f3f439684afd21662840312a89f6979f6d">
   <div class="header">
     <h3>app.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h4><span class="red">67.5 %</span> covered</h4>
     <div>
-      <b>39</b> relevant lines. 
-      <span class="green"><b>26</b> lines covered</span> and
+      <b>40</b> relevant lines. 
+      <span class="green"><b>27</b> lines covered</span> and
       <span class="red"><b>13</b> lines missed.</span>
     </div>
   </div>
@@ -185,43 +205,43 @@
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">  configure :development do </code>
+          <code class="ruby">  configure :test do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    DataMapper::Logger.new(STDOUT, :debug)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    DataMapper.setup(:default, &quot;sqlite3://#{Dir.pwd}/address_normalizer.db&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby"></code>
         </li>
       
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  configure :development do </code>
+        </li>
+      
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">  configure :production do</code>
+          <code class="ruby">    DataMapper::Logger.new(STDOUT, :debug) unless ENV['running_rspec'] || false</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')</code>
+          <code class="ruby">    DataMapper.setup(:default, &quot;sqlite3://#{Dir.pwd}/address_normalizer.db&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
@@ -239,103 +259,103 @@
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">  configure do </code>
+          <code class="ruby">  configure :production do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="23">
           
-          <code class="ruby">    set :session_secret, '12345'</code>
+          
+          <code class="ruby">    DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">    </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    sprockets.append_path &quot;#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    sprockets.append_path File.join(assets_folder, 'javascripts')</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="27">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    sprockets.append_path File.join(assets_folder, 'stylesheets')</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    sprockets.append_path File.join(assets_folder, 'images')</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
-          
-          
-          <code class="ruby">  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="31">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  configure :production, :test do</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">    #sprockets.css_compressor = YUI::CssCompressor.new</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="33">
-          
-          
-          <code class="ruby">    sprockets.js_compressor = Uglifier.new</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby"></code>
         </li>
       
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  configure do </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    set :session_secret, '12345'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">    </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    sprockets.append_path &quot;#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    sprockets.append_path File.join(assets_folder, 'javascripts')</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    sprockets.append_path File.join(assets_folder, 'stylesheets')</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    sprockets.append_path File.join(assets_folder, 'images')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  configure :production, :test do</code>
+        </li>
+      
         <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">  # Includes</code>
+          <code class="ruby">    #sprockets.css_compressor = YUI::CssCompressor.new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="37">
           
-          <code class="ruby">  require_relative 'models/address_set'</code>
+          
+          <code class="ruby">    sprockets.js_compressor = Uglifier.new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="38">
           
-          <code class="ruby">  require_relative 'models/tokenized_address'</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
@@ -344,64 +364,64 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">  # Includes</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  require_relative 'models/address_set'</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  require_relative 'models/tokenized_address'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
           <span class="hits">1</span>
           
           <code class="ruby">  DataMapper.finalize</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="45">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">  # ROUTES</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  get '/' do</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="44">
-          
-          
-          <code class="ruby">    @title = 'Hello, World!'</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">    erb :index</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # ROUTES</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="48">
+        <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
-          <code class="ruby">  get '/info' do </code>
+          <code class="ruby">  get '/' do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="48">
+          
+          
+          <code class="ruby">    @title = 'Hello, World!'</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="49">
           
           
-          <code class="ruby">    erb :info</code>
+          <code class="ruby">    erb :index</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="50">
@@ -419,154 +439,160 @@
         <li class="covered" data-hits="1" data-linenumber="52">
           <span class="hits">1</span>
           
-          <code class="ruby">  get '/normalize' do</code>
+          <code class="ruby">  get '/info' do </code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="53">
           
           
-          <code class="ruby">    @sets = AddressSet.all</code>
+          <code class="ruby">    erb :info</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
-          <code class="ruby">    erb :normalize</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="56">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="57">
+        <li class="covered" data-hits="1" data-linenumber="56">
           <span class="hits">1</span>
           
-          <code class="ruby">  post '/upload' do </code>
+          <code class="ruby">  get '/normalize' do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="57">
+          
+          
+          <code class="ruby">    @sets = AddressSet.all</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="58">
           
           
-          <code class="ruby">    File.open('uploads/' + params['thefile'][:filename], &quot;w&quot;) do |f|</code>
+          <code class="ruby">    erb :normalize</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby">      f.write(params['thefile'][:tempfile].read)</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  post '/upload' do </code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="62">
           
           
-          <code class="ruby">    return &quot;The file was successfully uploaded!&quot;</code>
+          <code class="ruby">    File.open('uploads/' + params['thefile'][:filename], &quot;w&quot;) do |f|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="missed" data-hits="0" data-linenumber="63">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      f.write(params['thefile'][:tempfile].read)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  post '/address_set/new' do</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="missed" data-hits="0" data-linenumber="66">
           
           
-          <code class="ruby">    # AddressSet.new</code>
+          <code class="ruby">    return &quot;The file was successfully uploaded!&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
-          <code class="ruby">    # @set &lt;&lt; {street: 'Denrock', number: '7462', state: 'CA'}</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="68">
           
           
-          <code class="ruby">    # @@sets &lt;&lt; @set</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="69">
+        <li class="covered" data-hits="1" data-linenumber="69">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  post '/address_set/new' do</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="70">
           
           
           <code class="ruby">    redirect to('/normalize')</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="71">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
+        <li class="covered" data-hits="1" data-linenumber="73">
           <span class="hits">1</span>
           
           <code class="ruby">  get '/download/:filename' do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="73">
+        <li class="missed" data-hits="0" data-linenumber="74">
           
           
           <code class="ruby">    file = params[:filename]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="74">
+        <li class="missed" data-hits="0" data-linenumber="75">
           
           
           <code class="ruby">    send_file &quot;./uploads/#{file}&quot;, filename: file, type: 'Application/octet-stream'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="78">
           
           
           <code class="ruby">end</code>
@@ -579,11 +605,11 @@
         <div class="source_table" id="8fbfd38cc67ab74057c68af4b872abd1e18dea99">
   <div class="header">
     <h3>models/address_set.rb</h3>
-    <h4><span class="red">51.72 %</span> covered</h4>
+    <h4><span class="red">72.0 %</span> covered</h4>
     <div>
-      <b>29</b> relevant lines. 
-      <span class="green"><b>15</b> lines covered</span> and
-      <span class="red"><b>14</b> lines missed.</span>
+      <b>25</b> relevant lines. 
+      <span class="green"><b>18</b> lines covered</span> and
+      <span class="red"><b>7</b> lines missed.</span>
     </div>
   </div>
   
@@ -692,10 +718,10 @@
           <code class="ruby">  def each</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    @addresses.each {|ad| yield ad}</code>
+          <code class="ruby">    self.tokenized_addresses.each {|ad| yield ad}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
@@ -710,76 +736,76 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def &lt;&lt;(address)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="22">
-          
-          
-          <code class="ruby">    @addresses &lt;&lt; address</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">  # TODO allow x number of address sets  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
           <code class="ruby">  def merge(other_set)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="27">
+        <li class="missed" data-hits="0" data-linenumber="23">
           
           
           <code class="ruby">    unless other_set.class == self.class</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="28">
+        <li class="missed" data-hits="0" data-linenumber="24">
           
           
           <code class="ruby">      raise 'Can only merge another AddressSet'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="30">
+        <li class="missed" data-hits="0" data-linenumber="26">
           
           
           <code class="ruby">    other_set.each do |ad|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
           <code class="ruby">      self &lt;&lt; ad</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def +(other_set)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="32">
+          
+          
+          <code class="ruby">   self.tokenized_addresses + other_set.addresses</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
@@ -797,13 +823,13 @@
         <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
-          <code class="ruby">  def +(other_set)</code>
+          <code class="ruby">  def concat(other_set)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    addresses + other_set.addresses</code>
+          <code class="ruby">   self.tokenized_addresses.concat other_set.tokenized_addresses</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
@@ -821,49 +847,49 @@
         <li class="covered" data-hits="1" data-linenumber="39">
           <span class="hits">1</span>
           
-          <code class="ruby">  def concat(other_set)</code>
+          <code class="ruby">  def count_unique_occurences</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="40">
+        <li class="covered" data-hits="3" data-linenumber="40">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">    addresses.concat other_set.addresses</code>
+          <code class="ruby">    h = Hash.new(0)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="covered" data-hits="13" data-linenumber="41">
+          <span class="hits">13</span>
+          
+          <code class="ruby">   self.tokenized_addresses.each {|address| h[address] += 1}</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="42">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    return h      </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="43">
+        <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
-          <code class="ruby">  def count_unique_occurences</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="44">
-          
-          
-          <code class="ruby">    h = Hash.new(0)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">    addresses.each {|address| h[address] += 1}</code>
+          <code class="ruby">  def to_ary</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="46">
           
           
-          <code class="ruby">    return h      </code>
+          <code class="ruby">   self.tokenized_addresses</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
@@ -878,22 +904,22 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="49">
           
-          <code class="ruby">  def to_ary</code>
+          
+          <code class="ruby">  # def &amp;(other_set)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
-          <code class="ruby">    addresses</code>
+          <code class="ruby">  #   self.tokenized_addresses &amp; other_set.tokenized_addresses</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="52">
@@ -905,13 +931,13 @@
         <li class="covered" data-hits="1" data-linenumber="53">
           <span class="hits">1</span>
           
-          <code class="ruby">  def &amp;(other_set)</code>
+          <code class="ruby">  def tester </code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="54">
           
           
-          <code class="ruby">    @addresses &amp; other_set.addresses</code>
+          <code class="ruby">    @tokenized_addresses</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
@@ -926,31 +952,7 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="57">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def tester </code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="58">
-          
-          
-          <code class="ruby">    @tokenized_addresses</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="59">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="60">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby">end</code>
@@ -965,8 +967,8 @@
     <h3>models/tokenized_address.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>37</b> relevant lines. 
-      <span class="green"><b>37</b> lines covered</span> and
+      <b>58</b> relevant lines. 
+      <span class="green"><b>58</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1001,19 +1003,19 @@
         <li class="never" data-hits="" data-linenumber="5">
           
           
-          <code class="ruby">	#-- DataMapper</code>
+          <code class="ruby">  #-- DataMapper</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">	include DataMapper::Resource</code>
+          <code class="ruby">  include DataMapper::Resource</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">	has n, :address_sets, through: Resource</code>
+          <code class="ruby">  has n, :address_sets, through: Resource</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -1025,91 +1027,91 @@
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :id, Serial</code>
+          <code class="ruby">  property :id, Serial</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :address, String</code>
+          <code class="ruby">  property :address, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :number, String</code>
+          <code class="ruby">  property :number, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :street, String</code>
+          <code class="ruby">  property :street, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :street_type, String</code>
+          <code class="ruby">  property :street_type, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :unit, String</code>
+          <code class="ruby">  property :unit, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :unit_prefix, String</code>
+          <code class="ruby">  property :unit_prefix, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :suffix, String</code>
+          <code class="ruby">  property :suffix, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :prefix, String</code>
+          <code class="ruby">  property :prefix, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :city, String</code>
+          <code class="ruby">  property :city, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :state, String</code>
+          <code class="ruby">  property :state, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :postal_code, String</code>
+          <code class="ruby">  property :postal_code, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :postal_code_ext, String</code>
+          <code class="ruby">  property :postal_code_ext, String</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">	property :init_string, String</code>
+          <code class="ruby">  property :init_string, String</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">	#--</code>
+          <code class="ruby">  #--</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
@@ -1121,7 +1123,7 @@
         <li class="covered" data-hits="1" data-linenumber="25">
           <span class="hits">1</span>
           
-          <code class="ruby">	before :save, :create_using_street_address_gem</code>
+          <code class="ruby">  before :save, :create_using_street_address_gem</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="26">
@@ -1133,19 +1135,19 @@
         <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">	def create_using_street_address_gem </code>
+          <code class="ruby">  def create_using_street_address_gem </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="28">
+          <span class="hits">33</span>
           
-          <code class="ruby">		options = {informal: true}</code>
+          <code class="ruby">    options = {informal: true}</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="29">
+          <span class="hits">33</span>
           
-          <code class="ruby">		string  = @init_string</code>
+          <code class="ruby">    string  = @init_string</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
@@ -1154,22 +1156,22 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="31">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="31">
+          <span class="hits">33</span>
           
-          <code class="ruby">		obj = StreetAddress::US.parse(string, options)</code>
+          <code class="ruby">    obj = StreetAddress::US.parse(string, options)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">		#TODO catch malformed</code>
+          <code class="ruby">    #TODO catch malformed</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="33">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="33">
+          <span class="hits">33</span>
           
-          <code class="ruby">		return if obj.nil?</code>
+          <code class="ruby">    return if obj.nil?</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
@@ -1178,82 +1180,82 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="35">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="35">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.address 					= obj.to_s</code>
+          <code class="ruby">    self.address          = obj.to_s</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="36">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="36">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.number  					= obj.number </code>
+          <code class="ruby">    self.number           = obj.number </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="37">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.street  					= obj.street</code>
+          <code class="ruby">    self.street           = obj.street</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="38">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.street_type 			= obj.street_type</code>
+          <code class="ruby">    self.street_type      = obj.street_type</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="39">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.unit 			 			= obj.unit</code>
+          <code class="ruby">    self.unit             = obj.unit</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="40">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="40">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.unit_prefix 			= obj.unit_prefix</code>
+          <code class="ruby">    self.unit_prefix      = obj.unit_prefix</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="41">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="41">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.suffix 					= obj.suffix</code>
+          <code class="ruby">    self.suffix           = obj.suffix</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="42">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.prefix 					= obj.prefix</code>
+          <code class="ruby">    self.prefix           = obj.prefix</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="43">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.city   					= obj.city</code>
+          <code class="ruby">    self.city             = obj.city</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="44">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.state  					= obj.state</code>
+          <code class="ruby">    self.state            = obj.state</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="45">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="45">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.postal_code 			= obj.postal_code</code>
+          <code class="ruby">    self.postal_code      = obj.postal_code</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="46">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="33" data-linenumber="46">
+          <span class="hits">33</span>
           
-          <code class="ruby">		self.postal_code_ext  = obj.postal_code_ext</code>
+          <code class="ruby">    self.postal_code_ext  = obj.postal_code_ext</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">	end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
@@ -1262,7 +1264,469 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def == (other_object)</code>
+        </li>
+      
+        <li class="covered" data-hits="19" data-linenumber="50">
+          <span class="hits">19</span>
+          
+          <code class="ruby">    self.to_hash == other_object.to_hash</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="53">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def to_hash</code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="54">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj = {}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="56">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:address]         = self.address          </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="57">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:number]          = self.number           </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="58">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:street]          = self.street           </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="59">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:street_type]     = self.street_type      </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="60">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:unit]            = self.unit             </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="61">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:unit_prefix]     = self.unit_prefix      </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="62">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:suffix]          = self.suffix           </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="63">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:prefix]          = self.prefix           </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="64">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:city]            = self.city             </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="65">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:state]           = self.state            </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="66">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:postal_code]     = self.postal_code      </code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="67">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    obj[:postal_code_ext] = self.postal_code_ext</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="216" data-linenumber="69">
+          <span class="hits">216</span>
+          
+          <code class="ruby">    return obj  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="72">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def hash</code>
+        </li>
+      
+        <li class="covered" data-hits="178" data-linenumber="73">
+          <span class="hits">178</span>
+          
+          <code class="ruby">    self.to_hash.hash</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="76">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def eql? (other_object)</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="77">
+          <span class="hits">14</span>
+          
+          <code class="ruby">    self == other_object</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="79">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="8e377a2865e53b1dac9b1c645afbb3f74dce98e4">
+  <div class="header">
+    <h3>spec/app_spec.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>0</b> relevant lines. 
+      <span class="green"><b>0</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="0cba1001257e1343b94cbed86ba3bcbcb2cbdd04">
+  <div class="header">
+    <h3>spec/tokenized_address_spec.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>23</b> relevant lines. 
+      <span class="green"><b>23</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative 'spec_helper'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">describe TokenizedAddress do </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	before :all do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		@t1a = TokenizedAddress.new(init_string: '7462 Denrock Ave. Los Angeles')</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		@t1b = TokenizedAddress.new(init_string: '7462 Denrock Avenue Los Angeles')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">		</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		@t2a = TokenizedAddress.new(init_string: '240 Ofarrel St')</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		@a = AddressSet.create</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	it &quot;should insert into db&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		TokenizedAddress.count.should eq(0)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		@t1a.save; @t1b.save; @t2a.save</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		TokenizedAddress.count.should eq(3)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	it &quot;should respond_to address_sets&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		@t1a.should respond_to(:address_sets)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">	end	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	it &quot;should belong to an AddressSet&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		@a.tokenized_addresses.should_not include @t1a</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		@a.tokenized_addresses &lt;&lt; @t1a</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		@a.tokenized_addresses.should include @t1a</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	it &quot;should be equal (==) to another TokenizedAddress&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		(@t1a == @t1b).should eq(true)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		(@t1a == @t2a).should_not eq(true)		</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	after :all do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		AddressSet.all.destroy</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">		TokenizedAddress.all.destroy</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
           
           
           <code class="ruby">end</code>

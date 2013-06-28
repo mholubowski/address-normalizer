@@ -15,11 +15,7 @@ class AddressSet
   # end
 
   def each
-    @addresses.each {|ad| yield ad}
-  end
-
-  def <<(address)
-    @addresses << address
+    self.tokenized_addresses.each {|ad| yield ad}
   end
 
   # TODO allow x number of address sets  
@@ -33,26 +29,26 @@ class AddressSet
   end
 
   def +(other_set)
-    addresses + other_set.addresses
+   self.tokenized_addresses + other_set.addresses
   end
 
   def concat(other_set)
-    addresses.concat other_set.addresses
+   self.tokenized_addresses.concat other_set.tokenized_addresses
   end
 
   def count_unique_occurences
     h = Hash.new(0)
-    addresses.each {|address| h[address] += 1}
+   self.tokenized_addresses.each {|address| h[address] += 1}
     return h      
   end
 
   def to_ary
-    addresses
+   self.tokenized_addresses
   end
 
-  def &(other_set)
-    @addresses & other_set.addresses
-  end
+  # def &(other_set)
+  #   self.tokenized_addresses & other_set.tokenized_addresses
+  # end
 
   def tester 
     @tokenized_addresses

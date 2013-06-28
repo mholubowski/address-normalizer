@@ -8,6 +8,7 @@ Bundler.require :default, :test
 SimpleCov.start
 
 # Include our application.
+ENV['running_rspec'] = 'true'
 require_relative '../app'
 ENV['RACK_ENV'] = 'test'
 
@@ -19,8 +20,6 @@ RSpec.configure do |config|
   DataMapper.finalize
 	DataMapper.auto_migrate!
 end
-
-
 
 # Set up Capybara with our application.
 # Capybara.app = AddressNormalizer
