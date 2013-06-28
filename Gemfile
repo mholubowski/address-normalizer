@@ -12,6 +12,8 @@ gem 'uglifier'
 gem 'pry'
 gem 'StreetAddress', :require => "street_address"
 
+gem 'cmess'
+
 # gem "dm-core"
 # gem "dm-migrations"
 # gem "pg", group: :production

@@ -43,6 +43,8 @@ class AddressNormalizer < Sinatra::Base
   # Includes
   require_relative 'models/address_set'
   require_relative 'models/tokenized_address'
+  require_relative 'models/file_parser'
+  require_relative 'helpers'
 
   # DataMapper.finalize
 
@@ -73,23 +75,22 @@ class AddressNormalizer < Sinatra::Base
   end
 
   get '/info' do 
+    @@list ||= []
     erb :info
   end
 
   get '/normalize' do
+    @@list << 4
+    enforce_logged_in
     #display all address sets
-    @@list ||= []
-    @list = @@list
     erb :normalize
   end
 
   post '/upload' do 
-    # File.open('uploads/' + params['thefile'][:filename], "w") do |f|
-    #   f.write(params['thefile'][:tempfile].read)
-    # end
-    @@list << 'test'
+    File.open('uploads/' + params['thefile'][:filename], "w") do |f|
+      f.write(params['thefile'][:tempfile].read)
+    end
     redirect to('/normalize')
-    return "The file was successfully uploaded!"
   end
 
   post '/address_set/new' do
