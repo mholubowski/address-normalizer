@@ -50,7 +50,7 @@ class FileParser
   def handle_first_row(line)
     CSV.parse(line) do |row|
       # check if 'address' exists
-      # self.address_index = row.index("address")
+      self.address_index = row.index("address")
       puts "ad index: #{address_index}"
       # row << "address_normalized"
       # self.normalized_address_index = row.index("address_normalized")
@@ -62,7 +62,6 @@ class FileParser
     # address_tokenizer = AddressTokenizer.new
     begin
       CSV.parse(line) do |row|
-        # binding.pry
         begin
           tokenized = TokenizedAddress.new(row[address_index])
           # Catch empty address

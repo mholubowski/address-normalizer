@@ -63,6 +63,7 @@ class AddressNormalizer < Sinatra::Base
     if params[:username] 
       session_start!
       session[:username] = params[:username]
+      session[:address_sets] = []
       redirect to('/')
     else
       redirect to('/login')
@@ -75,21 +76,24 @@ class AddressNormalizer < Sinatra::Base
   end
 
   get '/info' do 
-    @@list ||= []
     erb :info
   end
 
   get '/normalize' do
-    @@list << 4
     enforce_logged_in
     #display all address sets
     erb :normalize
   end
 
   post '/upload' do 
-    File.open('uploads/' + params['thefile'][:filename], "w") do |f|
-      f.write(params['thefile'][:tempfile].read)
-    end
+    @@parser ||= FileParser.new
+    # File.open('uploads/' + params['thefile'][:filename], "w") do |f|
+    #   f.write(params['thefile'][:tempfile].read)
+    # end
+    file = params['thefile'][:tempfile]
+    set = @@parser.create_address_set(file)
+    session[:address_set] << set
+    binding.pry
     redirect to('/normalize')
   end
 
