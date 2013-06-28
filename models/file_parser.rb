@@ -14,7 +14,7 @@ class FileParser
 
   #TODO line_limit for dev
 	def create_address_set(filename, line_limit = nil)
-		@set = AddressSet.new
+		@set = AddressSet.new({filename: File.basename(filename)})
 
 		source_encoding = get_encoding(filename)
 
@@ -36,7 +36,6 @@ class FileParser
   def process_csv(filename, source_encoding, line_limit)
     counter = 0
     IO.foreach(filename, :encoding => source_encoding) do |line|
-      puts "On row #{counter}"
       if counter == 0
         handle_first_row(line)
       else
@@ -51,7 +50,6 @@ class FileParser
     CSV.parse(line) do |row|
       # check if 'address' exists
       self.address_index = row.index("address")
-      puts "ad index: #{address_index}"
       # row << "address_normalized"
       # self.normalized_address_index = row.index("address_normalized")
       # Must handle first row in the address set class

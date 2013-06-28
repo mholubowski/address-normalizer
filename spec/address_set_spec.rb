@@ -94,6 +94,12 @@ describe AddressSet do
 		(@set_a.tokenized_addresses & @set_b.tokenized_addresses & @set_c.tokenized_addresses).should eq([@t1a])
 	end
 
+	it "should store its filename in stats" do 
+		@filename = './spec/example_data/test1.csv'
+		@set = FileParser.new.create_address_set(@filename)
+		@set.stats[:filename].should eq('test1.csv')
+	end
+
 	after :all do
 
 	end

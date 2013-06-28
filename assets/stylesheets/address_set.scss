@@ -1,0 +1,21 @@
+.address-sets-container {
+
+}
+
+.set-wrapper {
+	display: inline-block;
+	width: 400px;
+	padding: 10px;
+	margin-left: 10px;
+	background-color: #fff;
+	box-shadow: 1px 1px 4px #555;
+	border-radius: 2px;
+
+	.top-row {
+		border-bottom: 1px solid #ccc;
+	}
+
+	.bottom-row {
+		border-top: 1px solid #ccc;
+	}
+}

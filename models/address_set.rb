@@ -10,10 +10,11 @@ class AddressSet
 
   include Enumerable
 
-  attr_accessor :tokenized_addresses
+  attr_accessor :tokenized_addresses, :stats
 
-  def initialize
+  def initialize (stats = {})
     @tokenized_addresses = []
+    @stats = stats
   end
 
   def each

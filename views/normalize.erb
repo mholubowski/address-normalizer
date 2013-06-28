@@ -1,21 +1,30 @@
 <h1>Normalize here:</h1>
 
 <%= erb :_file_upload %>
-<%= @list.inspect %>
 
-<form action="/address_set/new" method="POST">
-	<input type="submit" value="create new tester">
-
-</form>
-<%#= @sets.count %>
-
-<%# @sets.each do |set| %>
-<p><%#= set.inspect %></p>
+<div class="address-sets-container">
+	<% session[:address_sets].each do |set| %>
 	
-	<%# set.each do |addr| %>
-	<li>street: <%#= addr[:street] %></li>
-	<li>number: <%#= addr[:number] %></li>
-	<li>state: <%#= addr[:state] %></li>		
-	<%# end %>
-<%##= erb :_AddressSet_view %>
-<%# end %>
+	<!-- ADDRESS SET VIEW -->
+	<div class="set-wrapper">
+		<div class="top-row">
+			FileName: <%= set.stats[:filename] %>
+		</div>
+		
+		<% set.each do |addr| %>
+		<li>street: <%= addr.street %></li>
+		<li>number: <%= addr.number %></li>
+		<li>state: <%= addr.state %></li>		
+		<% end %>
+
+		<div class="bottom-row">
+			bottom
+		</div>
+
+	</div>
+	<!-- END -->
+
+
+	<% end %>
+
+</div>

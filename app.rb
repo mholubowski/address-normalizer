@@ -92,8 +92,7 @@ class AddressNormalizer < Sinatra::Base
     # end
     file = params['thefile'][:tempfile]
     set = @@parser.create_address_set(file)
-    session[:address_set] << set
-    binding.pry
+    session[:address_sets] << set
     redirect to('/normalize')
   end
 
