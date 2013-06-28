@@ -17,6 +17,7 @@ class AddressNormalizer < Sinatra::Base
   configure :development do 
     # DataMapper::Logger.new(STDOUT, :debug) unless ENV['running_rspec'] || false
     # DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/address_normalizer.db")
+    register Sinatra::Reloader
   end
 
   configure :production do
@@ -25,6 +26,8 @@ class AddressNormalizer < Sinatra::Base
 
   configure do 
     set :session_secret, '12345'
+    set :session_fail, '/login'
+    register Sinatra::Session
     
     sprockets.append_path "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
     sprockets.append_path File.join(assets_folder, 'javascripts')
@@ -49,20 +52,43 @@ class AddressNormalizer < Sinatra::Base
     erb :index
   end
 
+  get '/login' do
+    redirect to('/') if session?
+    erb :login
+  end
+
+  post '/login' do
+    if params[:username] 
+      session_start!
+      session[:username] = params[:username]
+      redirect to('/')
+    else
+      redirect to('/login')
+    end
+  end
+
+  get '/logout' do
+    session_end!
+    redirect to('/')
+  end
+
   get '/info' do 
     erb :info
   end
 
   get '/normalize' do
-    @sets = AddressSet.all
+    #display all address sets
+    @@list ||= []
+    @list = @@list
     erb :normalize
   end
 
   post '/upload' do 
-    File.open('uploads/' + params['thefile'][:filename], "w") do |f|
-      f.write(params['thefile'][:tempfile].read)
-    end
-
+    # File.open('uploads/' + params['thefile'][:filename], "w") do |f|
+    #   f.write(params['thefile'][:tempfile].read)
+    # end
+    @@list << 'test'
+    redirect to('/normalize')
     return "The file was successfully uploaded!"
   end
 
@@ -73,6 +99,10 @@ class AddressNormalizer < Sinatra::Base
   get '/download/:filename' do
     file = params[:filename]
     send_file "./uploads/#{file}", filename: file, type: 'Application/octet-stream'
+  end
+
+  get '/tester' do
+    return session[:username]
   end
 
 end

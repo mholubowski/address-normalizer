@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-contrib', require: 'sinatra/contrib'
 gem 'sinatra-named-routes', require: 'sinatra/named_routes'
+gem 'sinatra-session'
 gem 'sprockets'
 gem 'sass'
 gem 'compass'
