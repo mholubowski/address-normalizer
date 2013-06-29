@@ -13,9 +13,21 @@
 
 	.top-row {
 		border-bottom: 1px solid #ccc;
+		padding: 3px;
+
+		.delete {
+			color: red;
+			float: right;
+			&:hover {
+				cursor: hand;
+				cursor: pointer;
+				text-decoration: underline;
+			}
+		}
 	}
 
 	.bottom-row {
 		border-top: 1px solid #ccc;
+		padding: 3px;
 	}
 }

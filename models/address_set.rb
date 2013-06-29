@@ -11,10 +11,12 @@ class AddressSet
   include Enumerable
 
   attr_accessor :tokenized_addresses, :stats
+  attr_reader :random_hash
 
   def initialize (stats = {})
     @tokenized_addresses = []
     @stats = stats
+    @random_hash = SecureRandom.hex 5
   end
 
   def each

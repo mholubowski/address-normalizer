@@ -4,12 +4,12 @@ def enforce_logged_in
 end
 
 class Array
-	def find_set_by_oid(oid)
-		index = self.find_index {|set| set.object_id == oid}
+	def find_set_by_hash(hash)
+		index = self.find_index {|set| set.random_hash == hash}
 		self[index]
 	end 
 
-	def destroy_set_by_oid(oid)
-		self.delete_if {|set| set.object_id == oid}
+	def destroy_set_by_hash(hash)
+		self.delete_if {|set| set.random_hash == hash}
 	end 
 end

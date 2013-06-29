@@ -4,21 +4,30 @@
 
 <div class="address-sets-container">
 	<% session[:address_sets].each do |set| %>
-	
 	<!-- ADDRESS SET VIEW -->
-	<div class="set-wrapper">
+	<div class="set-wrapper" data-hash="<%= set.random_hash %>">
 		<div class="top-row">
+			<div class="delete">delete</div>
 			FileName: <%= set.stats[:filename] %>
 		</div>
 		
-		<% set.each do |addr| %>
-		<li>street: <%= addr.street %></li>
-		<li>number: <%= addr.number %></li>
-		<li>state: <%= addr.state %></li>		
-		<% end %>
+		<div class="inner">
+			<div class="addr-count">
+				Total Addresses: <%= set.count %>
+			</div>
+			<div class="addr-uniq-count">
+				Unique: <%= set.count_unique_occurences.count %>
+			</div>
+			<div class="malformed-count">
+				Malformed Rows: TBA
+			</div>
+		</div>
 
 		<div class="bottom-row">
-			bottom
+			<div class="btn disabled">API</div>
+			<div class="btn">Export</div>
+			<div class="btn btn-info dragger"><i class="icon-hand-up"></i></div>
+			<div class="btn">Gazetteer</div>
 		</div>
 
 	</div>

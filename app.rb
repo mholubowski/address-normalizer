@@ -105,6 +105,14 @@ class AddressNormalizer < Sinatra::Base
     send_file "./uploads/#{file}", filename: file, type: 'Application/octet-stream'
   end
 
+  delete '/address_set/:hash' do
+    hash = params[:hash].to_i
+    binding.pry
+    session[:address_sets].destroy_set_by_hash(hash)
+    redirect back unless request.xhr?
+    erb :normalize
+  end
+
   get '/tester' do
     return session[:username]
   end
