@@ -3,25 +3,19 @@
 class AddressNormalizer < Sinatra::Base
   enable :sessions
 
+
   # SETTINGS
   set :root, File.dirname(__FILE__)
   set :public_folder, File.join(root, 'public')
   set :assets_folder, File.join(root, 'assets')
   set :sprockets, Sprockets::Environment.new(root)
 
-  # CONFIGURATION
-  configure :test do
-
-  end
-
   configure :development do 
-    # DataMapper::Logger.new(STDOUT, :debug) unless ENV['running_rspec'] || false
-    # DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/address_normalizer.db")
     register Sinatra::Reloader
   end
 
   configure :production do
-    # DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+
   end
 
   configure do 
@@ -33,10 +27,14 @@ class AddressNormalizer < Sinatra::Base
     sprockets.append_path File.join(assets_folder, 'javascripts')
     sprockets.append_path File.join(assets_folder, 'stylesheets')
     sprockets.append_path File.join(assets_folder, 'images')
+
+    REDISTOGO_URL = "redis://localhost:6379/"
+    uri = URI.parse(REDISTOGO_URL)
+    # $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
   end
   
   configure :production, :test do
-    #sprockets.css_compressor = YUI::CssCompressor.new
+    sprockets.css_compressor = YUI::CssCompressor.new
     sprockets.js_compressor = Uglifier.new
   end
 
@@ -45,8 +43,10 @@ class AddressNormalizer < Sinatra::Base
   require_relative 'models/tokenized_address'
   require_relative 'models/file_parser'
   require_relative 'helpers'
+  require_relative 'support/redis_db'
 
-  # DataMapper.finalize
+  # include RedisModule
+  $redis = RedisDb.instance
 
   # ROUTES
   get '/' do
@@ -63,7 +63,6 @@ class AddressNormalizer < Sinatra::Base
     if params[:username] 
       session_start!
       session[:username] = params[:username]
-      session[:address_sets] = []
       redirect to('/')
     else
       redirect to('/login')
@@ -92,7 +91,7 @@ class AddressNormalizer < Sinatra::Base
     # end
     file = params['thefile'][:tempfile]
     set = @@parser.create_address_set(file)
-    session[:address_sets] << set
+    # @redis.lpush('sets', set.to_json)
     redirect to('/normalize')
   end
 
@@ -107,7 +106,6 @@ class AddressNormalizer < Sinatra::Base
 
   delete '/address_set/:hash' do
     hash = params[:hash].to_i
-    binding.pry
     session[:address_sets].destroy_set_by_hash(hash)
     redirect back unless request.xhr?
     erb :normalize
@@ -116,5 +114,7 @@ class AddressNormalizer < Sinatra::Base
   get '/tester' do
     return session[:username]
   end
+
+
 
 end

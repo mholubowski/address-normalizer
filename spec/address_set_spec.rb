@@ -2,6 +2,10 @@ require_relative 'spec_helper'
 
 describe AddressSet do
 
+	before :all do
+		@redis = Redis.new
+	end
+
 	before :each do
 		@a = AddressSet.new
 		@t1a = TokenizedAddress.new('7462 Denrock Ave. Los Angeles')
@@ -100,8 +104,30 @@ describe AddressSet do
 		@set.stats[:filename].should eq('test1.csv')
 	end
 
-	after :all do
+	#---------- Redis
 
+	it "calling .to_redis should store it in redis" do
+		$redis.setnx('global:set_id', 0)
+		counter = $redis.get('global:set_id')
+		
+		set_a = AddressSet.new
+		set_a.to_redis
+
+		$redis.get('global:set_id').should eq('1')
+	end
+
+	it "calling .to_redis should also store addresses" do
+		$redis.setnx('global:address_id', 0)
+		counter = $redis.get('global:address_id')
+
+		set_a = AddressSet.new
+		set_a.tokenized_addresses << @t1a << @t1b
+
+		$redis.get('global:address_id').should eq("#{counter + 2}")
+	end
+
+	after :all do
+		$redis.flushdb
 	end
 
 end

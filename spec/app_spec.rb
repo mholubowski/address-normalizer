@@ -1,6 +1,11 @@
 require_relative "spec_helper"
+require_relative "../app"
 
 describe AddressNormalizer do
+
+	# before :all do
+	# 	@redis = Redis.new
+	# end
 
 	it "should find AddressSets by random_hash" do
 		sets = []
@@ -26,6 +31,10 @@ describe AddressNormalizer do
 
 		sets.destroy_set_by_hash(id2)
 		sets.should_not include(a2)
+	end
+
+	it "should connect to Redis" do
+		$redis.ping.should eq('PONG')
 	end
 
 

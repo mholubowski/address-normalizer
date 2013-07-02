@@ -9,6 +9,8 @@ describe TokenizedAddress do
 		@t2a = TokenizedAddress.new('240 Ofarrel St')
 
 		@a = AddressSet.new
+
+		# @redis = Redis.new
 	end
 
 	# it "should insert into db" do
@@ -33,9 +35,23 @@ describe TokenizedAddress do
 		(@t1a == @t2a).should_not eq(true)		
 	end
 
+	it "should return its address_id when .to_redis is called" do
+		@t1a.to_redis.should eq(1)
+		@t1b.to_redis.should eq(2)
+	end
+
+	it "should insert itself into redis hash on .to_redis" do
+		pending
+	end
+
+
 	# after :all do
 	# 	AddressSet.all.destroy
 	# 	TokenizedAddress.all.destroy
 	# end
+
+	after :all do
+		$redis.flushdb
+	end
 
 end

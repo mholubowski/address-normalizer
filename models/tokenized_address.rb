@@ -78,4 +78,14 @@ class TokenizedAddress
   def eql? (other_object)
     self == other_object
   end
+
+  def to_redis
+    id = $redis.incr 'global:address_id'
+    $redis.hmset("address_id:#{id}:hash", *self.to_hash.flatten)
+    return id
+  end
+
+def redis
+  RedisDb.instance
+end
 end

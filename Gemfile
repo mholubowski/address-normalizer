@@ -13,7 +13,9 @@ gem 'pry'
 gem 'StreetAddress', :require => "street_address"
 
 gem 'cmess'
-
+gem 'redis'
+gem 'redis-namespace'
+gem 'json'
 # gem "dm-core"
 # gem "dm-migrations"
 # gem "pg", group: :production
