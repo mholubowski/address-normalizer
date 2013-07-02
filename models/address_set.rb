@@ -1,23 +1,23 @@
 require_relative 'tokenized_address'
 
 class AddressSet
-  #-- DataMapper
-  # include DataMapper::Resource
-  # has n, :tokenized_addresses, through: Resource
-
-  # property :id, Serial
-  #--
-
   include Enumerable
 
   attr_accessor :tokenized_addresses, :stats
-  attr_reader :random_hash
+  attr_reader :random_hash, :redis_id 
 
   def initialize (stats = {})
     @tokenized_addresses = []
     @stats = stats
     @random_hash = SecureRandom.hex 5
   end
+
+  def self.find_addresses(id)
+    addr_ids = $redis.lrange("set_id:#{id}:address_ids", 0, -1)
+    response = addr_ids.collect {|id| $redis.hgetall "address_id:#{id}:hash"}
+  end
+
+
 
   def each
     @tokenized_addresses.each {|ad| yield ad}
@@ -34,11 +34,11 @@ class AddressSet
   end
 
   def +(other_set)
-   @tokenized_addresses + other_set.tokenized_addresses
+    @tokenized_addresses + other_set.tokenized_addresses
   end
 
   def concat(other_set)
-   @tokenized_addresses.concat other_set.tokenized_addresses
+    @tokenized_addresses.concat other_set.tokenized_addresses
   end
 
   def count_unique_occurences
@@ -48,16 +48,37 @@ class AddressSet
   end
 
   def to_ary
-   @tokenized_addresses
+    @tokenized_addresses 
   end
 
   # def &(other_set)
   #   self.tokenized_addresses & other_set.tokenized_addresses
   # end
 
-  def to_redis
-    id = $redis.incr 'global:set_id'
-    @tokenized_addresses.each {|addr| addr.to_redis}
+  #TODO refactor this into separate methods
+  # What about when updating individual things?
+  def redis_id
+    @redis_id ||= $redis.incr 'global:set_id'
   end
+
+  def to_redis
+    # set_id = $redis.incr 'global:set_id'
+    stats_to_redis 
+
+    addr_ids = @tokenized_addresses.collect {|addr| addr.to_redis}
+
+    # pipeline breaks things with setting the redis id
+    # $redis.pipelined do
+      addr_ids.each {|id| $redis.rpush "set_id:#{redis_id}:address_ids", id}
+    # end
+    CurrentUser::set_ids << redis_id
+  end
+
+  def stats_to_redis
+    unless @stats == {}
+      $redis.hmset("set_id:#{redis_id}:stats", *@stats.flatten) 
+    end
+  end
+
 
 end

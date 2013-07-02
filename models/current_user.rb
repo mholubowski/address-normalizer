@@ -5,7 +5,7 @@ module CurrentUser
 	end
 
 	def self.set_ids
-		@set_ids ||= []
+		@set_ids ||= Set.new
 	end
 
 end
