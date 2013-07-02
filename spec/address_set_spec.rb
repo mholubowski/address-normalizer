@@ -2,8 +2,8 @@ require_relative 'spec_helper'
 
 describe AddressSet do
 
-	before :all do
-
+	before :each do
+		$redis.flushall
 	end
 
 	before :each do
@@ -144,6 +144,20 @@ describe AddressSet do
 		set_a = AddressSet.new
 		set_a.redis_id.should eq(1)
 		set_a.redis_id.should eq(1)
+	end
+
+	it "AddressSet.from_redis(id) should reconstruct an AddressSet" do
+		set_a = AddressSet.new
+		set_a.tokenized_addresses << @t1a << @t1a<< @t2a
+		set_a.stats = {'filename'=> 'data.csv', 'malformed_count'=> '22'}
+		set_a.to_redis
+
+		temp = AddressSet.from_redis(set_a.redis_id)
+
+		temp.class.should eq(AddressSet)
+		temp.stats.should eq(set_a.stats)
+		temp.tokenized_addresses.count.should eq(3)
+		temp.count_unique_occurences.count.should eq(2)
 	end
 
 	after :each do

@@ -17,7 +17,12 @@ class AddressSet
     response = addr_ids.collect {|id| $redis.hgetall "address_id:#{id}:hash"}
   end
 
-
+  def self.from_redis(id)
+    set = AddressSet.new
+    set.stats = $redis.hgetall("set_id:#{id}:stats")
+    set.tokenized_addresses = AddressSet.find_addresses(id)
+    set
+  end  
 
   def each
     @tokenized_addresses.each {|ad| yield ad}
@@ -62,7 +67,6 @@ class AddressSet
   end
 
   def to_redis
-    # set_id = $redis.incr 'global:set_id'
     stats_to_redis 
 
     addr_ids = @tokenized_addresses.collect {|addr| addr.to_redis}

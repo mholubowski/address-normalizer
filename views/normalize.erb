@@ -3,7 +3,7 @@
 <%= erb :_file_upload %>
 
 <div class="address-sets-container">
-	<% session[:address_sets].each do |set| %>
+	<% CurrentUser::set_ids.each do |set| %>
 	<!-- ADDRESS SET VIEW -->
 	<div class="set-wrapper" data-hash="<%= set.random_hash %>">
 		<div class="top-row">

@@ -42,7 +42,7 @@ class AddressNormalizer < Sinatra::Base
 
   # ROUTES
   get '/' do
-    @title = 'Hello, World!'
+    @title = 'Address Normalizer'
     erb :index
   end
 
