@@ -3,9 +3,10 @@
 <%= erb :_file_upload %>
 
 <div class="address-sets-container">
+	<% @sets.each do |set| %>
 
 	<!-- ADDRESS SET VIEW -->
-	<div class="set-wrapper" data-hash="<%= set.random_hash %>">
+	<div class="set-wrapper" data-hash="<%= set.redis_id %>">
 		<div class="top-row">
 			<div class="delete">delete</div>
 			FileName: <%= set.stats['filename'] %>
@@ -32,8 +33,6 @@
 
 	</div>
 	<!-- END -->
-
-
 	<% end %>
 
 </div>

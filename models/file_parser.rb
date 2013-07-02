@@ -19,7 +19,6 @@ class FileParser
 		source_encoding = get_encoding(filename)
 
 		process_csv(filename, source_encoding, line_limit)
-
 		return @set
 		#TODO handle malformed (in address_set?)
 		#     create Malformed class?

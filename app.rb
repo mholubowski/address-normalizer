@@ -73,6 +73,8 @@ class AddressNormalizer < Sinatra::Base
   get '/normalize' do
     enforce_logged_in
     #display all address sets
+    @sets = []
+    CurrentUser::set_ids.each {|id| @sets << AddressSet.from_redis(id) }
     erb :normalize
   end
 
@@ -83,6 +85,7 @@ class AddressNormalizer < Sinatra::Base
     # end
     file = params['thefile'][:tempfile]
     set = @@parser.create_address_set(file)
+    set.to_redis
     redirect to('/normalize')
   end
 

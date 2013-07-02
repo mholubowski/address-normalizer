@@ -156,7 +156,7 @@ describe AddressSet do
 
 		temp.class.should eq(AddressSet)
 		temp.stats.should eq(set_a.stats)
-		temp.tokenized_addresses.count.should eq(3)
+		temp.count.should eq(3)
 		temp.count_unique_occurences.count.should eq(2)
 	end
 
