@@ -3,12 +3,12 @@
 <%= erb :_file_upload %>
 
 <div class="address-sets-container">
-	<% CurrentUser::set_ids.each do |set| %>
+
 	<!-- ADDRESS SET VIEW -->
 	<div class="set-wrapper" data-hash="<%= set.random_hash %>">
 		<div class="top-row">
 			<div class="delete">delete</div>
-			FileName: <%= set.stats[:filename] %>
+			FileName: <%= set.stats['filename'] %>
 		</div>
 		
 		<div class="inner">
