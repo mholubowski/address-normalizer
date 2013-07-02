@@ -1,6 +1,7 @@
 # Look http://datamapper.org/docs/associations.html many-to-many
 
 class AddressNormalizer < Sinatra::Base
+  
   enable :sessions
 
 
@@ -9,14 +10,6 @@ class AddressNormalizer < Sinatra::Base
   set :public_folder, File.join(root, 'public')
   set :assets_folder, File.join(root, 'assets')
   set :sprockets, Sprockets::Environment.new(root)
-
-  configure :development do 
-    register Sinatra::Reloader
-  end
-
-  configure :production do
-
-  end
 
   configure do 
     set :session_secret, '12345'
@@ -27,13 +20,13 @@ class AddressNormalizer < Sinatra::Base
     sprockets.append_path File.join(assets_folder, 'javascripts')
     sprockets.append_path File.join(assets_folder, 'stylesheets')
     sprockets.append_path File.join(assets_folder, 'images')
+  end
 
-    REDISTOGO_URL = "redis://localhost:6379/"
-    uri = URI.parse(REDISTOGO_URL)
-    # $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+  configure :development do 
+    register Sinatra::Reloader
   end
   
-  configure :production, :test do
+  configure :production do
     sprockets.css_compressor = YUI::CssCompressor.new
     sprockets.js_compressor = Uglifier.new
   end
@@ -45,7 +38,7 @@ class AddressNormalizer < Sinatra::Base
   require_relative 'helpers'
   require_relative 'support/redis_db'
 
-  # include RedisModule
+  # sets global for RedisDb singleton
   $redis = RedisDb.instance
 
   # ROUTES
@@ -91,7 +84,6 @@ class AddressNormalizer < Sinatra::Base
     # end
     file = params['thefile'][:tempfile]
     set = @@parser.create_address_set(file)
-    # @redis.lpush('sets', set.to_json)
     redirect to('/normalize')
   end
 
@@ -114,7 +106,5 @@ class AddressNormalizer < Sinatra::Base
   get '/tester' do
     return session[:username]
   end
-
-
 
 end

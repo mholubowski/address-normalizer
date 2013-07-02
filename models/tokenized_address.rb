@@ -2,27 +2,6 @@ require 'street_address'
 require_relative 'address_set'
 
 class TokenizedAddress
-  #-- DataMapper
-  # include DataMapper::Resource
-  # has n, :address_sets, through: Resource
-
-  # property :id, Serial
-  # property :address, String
-  # property :number, String
-  # property :street, String
-  # property :street_type, String
-  # property :unit, String
-  # property :unit_prefix, String
-  # property :suffix, String
-  # property :prefix, String
-  # property :city, String
-  # property :state, String
-  # property :postal_code, String
-  # property :postal_code_ext, String
-  # property :init_string, String
-  # #--
-
-  # before :save, :create_using_street_address_gem
 
   attr_accessor :address, :number, :street, :street_type, :unit, 
                 :unit_prefix, :suffix, :prefix, :city, :state, 
@@ -85,7 +64,4 @@ class TokenizedAddress
     return id
   end
 
-def redis
-  RedisDb.instance
-end
 end

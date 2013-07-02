@@ -3,7 +3,7 @@ require_relative 'spec_helper'
 describe AddressSet do
 
 	before :all do
-		@redis = Redis.new
+
 	end
 
 	before :each do
@@ -12,12 +12,6 @@ describe AddressSet do
 		@t1b = TokenizedAddress.new('7462 Denrock Avenue Los Angeles')
 		@t2a = TokenizedAddress.new('240 Ofarrel St')
 	end
-
-	# it "should insert into db" do
-	# 	AddressSet.count.should eq(0)
-	# 	@a.save
-	# 	AddressSet.count.should eq(1)
-	# end
 
 	it "should respond_to tokenized_addresses" do
 		@a.should respond_to(:tokenized_addresses)
@@ -118,12 +112,14 @@ describe AddressSet do
 
 	it "calling .to_redis should also store addresses" do
 		$redis.setnx('global:address_id', 0)
-		counter = $redis.get('global:address_id')
+		counter = $redis.get('global:address_id').to_i
 
 		set_a = AddressSet.new
 		set_a.tokenized_addresses << @t1a << @t1b
 
-		$redis.get('global:address_id').should eq("#{counter + 2}")
+		set_a.to_redis
+
+		$redis.get('global:address_id').to_i.should eq(counter + 2)
 	end
 
 	after :all do

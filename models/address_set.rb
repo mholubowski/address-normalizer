@@ -1,7 +1,6 @@
 require_relative 'tokenized_address'
 
 class AddressSet
-  p $redis
   #-- DataMapper
   # include DataMapper::Resource
   # has n, :tokenized_addresses, through: Resource
@@ -57,7 +56,7 @@ class AddressSet
   # end
 
   def to_redis
-    id = $reddis.incr 'global:set_id'
+    id = $redis.incr 'global:set_id'
     @tokenized_addresses.each {|addr| addr.to_redis}
   end
 
