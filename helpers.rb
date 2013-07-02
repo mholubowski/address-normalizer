@@ -13,3 +13,4 @@ class Array
 		self.delete_if {|set| set.random_hash == hash}
 	end 
 end
+

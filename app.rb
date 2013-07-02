@@ -32,9 +32,9 @@ class AddressNormalizer < Sinatra::Base
   end
 
   # Includes
-  require_relative 'models/address_set'
-  require_relative 'models/tokenized_address'
-  require_relative 'models/file_parser'
+  models = %w(address_set tokenized_address file_parser current_user)
+  models.each {|file| require_relative "models/#{file}"}
+
   require_relative 'helpers'
   require_relative 'support/redis_db'
 

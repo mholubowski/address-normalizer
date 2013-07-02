@@ -30,7 +30,7 @@ describe TokenizedAddress do
 
 	it "should insert itself into redis hash on .to_redis" do
 		@t1a.to_redis
-		#test random field (street)
+		# test random field (street)
 		$redis.hgetall('address_id:1:hash')['street'].should eq('Denrock')
 	end
 

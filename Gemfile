@@ -16,22 +16,9 @@ gem 'cmess'
 gem 'redis'
 gem 'redis-namespace'
 gem 'json'
-# gem "dm-core"
-# gem "dm-migrations"
-# gem "pg", group: :production
-# gem "dm-postgres-adapter", group: :production
-# gem "dm-sqlite-adapter", group: :development
 
 gem 'thin'
 
-# gem 'unicorn'
-
 group :test do
-	# gem 'shotgun'
 	gem 'rspec'
-	# gem 'capybara', require: 'capybara/rspec'
-	# gem 'rack-test'
-	# gem 'guard'
-	# gem 'guard-rspec'
-	gem 'simplecov'
 end

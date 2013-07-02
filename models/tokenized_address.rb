@@ -14,6 +14,7 @@ class TokenizedAddress
     return if obj.nil?
 
     @address          = obj.to_s
+    
     @number           = obj.number 
     @street           = obj.street
     @street_type      = obj.street_type
