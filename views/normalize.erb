@@ -4,34 +4,9 @@
 
 <div class="address-sets-container">
 	<% @sets.each do |set| %>
-
 	<!-- ADDRESS SET VIEW -->
-	<div class="set-wrapper" data-hash="<%= set.redis_id %>">
-		<div class="top-row">
-			<div class="delete">delete</div>
-			FileName: <%= set.stats['filename'] %>
-		</div>
-		
-		<div class="inner">
-			<div class="addr-count">
-				Total Addresses: <%= set.count %>
-			</div>
-			<div class="addr-uniq-count">
-				Unique: <%= set.count_unique_occurences.count %>
-			</div>
-			<div class="malformed-count">
-				Malformed Rows: TBA
-			</div>
-		</div>
-
-		<div class="bottom-row">
-			<div class="btn disabled">API</div>
-			<div class="btn">Export</div>
-			<div class="btn btn-info dragger"><i class="icon-hand-up"></i></div>
-			<div class="btn">Gazetteer</div>
-		</div>
-
-	</div>
+	<% @set = set %>
+	<%= erb :_AddressSet_view %>
 	<!-- END -->
 	<% end %>
 

@@ -6,9 +6,10 @@ class AddressSet
   attr_accessor :tokenized_addresses, :stats
   attr_reader :redis_id 
 
-  def initialize (stats = {})
+  def initialize (redis_id_default = nil)
     @tokenized_addresses = []
-    @stats = stats
+    @stats = {}
+    @redis_id = redis_id_default if redis_id_default
   end
 
   def self.find_addresses(id)
@@ -17,7 +18,8 @@ class AddressSet
   end
 
   def self.from_redis(id)
-    set = AddressSet.new
+    set = AddressSet.new(id)
+    puts "id: #{id}!!!!!"
     set.stats = $redis.hgetall("set_id:#{id}:stats")
     set.tokenized_addresses = AddressSet.find_addresses(id)
     set

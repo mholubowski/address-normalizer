@@ -16,7 +16,7 @@
 		border-bottom: 1px solid #ccc;
 		padding: 3px;
 
-		.delete {
+		.delete, .reload {
 			color: red;
 			float: right;
 			&:hover {

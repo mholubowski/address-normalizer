@@ -93,14 +93,20 @@ class AddressNormalizer < Sinatra::Base
     redirect to('/normalize')
   end
 
+  get '/address_set/:redis_id' do
+    id = params[:redis_id].to_i
+    @set = AddressSet.from_redis(id)
+    erb :_AddressSet_view, layout: false
+  end
+
   get '/download/:filename' do
     file = params[:filename]
     send_file "./uploads/#{file}", filename: file, type: 'Application/octet-stream'
   end
 
-  delete '/address_set/:hash' do
-    hash = params[:hash].to_i
-    session[:address_sets].destroy_set_by_hash(hash)
+  delete '/address_set/:redis_id' do
+    redis_id = params[:redis_id].to_i
+    CurrentUser::set_ids.delete(redis_id)
     redirect back unless request.xhr?
     erb :normalize
   end

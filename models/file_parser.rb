@@ -14,7 +14,8 @@ class FileParser
 
   #TODO line_limit for dev
 	def create_address_set(filename, line_limit = nil)
-		@set = AddressSet.new({filename: File.basename(filename)})
+    # @set = AddressSet.new({filename: File.basename(filename)})
+		@set = AddressSet.new()
 
 		source_encoding = get_encoding(filename)
 
