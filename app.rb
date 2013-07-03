@@ -29,11 +29,13 @@ class AddressNormalizer < Sinatra::Base
   end
 
   # Includes
-  models = %w(address_set tokenized_address file_parser current_user)
+  models = %w(address_set tokenized_address file_parser current_user file_exporter)
   models.each {|file| require_relative "models/#{file}"}
 
   require_relative 'helpers'
   require_relative 'support/redis_db'
+
+  require "csv"
 
   # sets global for RedisDb singleton
   $redis = RedisDb.instance
@@ -82,7 +84,7 @@ class AddressNormalizer < Sinatra::Base
     #   f.write(params['thefile'][:tempfile].read)
     # end
     file = params['thefile'][:tempfile]
-    set = @@parser.create_address_set(file)
+    set = @@parser.create_address_set({filename: file})
     set.save
     redirect to('/normalize')
   end
@@ -91,14 +93,27 @@ class AddressNormalizer < Sinatra::Base
     redirect to('/normalize')
   end
 
-  get '/address_set/:redis_id' do
+  get '/address_set/:redis_id/view/:type' do
+    type = params[:type]
     @set = AddressSet.find(params[:redis_id])
-    erb :"AddressSet/main"
+    return erb :"AddressSet/_widget" if type == 'widget'
+    return erb :"AddressSet/main"
   end
 
   get '/download/:filename' do
     file = params[:filename]
     send_file "./uploads/#{file}", filename: file, type: 'Application/octet-stream'
+  end
+
+  get '/address_set/:redis_id/simple-export' do
+    @set = AddressSet.find(params[:redis_id])
+    # FileExporter.instance.simple_export(@set)
+    # @set.to_csv
+    csv_content = @set.to_csv
+
+    headers "Content-Disposition" => "attachment;filename=#{"temp"}",
+            "Content-Type" => "text/csv"
+    csv_content
   end
 
   delete '/address_set/:redis_id' do

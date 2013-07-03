@@ -15,7 +15,7 @@ describe AddressSet do
 
 	it "should respond_to tokenized_addresses" do
 		@a.should respond_to(:tokenized_addresses)
-	end	
+	end
 
 	it "should have many TokenizedAddresses" do
 		@a.tokenized_addresses.should_not include @t1a
@@ -76,7 +76,6 @@ describe AddressSet do
 		@set_b
 
 		union = @set_a.tokenized_addresses & @set_b.tokenized_addresses
-		# binding.pry
 		union.should eq([@t1a])
 	end
 
@@ -92,9 +91,9 @@ describe AddressSet do
 		(@set_a.tokenized_addresses & @set_b.tokenized_addresses & @set_c.tokenized_addresses).should eq([@t1a])
 	end
 
-	it "should store its filename in stats" do 
-		@filename = './spec/example_data/test1.csv'
-		@set = FileParser.new.create_address_set(@filename)
+	it "should store its filename in stats" do
+		filename = './spec/example_data/test1.csv'
+		@set = FileParser.new.create_address_set({filename: filename})
 		@set.stats[:filename].should eq('test1.csv')
 	end
 
@@ -102,7 +101,7 @@ describe AddressSet do
 
 	it ".save should store it in redis" do
 		counter = $redis.get('global:set_id')
-		
+
 		set_a = AddressSet.new
 		set_a.tokenized_addresses << @t1a << @t1b
 		set_a.save
@@ -146,6 +145,11 @@ describe AddressSet do
 		set_a.redis_id.should eq(1)
 	end
 
+	it "should have option to set default id" do
+		set_a =AddressSet.new({id:1000})
+		set_a.redis_id.should equal(1000)
+	end
+
 	it "AddressSet.find(id) should reconstruct an AddressSet" do
 		set_a = AddressSet.new
 		set_a.tokenized_addresses << @t1a << @t1a<< @t2a
@@ -158,6 +162,10 @@ describe AddressSet do
 		temp.stats.should eq(set_a.stats)
 		temp.count.should eq(3)
 		temp.count_unique_occurences.count.should eq(2)
+	end
+
+	it ".to_csv should export csv" do
+		pending
 	end
 
 	after :each do

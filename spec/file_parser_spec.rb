@@ -1,13 +1,13 @@
-# Will process CSV to combine Columns into single 
+# Will process CSV to combine Columns into single
 # address string
 require_relative 'spec_helper'
 
-describe FileParser do 
+describe FileParser do
 
 	before :all do
-		@filename = './spec/example_data/test1.csv'
+		filename = './spec/example_data/test1.csv'
 		@parser = FileParser.new
-		@set = @parser.create_address_set(@filename)
+		@set = @parser.create_address_set({filename: filename})
 	end
 
 	it "should return a AddressSet" do

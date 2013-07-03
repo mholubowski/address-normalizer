@@ -5,30 +5,32 @@ require 'csv'
 # require_relative 'address_tokenizer.rb'
 
 class FileParser
-	attr_accessor :address_index, :normalized_address_index
+  attr_accessor :address_index, :normalized_address_index
 
-	def initialize
-		@address_index = 0
-		@normalized_address_index = 0
-	end
+  def initialize
+    @address_index = 0
+    @normalized_address_index = 0
+  end
 
   #TODO line_limit for dev
-	def create_address_set(filename, line_limit = nil)
-    # @set = AddressSet.new({filename: File.basename(filename)})
-		@set = AddressSet.new()
+  def create_address_set(options, line_limit=nil)
+    filename = options[:filename]
 
-		source_encoding = get_encoding(filename)
+    @set = AddressSet.new({filename: File.basename(filename)})
+    # @set = AddressSet.new()
 
-		process_csv(filename, source_encoding, line_limit)
-		return @set
-		#TODO handle malformed (in address_set?)
-		#     create Malformed class?
-	end
+    source_encoding = get_encoding(filename)
+
+    process_csv(filename, source_encoding, line_limit)
+    return @set
+    #TODO handle malformed (in address_set?)
+    #     create Malformed class?
+  end
 
   def get_encoding(filename)
     source_file     = File.read(filename)
     source_encoding = CMess::GuessEncoding::Automatic.guess(source_file)
-    source_file 		= nil
+    source_file     = nil
 
     return source_encoding
   end
@@ -76,7 +78,7 @@ class FileParser
     end
   end
 
- 
+
   # def handle_malformed_rows
   #   puts "Errors: #{errors.to_s}\n\n\n" unless errors.empty?
 
@@ -87,7 +89,7 @@ class FileParser
   #     malformed_row_output_file.write(row + "\n")
   #   end
   #   puts "Malformed rows saved to disk in #{malformed_row_output_file.path}."
-    
+
   #   malformed_row_output_file.close
   # end
 

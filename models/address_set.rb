@@ -6,10 +6,11 @@ class AddressSet
   attr_accessor :tokenized_addresses, :stats
   attr_reader :redis_id
 
-  def initialize (redis_id_default = nil)
+  def initialize (options={})
+    options = {filename: "", id: nil}.merge(options)
     @tokenized_addresses = []
-    @stats = {}
-    @redis_id = redis_id_default if redis_id_default
+    @stats = {filename: options[:filename]}
+    @redis_id = options[:id] if options[:id]
   end
 
   def self.find_addresses(id)
@@ -18,7 +19,7 @@ class AddressSet
   end
 
   def self.find(id)
-    set = AddressSet.new(id)
+    set = AddressSet.new({id: id})
     set.stats = $redis.hgetall("set_id:#{id}:stats")
     set.tokenized_addresses = AddressSet.find_addresses(id)
     set
@@ -73,7 +74,7 @@ class AddressSet
 
     # pipeline breaks things with setting the redis id
     # $redis.pipelined do
-      addr_ids.each {|id| $redis.rpush "set_id:#{redis_id}:address_ids", id}
+    addr_ids.each {|id| $redis.rpush "set_id:#{redis_id}:address_ids", id}
     # end
     CurrentUser::set_ids << redis_id
   end
@@ -84,5 +85,15 @@ class AddressSet
     end
   end
 
+  def to_csv
+    csv_content = CSV.generate do |csv|
+      csv << ["address"]
+      self.each do |addr|
+        csv << [addr['address']]
+      end
+    end
+    csv_content
+    # send_file "/exports/test.csv"
+  end
 
 end

@@ -1,5 +1,5 @@
 $(function(){
-	
+
 	$('.set-wrapper').on('click', '.delete', function(e) {
 		$this = $(e.delegateTarget)
 		var id = $this.data('id');
@@ -13,13 +13,19 @@ $(function(){
 		})
 	})
 
-	$('.set-wrapper').on('click', '.reload', function(e) {
+	$('.set-wrapper').on('click', '.export-simple', function(e) {
 		$this = $(e.delegateTarget)
 		var id = $this.data('id');
-		
-		$this.load('/address_set/'+id+' .view-container', function(){
-			console.log('loaded!');
+		var url = '/address_set/'+id+'/simple-export';
+		$.ajax({
+			url: url,
+			type: 'GET',
+			success: function(result) {
+				console.log('done! ' + result);
+			}
 		})
 	})
+
+
 
 })

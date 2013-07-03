@@ -1,8 +1,8 @@
 <div class="set-wrapper" data-id="<%= @set.redis_id %>">
   <div class="view-container">
+
     <div class="top-row">
       <div class="delete">delete</div>
-      <div class="reload">reload</div>
       FileName: <%= @set.stats['filename'] %>
     </div>
 
@@ -20,9 +20,12 @@
 
     <div class="bottom-row">
       <div class="btn disabled">API</div>
-      <div class="btn">Export <small>(simple)</small></div>
-      <div class="btn btn-info dragger"><i class="icon-hand-up"></i></div>
-      <div class="btn">Gazetteer</div>
+      <a href="/address_set/<%= @set.redis_id%>/simple-export" class="btn btn-info">
+        Export <small>(simple)</small>
+      </a>
+      <div class="btn disabled dragger"><i class="icon-hand-up"></i></div>
+      <div class="btn disabled">Gazetteer</div>
     </div>
+
   </div>
 </div>
