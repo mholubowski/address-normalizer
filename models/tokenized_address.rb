@@ -59,7 +59,7 @@ class TokenizedAddress
     self == other_object
   end
 
-  def to_redis
+  def save
     id = $redis.incr 'global:address_id'
     $redis.hmset("address_id:#{id}:hash", *self.to_hash.flatten)
     return id

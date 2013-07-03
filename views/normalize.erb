@@ -4,10 +4,8 @@
 
 <div class="address-sets-container">
 	<% @sets.each do |set| %>
-	<!-- ADDRESS SET VIEW -->
-	<% @set = set %>
-	<%= erb :_AddressSet_view %>
-	<!-- END -->
+            <!-- TODO why the @set = set -->
+		<% @set = set %>
+		<%= erb :"AddressSet/_widget" %>
 	<% end %>
-
 </div>

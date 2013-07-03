@@ -4,7 +4,7 @@ class AddressSet
   include Enumerable
 
   attr_accessor :tokenized_addresses, :stats
-  attr_reader :redis_id 
+  attr_reader :redis_id
 
   def initialize (redis_id_default = nil)
     @tokenized_addresses = []
@@ -14,22 +14,21 @@ class AddressSet
 
   def self.find_addresses(id)
     addr_ids = $redis.lrange("set_id:#{id}:address_ids", 0, -1)
-    response = addr_ids.collect {|id| $redis.hgetall "address_id:#{id}:hash"}
+    addr_ids.collect {|id| $redis.hgetall "address_id:#{id}:hash"}
   end
 
-  def self.from_redis(id)
+  def self.find(id)
     set = AddressSet.new(id)
-    puts "id: #{id}!!!!!"
     set.stats = $redis.hgetall("set_id:#{id}:stats")
     set.tokenized_addresses = AddressSet.find_addresses(id)
     set
-  end  
+  end
 
   def each
     @tokenized_addresses.each {|ad| yield ad}
   end
 
-  # TODO allow x number of address sets  
+  # TODO allow x number of address sets
   def merge(other_set)
     unless other_set.class == self.class
       raise 'Can only merge another AddressSet'
@@ -50,11 +49,11 @@ class AddressSet
   def count_unique_occurences
     h = Hash.new(0)
     self.each {|address| h[address] += 1}
-    return h      
+    return h
   end
 
   def to_ary
-    @tokenized_addresses 
+    @tokenized_addresses
   end
 
   # def &(other_set)
@@ -67,10 +66,10 @@ class AddressSet
     @redis_id ||= $redis.incr 'global:set_id'
   end
 
-  def to_redis
-    stats_to_redis 
+  def save
+    stats_save
 
-    addr_ids = @tokenized_addresses.collect {|addr| addr.to_redis}
+    addr_ids = @tokenized_addresses.collect {|addr| addr.save}
 
     # pipeline breaks things with setting the redis id
     # $redis.pipelined do
@@ -79,9 +78,9 @@ class AddressSet
     CurrentUser::set_ids << redis_id
   end
 
-  def stats_to_redis
+  def stats_save
     unless @stats == {}
-      $redis.hmset("set_id:#{redis_id}:stats", *@stats.flatten) 
+      $redis.hmset("set_id:#{redis_id}:stats", *@stats.flatten)
     end
   end
 

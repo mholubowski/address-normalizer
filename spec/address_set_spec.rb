@@ -100,33 +100,33 @@ describe AddressSet do
 
 	#---------- Redis
 
-	it ".to_redis should store it in redis" do
+	it ".save should store it in redis" do
 		counter = $redis.get('global:set_id')
 		
 		set_a = AddressSet.new
 		set_a.tokenized_addresses << @t1a << @t1b
-		set_a.to_redis
+		set_a.save
 
 		$redis.get('global:set_id').should eq('1')
 
 		$redis.lrange('set_id:1:address_ids', 0, -1).should eq(['1','2'])
 	end
 
-	it ".to_redis should also store addresses" do
+	it ".save should also store addresses" do
 		counter = $redis.get('global:address_id').to_i
 
 		set_a = AddressSet.new
 		set_a.tokenized_addresses << @t1a << @t1b
 
-		set_a.to_redis
+		set_a.save
 
 		$redis.get('global:address_id').to_i.should eq(counter + 2)
 	end
 
-	it ".to_redis should store stats hash" do
+	it ".save should store stats hash" do
 		set_a = AddressSet.new
 		set_a.stats = {'user'=> 'Mike', "num_addresses"=> "1232"}
-		set_a.stats_to_redis
+		set_a.stats_save
 
 		$redis.hgetall("set_id:#{set_a.redis_id}:stats").should eq(set_a.stats)
 	end
@@ -134,7 +134,7 @@ describe AddressSet do
 	it "AddressSet.find_addresses(id) and pulls from redis" do
 		set_a = AddressSet.new
 		set_a.tokenized_addresses << @t1a << @t1b
-		set_a.to_redis
+		set_a.save
 
 		response = AddressSet.find_addresses(1)
 		response[0]['street'].should eq('Denrock')
@@ -146,13 +146,13 @@ describe AddressSet do
 		set_a.redis_id.should eq(1)
 	end
 
-	it "AddressSet.from_redis(id) should reconstruct an AddressSet" do
+	it "AddressSet.find(id) should reconstruct an AddressSet" do
 		set_a = AddressSet.new
 		set_a.tokenized_addresses << @t1a << @t1a<< @t2a
 		set_a.stats = {'filename'=> 'data.csv', 'malformed_count'=> '22'}
-		set_a.to_redis
+		set_a.save
 
-		temp = AddressSet.from_redis(set_a.redis_id)
+		temp = AddressSet.find(set_a.redis_id)
 
 		temp.class.should eq(AddressSet)
 		temp.stats.should eq(set_a.stats)

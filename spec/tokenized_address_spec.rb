@@ -23,13 +23,13 @@ describe TokenizedAddress do
 		(@t1a == @t2a).should_not eq(true)		
 	end
 
-	it "should return its address_id when .to_redis is called" do
-		@t1a.to_redis.should eq(1)
-		@t1b.to_redis.should eq(2)
+	it "should return its address_id when .save is called" do
+		@t1a.save.should eq(1)
+		@t1b.save.should eq(2)
 	end
 
-	it "should insert itself into redis hash on .to_redis" do
-		@t1a.to_redis
+	it "should insert itself into redis hash on .save" do
+		@t1a.save
 		# test random field (street)
 		$redis.hgetall('address_id:1:hash')['street'].should eq('Denrock')
 	end

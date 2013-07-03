@@ -1,23 +1,23 @@
 $(function(){
 	
 	$('.set-wrapper').on('click', '.delete', function(e) {
-		var id = $(e.delegateTarget).data('id');
-		console.log(id);
+		$this = $(e.delegateTarget)
+		var id = $this.data('id');
 		var url = '/address_set/' + id
 		$.ajax({
 			url: url,
 			type: 'DELETE',
 			success: function(result) {
-				console.log(result);
+				$this.hide('fast', function(){$this.remove});
 			}
 		})
 	})
 
 	$('.set-wrapper').on('click', '.reload', function(e) {
-		var id = $(e.delegateTarget).data('id');
-		console.log(id);
+		$this = $(e.delegateTarget)
+		var id = $this.data('id');
 		
-		$(e.delegateTarget).load('/address_set/'+id+' .view-container', function(){
+		$this.load('/address_set/'+id+' .view-container', function(){
 			console.log('loaded!');
 		})
 	})

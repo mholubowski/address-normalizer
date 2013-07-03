@@ -19,11 +19,11 @@ Benchmark.bm(20) do |bm|
 	end
 
 	bm.report("Set to Redis") do
-		temp.to_redis 
+		temp.save 
 	end
 
 	bm.report("Set from Redis") do
-		set = AddressSet.from_redis(temp.redis_id) 
+		set = AddressSet.find(temp.redis_id) 
 	end
 end
 
@@ -37,11 +37,11 @@ Benchmark.bm(20) do |bm|
 	end
 
 	bm.report("Set to Redis") do
-		temp.to_redis 
+		temp.save 
 	end
 
 	bm.report("Set from Redis") do
-		set = AddressSet.from_redis(temp.redis_id) 
+		set = AddressSet.find(temp.redis_id) 
 	end
 	
 end

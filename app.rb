@@ -1,7 +1,5 @@
-# Look http://datamapper.org/docs/associations.html many-to-many
-
 class AddressNormalizer < Sinatra::Base
-  
+
   enable :sessions
 
   # SETTINGS
@@ -10,21 +8,21 @@ class AddressNormalizer < Sinatra::Base
   set :assets_folder, File.join(root, 'assets')
   set :sprockets, Sprockets::Environment.new(root)
 
-  configure do 
+  configure do
     set :session_secret, '12345'
     set :session_fail, '/login'
     register Sinatra::Session
-    
+
     sprockets.append_path "#{Gem.loaded_specs['compass'].full_gem_path}/frameworks/compass/stylesheets"
     sprockets.append_path File.join(assets_folder, 'javascripts')
     sprockets.append_path File.join(assets_folder, 'stylesheets')
     sprockets.append_path File.join(assets_folder, 'images')
   end
 
-  configure :development do 
+  configure :development do
     register Sinatra::Reloader
   end
-  
+
   configure :production do
     sprockets.css_compressor = YUI::CssCompressor.new
     sprockets.js_compressor = Uglifier.new
@@ -52,7 +50,7 @@ class AddressNormalizer < Sinatra::Base
   end
 
   post '/login' do
-    if params[:username] 
+    if params[:username]
       session_start!
       session[:username] = params[:username]
       redirect to('/')
@@ -66,7 +64,7 @@ class AddressNormalizer < Sinatra::Base
     redirect to('/')
   end
 
-  get '/info' do 
+  get '/info' do
     erb :info
   end
 
@@ -74,18 +72,18 @@ class AddressNormalizer < Sinatra::Base
     enforce_logged_in
     #display all address sets
     @sets = []
-    CurrentUser::set_ids.each {|id| @sets << AddressSet.from_redis(id) }
+    CurrentUser::set_ids.each {|id| @sets << AddressSet.find(id) }
     erb :normalize
   end
 
-  post '/upload' do 
+  post '/upload' do
     @@parser ||= FileParser.new
     # File.open('uploads/' + params['thefile'][:filename], "w") do |f|
     #   f.write(params['thefile'][:tempfile].read)
     # end
     file = params['thefile'][:tempfile]
     set = @@parser.create_address_set(file)
-    set.to_redis
+    set.save
     redirect to('/normalize')
   end
 
@@ -94,9 +92,8 @@ class AddressNormalizer < Sinatra::Base
   end
 
   get '/address_set/:redis_id' do
-    id = params[:redis_id].to_i
-    @set = AddressSet.from_redis(id)
-    erb :_AddressSet_view, layout: false
+    @set = AddressSet.find(params[:redis_id])
+    erb :"AddressSet/main"
   end
 
   get '/download/:filename' do
@@ -108,7 +105,7 @@ class AddressNormalizer < Sinatra::Base
     redis_id = params[:redis_id].to_i
     CurrentUser::set_ids.delete(redis_id)
     redirect back unless request.xhr?
-    erb :normalize
+    # erb :"AddressSet/main"
   end
 
   get '/tester' do
