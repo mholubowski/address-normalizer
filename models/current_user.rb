@@ -8,4 +8,10 @@ module CurrentUser
 		@set_ids ||= Set.new
 	end
 
+  def self.address_sets
+    sets = []
+    self.set_ids.each {|id| sets << AddressSet.find(id) }
+    return sets
+  end
+
 end

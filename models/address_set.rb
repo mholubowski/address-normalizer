@@ -85,7 +85,7 @@ class AddressSet
     end
   end
 
-  def to_csv
+  def simple_export
     csv_content = CSV.generate do |csv|
       csv << ["address"]
       self.each do |addr|
@@ -94,6 +94,19 @@ class AddressSet
     end
     csv_content
     # send_file "/exports/test.csv"
+  end
+
+  def addon_export
+    file = @stats['filename']
+
+    csv_content = CSV.generate do |csv|
+      count = 0
+      CSV.foreach("uploads/#{file}") do |row|
+        csv << (row + [@tokenized_addresses[count]['address']])
+        count += 1
+      end
+    end
+    csv_content
   end
 
 end

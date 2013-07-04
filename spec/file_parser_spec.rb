@@ -6,8 +6,7 @@ describe FileParser do
 
 	before :all do
 		filename = './spec/example_data/test1.csv'
-		@parser = FileParser.new
-		@set = @parser.create_address_set({filename: filename})
+		@set = FileParser.instance.create_address_set({filename: filename})
 	end
 
 	it "should return a AddressSet" do

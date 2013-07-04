@@ -12,6 +12,12 @@ class FileParser
     @normalized_address_index = 0
   end
 
+  @@instance = FileParser.new
+
+  def self.instance
+    @@instance
+  end
+
   #TODO line_limit for dev
   def create_address_set(options, line_limit=nil)
     filename = options[:filename]
@@ -78,6 +84,7 @@ class FileParser
     end
   end
 
+  private_class_method :new
 
   # def handle_malformed_rows
   #   puts "Errors: #{errors.to_s}\n\n\n" unless errors.empty?

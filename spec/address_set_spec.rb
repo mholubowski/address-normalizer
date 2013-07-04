@@ -93,7 +93,7 @@ describe AddressSet do
 
 	it "should store its filename in stats" do
 		filename = './spec/example_data/test1.csv'
-		@set = FileParser.new.create_address_set({filename: filename})
+		@set = FileParser.instance.create_address_set({filename: filename})
 		@set.stats[:filename].should eq('test1.csv')
 	end
 
@@ -151,20 +151,21 @@ describe AddressSet do
 	end
 
 	it "AddressSet.find(id) should reconstruct an AddressSet" do
-		set_a = AddressSet.new
+		set_a = AddressSet.new({filename: 'data.csv'})
 		set_a.tokenized_addresses << @t1a << @t1a<< @t2a
-		set_a.stats = {'filename'=> 'data.csv', 'malformed_count'=> '22'}
 		set_a.save
 
 		temp = AddressSet.find(set_a.redis_id)
 
 		temp.class.should eq(AddressSet)
-		temp.stats.should eq(set_a.stats)
+		temp.stats['filename'].should eq('data.csv')
 		temp.count.should eq(3)
 		temp.count_unique_occurences.count.should eq(2)
 	end
 
 	it ".to_csv should export csv" do
+		set_a = AddressSet.new({filename: 'test1.csv'})
+		set_a.addon_export
 		pending
 	end
 

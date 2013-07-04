@@ -29,7 +29,7 @@ class AddressNormalizer < Sinatra::Base
   end
 
   # Includes
-  models = %w(address_set tokenized_address file_parser current_user file_exporter)
+  models = %w(address_set tokenized_address file_parser current_user)
   models.each {|file| require_relative "models/#{file}"}
 
   require_relative 'helpers'
@@ -72,55 +72,52 @@ class AddressNormalizer < Sinatra::Base
 
   get '/normalize' do
     enforce_logged_in
-    #display all address sets
-    @sets = []
-    CurrentUser::set_ids.each {|id| @sets << AddressSet.find(id) }
+    @sets = CurrentUser::address_sets
     erb :normalize
   end
 
   post '/upload' do
-    @@parser ||= FileParser.new
-    # File.open('uploads/' + params['thefile'][:filename], "w") do |f|
-    #   f.write(params['thefile'][:tempfile].read)
-    # end
-    file = params['thefile'][:tempfile]
-    set = @@parser.create_address_set({filename: file})
+    File.open('uploads/' + params['thefile'][:filename], "w") do |f|
+      f.write(params['thefile'][:tempfile].read)
+    end
+    file = 'uploads/' + params['thefile'][:filename]
+    set = FileParser.instance.create_address_set({filename: file})
     set.save
-    redirect to('/normalize')
-  end
-
-  post '/address_set/new' do
     redirect to('/normalize')
   end
 
   get '/address_set/:redis_id/view/:type' do
     type = params[:type]
     @set = AddressSet.find(params[:redis_id])
-    return erb :"AddressSet/_widget" if type == 'widget'
-    return erb :"AddressSet/main"
-  end
 
-  get '/download/:filename' do
-    file = params[:filename]
-    send_file "./uploads/#{file}", filename: file, type: 'Application/octet-stream'
+    case type
+    when 'widget'
+      return erb :"AddressSet/_widget"
+    else
+      return erb :"AddressSet/main"
+    end
   end
 
   get '/address_set/:redis_id/simple-export' do
     @set = AddressSet.find(params[:redis_id])
-    # FileExporter.instance.simple_export(@set)
-    # @set.to_csv
-    csv_content = @set.to_csv
+    csv_content = @set.simple_export
 
-    headers "Content-Disposition" => "attachment;filename=#{"temp"}",
-            "Content-Type" => "text/csv"
-    csv_content
+    filename = "normalized_"+@set.stats['filename']
+    send_csv({content: csv_content, filename: filename})
+  end
+
+  get '/address_set/:redis_id/addon-export' do
+    @set = AddressSet.find(params[:redis_id])
+    csv_content = @set.addon_export
+
+    filename = "normalized_"+@set.stats['filename']
+    send_csv({content: csv_content, filename: filename})
   end
 
   delete '/address_set/:redis_id' do
     redis_id = params[:redis_id].to_i
     CurrentUser::set_ids.delete(redis_id)
     redirect back unless request.xhr?
-    # erb :"AddressSet/main"
   end
 
   get '/tester' do

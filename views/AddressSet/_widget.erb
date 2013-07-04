@@ -20,9 +20,15 @@
 
     <div class="bottom-row">
       <div class="btn disabled">API</div>
+
       <a href="/address_set/<%= @set.redis_id%>/simple-export" class="btn btn-info">
         Export <small>(simple)</small>
       </a>
+
+      <a href="/address_set/<%= @set.redis_id%>/addon-export" class="btn btn-info">
+        Export <small>(addon)</small>
+      </a>
+
       <div class="btn disabled dragger"><i class="icon-hand-up"></i></div>
       <div class="btn disabled">Gazetteer</div>
     </div>
