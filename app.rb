@@ -114,6 +114,14 @@ class AddressNormalizer < Sinatra::Base
     send_csv({content: csv_content, filename: filename})
   end
 
+  get '/address_set/:redis_id/addon-seperate-columns' do
+    @set = AddressSet.find(params[:redis_id])
+    csv_content = @set.addon_seperate_columns
+
+    filename = "normalized_"+@set.stats[:filename]
+    send_csv({content: csv_content, filename: filename})
+  end
+
   delete '/address_set/:redis_id' do
     redis_id = params[:redis_id].to_i
     CurrentUser::set_ids.delete(redis_id)

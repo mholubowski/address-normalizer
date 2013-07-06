@@ -120,4 +120,27 @@ class AddressSet
     csv_content
   end
 
+  # these names are embarassing...
+  def addon_seperate_columns
+    file = @stats[:filename]
+
+     csv_content = CSV.generate do |csv|
+      count = 0
+      CSV.foreach(file) do |row|
+        if count == 0
+          csv << row + ['Normalized Address'] + TokenizedAddress.attributes
+          count += 1
+          next
+        end
+        all_attributes = TokenizedAddress.attributes.map {|attr| @tokenized_addresses[count-1][attr.to_sym]}
+        csv << row + [@tokenized_addresses[count-1][:address]] + all_attributes
+        count += 1
+      end
+    end
+
+    csv_content
+  end
+
+
+
 end

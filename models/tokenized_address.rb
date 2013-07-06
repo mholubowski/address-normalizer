@@ -3,8 +3,8 @@ require_relative 'address_set'
 
 class TokenizedAddress
 
-  attr_accessor :address, :number, :street, :street_type, :unit, 
-                :unit_prefix, :suffix, :prefix, :city, :state, 
+  attr_accessor :address, :number, :street, :street_type, :unit,
+                :unit_prefix, :suffix, :prefix, :city, :state,
                 :postal_code, :postal_code_ext
 
   def initialize (string, options = {informal: true})
@@ -14,8 +14,8 @@ class TokenizedAddress
     return if obj.nil?
 
     @address          = obj.to_s
-    
-    @number           = obj.number 
+
+    @number           = obj.number
     @street           = obj.street
     @street_type      = obj.street_type
     @unit             = obj.unit
@@ -28,6 +28,11 @@ class TokenizedAddress
     @postal_code_ext  = obj.postal_code_ext
   end
 
+  def self.attributes
+    %w(number street street_type unit unit_prefix suffix
+      prefix city state postal_code postal_code_ext)
+  end
+
   def == (other_object)
     self.to_hash == other_object.to_hash
   end
@@ -35,20 +40,20 @@ class TokenizedAddress
   def to_hash
     obj = {}
 
-    obj[:address]         = @address          
-    obj[:number]          = @number           
-    obj[:street]          = @street           
-    obj[:street_type]     = @street_type      
-    obj[:unit]            = @unit             
-    obj[:unit_prefix]     = @unit_prefix      
-    obj[:suffix]          = @suffix           
-    obj[:prefix]          = @prefix           
-    obj[:city]            = @city             
-    obj[:state]           = @state            
-    obj[:postal_code]     = @postal_code      
+    obj[:address]         = @address
+    obj[:number]          = @number
+    obj[:street]          = @street
+    obj[:street_type]     = @street_type
+    obj[:unit]            = @unit
+    obj[:unit_prefix]     = @unit_prefix
+    obj[:suffix]          = @suffix
+    obj[:prefix]          = @prefix
+    obj[:city]            = @city
+    obj[:state]           = @state
+    obj[:postal_code]     = @postal_code
     obj[:postal_code_ext] = @postal_code_ext
 
-    return obj  
+    return obj
   end
 
   def hash
