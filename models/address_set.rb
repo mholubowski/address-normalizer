@@ -15,13 +15,16 @@ class AddressSet
 
   def self.find_addresses(id)
     addr_ids = $redis.lrange("set_id:#{id}:address_ids", 0, -1)
-    addr_ids.collect {|id| $redis.hgetall "address_id:#{id}:hash"}
+    addresses = addr_ids.map {|id| $redis.hgetall "address_id:#{id}:hash"}
+    addresses.map {|addr| addr.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}}
   end
 
   def self.find(id)
     set = AddressSet.new({id: id})
     set.stats = $redis.hgetall("set_id:#{id}:stats")
+    set.stats = set.stats.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
     set.tokenized_addresses = AddressSet.find_addresses(id)
+    set.tokenized_addresses.map {|addr| addr.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}}
     set
   end
 
@@ -68,7 +71,7 @@ class AddressSet
   end
 
   def save
-    stats_save
+    persist_stats
 
     addr_ids = @tokenized_addresses.collect {|addr| addr.save}
 
@@ -79,7 +82,7 @@ class AddressSet
     CurrentUser::set_ids << redis_id
   end
 
-  def stats_save
+  def persist_stats
     unless @stats == {}
       $redis.hmset("set_id:#{redis_id}:stats", *@stats.flatten)
     end
@@ -89,23 +92,31 @@ class AddressSet
     csv_content = CSV.generate do |csv|
       csv << ["address"]
       self.each do |addr|
-        csv << [addr['address']]
+        csv << [addr[:address]]
       end
     end
+
     csv_content
     # send_file "/exports/test.csv"
   end
 
   def addon_export
-    file = @stats['filename']
+    # UPLOADS = Dir.pwd
+    file = @stats[:filename]
 
     csv_content = CSV.generate do |csv|
       count = 0
-      CSV.foreach("uploads/#{file}") do |row|
-        csv << (row + [@tokenized_addresses[count]['address']])
+      CSV.foreach(file) do |row|
+        if count == 0
+          csv << row + ['NORMALIZED']
+          count += 1
+          next
+        end
+        csv << row + [@tokenized_addresses[count-1][:address]]
         count += 1
       end
     end
+
     csv_content
   end
 

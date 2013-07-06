@@ -102,7 +102,7 @@ class AddressNormalizer < Sinatra::Base
     @set = AddressSet.find(params[:redis_id])
     csv_content = @set.simple_export
 
-    filename = "normalized_"+@set.stats['filename']
+    filename = "normalized_"+@set.stats[:filename]
     send_csv({content: csv_content, filename: filename})
   end
 
@@ -110,7 +110,7 @@ class AddressNormalizer < Sinatra::Base
     @set = AddressSet.find(params[:redis_id])
     csv_content = @set.addon_export
 
-    filename = "normalized_"+@set.stats['filename']
+    filename = "normalized_"+@set.stats[:filename]
     send_csv({content: csv_content, filename: filename})
   end
 

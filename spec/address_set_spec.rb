@@ -125,7 +125,7 @@ describe AddressSet do
 	it ".save should store stats hash" do
 		set_a = AddressSet.new
 		set_a.stats = {'user'=> 'Mike', "num_addresses"=> "1232"}
-		set_a.stats_save
+		set_a.persist_stats
 
 		$redis.hgetall("set_id:#{set_a.redis_id}:stats").should eq(set_a.stats)
 	end
@@ -136,7 +136,7 @@ describe AddressSet do
 		set_a.save
 
 		response = AddressSet.find_addresses(1)
-		response[0]['street'].should eq('Denrock')
+		response[0][:street].should eq('Denrock')
 	end
 
 	it "redis_id should work" do
@@ -158,15 +158,22 @@ describe AddressSet do
 		temp = AddressSet.find(set_a.redis_id)
 
 		temp.class.should eq(AddressSet)
-		temp.stats['filename'].should eq('data.csv')
+		temp.stats[:filename].should eq('data.csv')
 		temp.count.should eq(3)
 		temp.count_unique_occurences.count.should eq(2)
 	end
 
 	it ".to_csv should export csv" do
+		pending
 		set_a = AddressSet.new({filename: 'test1.csv'})
 		set_a.addon_export
-		pending
+	end
+
+	it ".addon_export should add a row of normalized addresses" do
+		filename = Dir.pwd + "/spec/example_data/test1.csv"
+		set = FileParser.instance.create_address_set({filename: filename})
+
+		csv = set.addon_export
 	end
 
 	after :each do

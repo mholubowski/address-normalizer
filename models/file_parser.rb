@@ -22,7 +22,9 @@ class FileParser
   def create_address_set(options, line_limit=nil)
     filename = options[:filename]
 
-    @set = AddressSet.new({filename: File.basename(filename)})
+    # @set = AddressSet.new({filename: File.basename(filename)})
+    @set = AddressSet.new({filename: filename})
+
     # @set = AddressSet.new()
 
     source_encoding = get_encoding(filename)

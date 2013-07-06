@@ -5,7 +5,7 @@ require_relative 'spec_helper'
 describe FileParser do
 
 	before :all do
-		filename = './spec/example_data/test1.csv'
+		filename = Dir.pwd + "/spec/example_data/test1.csv"
 		@set = FileParser.instance.create_address_set({filename: filename})
 	end
 
