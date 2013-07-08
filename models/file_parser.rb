@@ -65,7 +65,8 @@ class FileParser
   # 6587 Del Playa Drive Unit 3 Goleta, CA, 90045
   def guess_address_columns(row)
     # KEY: * = optional
-    # {street_num} {street_name} {street_type} {*Unit_type} {*Unit_number} {*City}, {*State}, {*zip/postal}
+    # {street_num} {street_name} {street_type} {*Unit_type} {*Unit_number} {*City}, {*State}, {*zip/postal} ??-> country; PO box;
+
   end
 
   def normalize_line(line)
@@ -88,6 +89,29 @@ class FileParser
   end
 
   private_class_method :new
+
+
+
+  def find_index_with_regex(array, regex)
+    array.index do |x|
+      regex =~ x
+    end
+  end
+
+  def column_regexes
+    {
+      street_num: /num|/,
+      street_name: /str.*name/,
+      street_type: /str.*type/,
+      unit_type: /unit.*type/,
+      unit_number: /unit.*num|ap.*num/,
+      city: /city/,
+      state: /state/,
+      zip: /zip|post/,
+      country: //,
+      po_box: /p.*o|box/
+    }
+  end
 
   # def handle_malformed_rows
   #   puts "Errors: #{errors.to_s}\n\n\n" unless errors.empty?

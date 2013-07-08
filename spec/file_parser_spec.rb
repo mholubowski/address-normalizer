@@ -23,4 +23,10 @@ describe FileParser do
 		@t.street.should eq('Denrock')
 	end
 
+	it ".find_index_with_regex should work" do
+		r = /postal|zip/
+		array = ['street', 'zip', 'state']
+		FileParser.instance.find_index_with_regex(array, r).should eq(1)
+	end
+
 end
