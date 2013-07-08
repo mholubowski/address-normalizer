@@ -16,6 +16,8 @@ gem 'cmess'
 gem 'redis'
 gem 'redis-namespace'
 gem 'json'
+# street_address alternative
+gem 'normalic'
 
 gem 'thin'
 

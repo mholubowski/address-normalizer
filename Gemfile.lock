@@ -26,6 +26,7 @@ GEM
     json (1.6.5)
     method_source (0.8.1)
     multi_json (1.7.7)
+    normalic (0.2)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -94,6 +95,7 @@ DEPENDENCIES
   cmess
   compass
   json
+  normalic
   pry
   redis
   redis-namespace

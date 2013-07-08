@@ -1,8 +1,3 @@
-require 'csv'
-
-# require_relative 'address_set.rb'
-# require_relative 'tokenized_address.rb'
-# require_relative 'address_tokenizer.rb'
 
 class FileParser
   attr_accessor :address_index, :normalized_address_index
@@ -22,10 +17,7 @@ class FileParser
   def create_address_set(options, line_limit=nil)
     filename = options[:filename]
 
-    # @set = AddressSet.new({filename: File.basename(filename)})
     @set = AddressSet.new({filename: filename})
-
-    # @set = AddressSet.new()
 
     source_encoding = get_encoding(filename)
 
@@ -58,16 +50,25 @@ class FileParser
 
   def handle_first_row(line)
     CSV.parse(line) do |row|
-      # check if 'address' exists
-      self.address_index = row.index("address")
-      # row << "address_normalized"
-      # self.normalized_address_index = row.index("address_normalized")
-      # Must handle first row in the address set class
+      row.map! {|e| e.downcase}
+      # check if 'address' FUZZY exists
+      if row.index("address")
+        self.address_index = row.index("address")
+      else # else try to smart piece together columns into an address! :)
+        guess_address_columns(row)
+      end
     end
   end
 
+  # takes an array of column headers
+  # tries to order them into a proper address
+  # 6587 Del Playa Drive Unit 3 Goleta, CA, 90045
+  def guess_address_columns(row)
+    # KEY: * = optional
+    # {street_num} {street_name} {street_type} {*Unit_type} {*Unit_number} {*City}, {*State}, {*zip/postal}
+  end
+
   def normalize_line(line)
-    # address_tokenizer = AddressTokenizer.new
     begin
       CSV.parse(line) do |row|
         begin
