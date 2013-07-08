@@ -29,4 +29,22 @@ describe FileParser do
 		FileParser.instance.find_index_with_regex(array, r).should eq(1)
 	end
 
+	it ".match_addr_columns_in_row should work" do
+		row = ['name', 'street number', 'street name', 'street type',
+					 'apartment number', 'city', 'state', 'postal code' ]
+		indexes = FileParser.instance.match_addr_columns_in_row(row)
+		indexes.should eq({
+			street_num: 1,
+      street_name: 2,
+      street_type: 3,
+      unit_type: nil,
+      unit_number: 4,
+      city: 5,
+      state: 6,
+      zip: 7,
+      country: nil,
+      po_box: nil
+			})
+	end
+
 end

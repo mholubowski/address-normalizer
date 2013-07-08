@@ -90,6 +90,13 @@ class FileParser
 
   private_class_method :new
 
+  def match_addr_columns_in_row(row)
+    indexes = {}
+    column_regexes.each do |key, val|
+      indexes[key] = find_index_with_regex(row, val)
+    end
+    indexes
+  end
 
 
   def find_index_with_regex(array, regex)
@@ -100,7 +107,7 @@ class FileParser
 
   def column_regexes
     {
-      street_num: /num|/,
+      street_num: /num/,
       street_name: /str.*name/,
       street_type: /str.*type/,
       unit_type: /unit.*type/,
@@ -108,8 +115,8 @@ class FileParser
       city: /city/,
       state: /state/,
       zip: /zip|post/,
-      country: //,
-      po_box: /p.*o|box/
+      country: /country/,
+      po_box: /box/
     }
   end
 
