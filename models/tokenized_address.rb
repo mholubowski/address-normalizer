@@ -15,6 +15,8 @@ class TokenizedAddress
 
     @address          = obj.to_s
 
+    @line1           = obj.line1
+
     @number           = obj.number
     @street           = obj.street
     @street_type      = obj.street_type
@@ -41,6 +43,7 @@ class TokenizedAddress
     obj = {}
 
     obj[:address]         = @address
+    obj[:line1]           = @line1
     obj[:number]          = @number
     obj[:street]          = @street
     obj[:street_type]     = @street_type

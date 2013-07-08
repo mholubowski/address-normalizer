@@ -19,6 +19,8 @@ gem 'json'
 # street_address alternative
 gem 'normalic'
 
+gem 'easypost'
+
 gem 'thin'
 
 group :test do

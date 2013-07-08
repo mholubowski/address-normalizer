@@ -51,11 +51,12 @@ class FileParser
     CSV.parse(line) do |row|
       row.map! {|e| e.downcase}
       # check if 'address' FUZZY exists
-      if row.index("address")
-        self.address_index = row.index("address")
-      else # else try to smart piece together columns into an address! :)
-        guess_address_columns(row)
-      end
+      # if row.index("address")
+      #   self.address_index = row.index("address")
+      # else # else try to smart piece together columns into an address! :)
+      #   guess_address_columns(row)
+      # end
+      guess_address_columns(row)
     end
   end
 
@@ -72,16 +73,17 @@ class FileParser
     begin
       CSV.parse(line) do |row|
         begin
-          if self.address_index
-            tokenized = TokenizedAddress.new(row[address_index])
-          elsif self.addr_columns
-            binding.pry
-            # use indexes to build concatenate columns into an address string
-            tokenized = TokenizedAddress.new(build_address_string(row))
-          else
-            p "WTF"
-          end
+          # if self.address_index
+          #   tokenized = TokenizedAddress.new(row[address_index])
+          # elsif self.addr_columns
+          #   # use indexes to build concatenate columns into an address string
+          #   tokenized = TokenizedAddress.new(build_address_string(row))
+          # else
+          #   p "WTF"
+          # end
           # Catch empty address
+
+          tokenized = TokenizedAddress.new(build_address_string(row))
         rescue NoMethodError
           strt_ad = ""
         end
@@ -113,6 +115,7 @@ class FileParser
 
   def column_regexes
     {
+      full_address: /address/,
       street_num: /num/,
       street_name: /str.*name/,
       street_type: /str.*type/,
@@ -127,8 +130,7 @@ class FileParser
   end
 
   def build_address_string(row)
-      i = self.addr_columns
-     "#{addr_prop(row, :street_num)} #{addr_prop(row, :street_name)} #{addr_prop(row, :street_type)} #{addr_prop(row, :unit_type)} #{addr_prop(row, :unit_number)} #{addr_prop(row, :city)}, #{addr_prop(row, :state)} #{addr_prop(row, :zip)} #{addr_prop(row, :country)} #{addr_prop(row, :po_box)}"
+     "#{addr_prop(row, :full_address)} #{addr_prop(row, :street_num)} #{addr_prop(row, :street_name)} #{addr_prop(row, :street_type)} #{addr_prop(row, :unit_type)} #{addr_prop(row, :unit_number)} #{addr_prop(row, :city)}, #{addr_prop(row, :state)} #{addr_prop(row, :zip)} #{addr_prop(row, :country)} #{addr_prop(row, :po_box)}"
   end
 
   def addr_prop row, key

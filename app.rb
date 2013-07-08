@@ -29,7 +29,7 @@ class AddressNormalizer < Sinatra::Base
   end
 
   # Includes
-  models = %w(address_set tokenized_address file_parser current_user)
+  models = %w(address_set tokenized_address file_parser current_user api_address_verifier)
   models.each {|file| require_relative "models/#{file}"}
 
   require_relative 'helpers'

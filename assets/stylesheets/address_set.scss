@@ -31,4 +31,14 @@
 		border-top: 1px solid #ccc;
 		padding: 3px;
 	}
+
+	.export-wrapper {
+		margin-top: 8px;
+		padding: 4px;
+		box-shadow: inset 1px 1px 1px #ccc;
+		.btn {
+			padding: 3px;
+			border-radius: 2px;
+		}
+	}
 }

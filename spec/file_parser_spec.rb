@@ -34,6 +34,7 @@ describe FileParser do
 					 'apartment number', 'city', 'state', 'postal code' ]
 		indexes = FileParser.instance.match_addr_columns_in_row(row)
 		indexes.should eq({
+      full_address: nil,
 			street_num: 1,
       street_name: 2,
       street_type: 3,

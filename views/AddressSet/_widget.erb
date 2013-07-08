@@ -20,21 +20,24 @@
 
     <div class="bottom-row">
       <div class="btn disabled">API</div>
-
-      <a href="/address_set/<%= @set.redis_id%>/simple-export" class="btn btn-info">
-        Export <small>(simple)</small>
-      </a>
-
-      <a href="/address_set/<%= @set.redis_id%>/addon-export" class="btn btn-info">
-        Export <small>(addon)</small>
-      </a>
-
-      <a href="/address_set/<%= @set.redis_id%>/addon-seperate-columns" class="btn btn-info">
-        Export <small>(columns)</small>
-      </a>
-
       <div class="btn disabled dragger"><i class="icon-hand-up"></i></div>
       <div class="btn disabled">Gazetteer</div>
+
+      <div class="export-wrapper">
+        Export:
+        <a rel="tooltip" data-placement="top" title="Export a simple list of just the Normalized Addresses" href="/address_set/<%= @set.redis_id%>/simple-export" class="export-btn btn btn-info">
+          Simple
+        </a>
+
+        <a rel="tooltip" data-placement="top" title="Append a column of Normalized Addresse to the original file" href="/address_set/<%= @set.redis_id%>/addon-export" class="export-btn btn btn-info">
+          Addon
+        </a>
+
+        <a rel="tooltip" data-placement="top" title="Append multiple columns to the original file - one for each address property" href="/address_set/<%= @set.redis_id%>/addon-seperate-columns" class="export-btn btn btn-info">
+          Columns
+        </a>
+      </div>
+
     </div>
 
   </div>

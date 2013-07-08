@@ -3,12 +3,13 @@ require_relative 'tokenized_address'
 class AddressSet
   include Enumerable
 
-  attr_accessor :tokenized_addresses, :stats
+  attr_accessor :tokenized_addresses, :verified_addresses, :stats
   attr_reader :redis_id
 
   def initialize (options={})
     options = {filename: "", id: nil}.merge(options)
     @tokenized_addresses = []
+    @verified_addresses = []
     @stats = {filename: options[:filename]}
     @redis_id = options[:id] if options[:id]
   end
@@ -141,6 +142,14 @@ class AddressSet
     csv_content
   end
 
-
+  def verify_addresses
+    @verified_addresses = @tokenized_addresses.map do |addr|
+      r = ApiAddressVerifier.instance.verify_with_easypost(addr)
+      hash = {
+        address: "#{r[:street1]} #{r[:street2]} #{r[:city]}, #{r[:state]} #{r[:zip]} #{r[:country]}",
+      }
+      #TODO split these up into attributes just like the tokenized_addresses
+    end
+  end
 
 end

@@ -176,6 +176,33 @@ describe AddressSet do
 		csv = set.addon_export
 	end
 
+	it ".should pass its addresses to easypost" do
+		filename = Dir.pwd + "/spec/example_data/test1.csv"
+		set = FileParser.instance.create_address_set({filename: filename})
+		set.save
+
+		set = AddressSet.find(1)
+		addr = set.tokenized_addresses[0]
+		response = ApiAddressVerifier.instance.verify_with_easypost(addr)
+		response.class.should eq(EasyPost::Address)
+	end
+
+	it ".verify_addresses should pass all its addresses to API and populate list" do
+		filename = Dir.pwd + "/spec/example_data/test1.csv"
+		set = FileParser.instance.create_address_set({filename: filename})
+		set.save
+
+		set = AddressSet.find(1)
+		set.verified_addresses.should eq([])
+
+		set.verify_addresses
+		addr1 = set.verified_addresses[0]
+
+		addr1[:address].should eq('7462 DENROCK AVE  LOS ANGELES, CA 90045 US')
+		#TODO pending completion of splitting up VerifiedAddress into hash of attributes
+		#addr1[:zip].should eq('90045')
+	end
+
 	after :each do
 		$redis.flushdb
 	end
