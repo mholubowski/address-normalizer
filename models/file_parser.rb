@@ -1,9 +1,8 @@
 
 class FileParser
-  attr_accessor :address_index, :normalized_address_index
+  attr_accessor :address_index, :normalized_address_index, :addr_columns
 
   def initialize
-    @address_index = 0
     @normalized_address_index = 0
   end
 
@@ -64,16 +63,24 @@ class FileParser
   # tries to order them into a proper address
   # 6587 Del Playa Drive Unit 3 Goleta, CA, 90045
   def guess_address_columns(row)
-    # KEY: * = optional
+    indexes = match_addr_columns_in_row(row)
     # {street_num} {street_name} {street_type} {*Unit_type} {*Unit_number} {*City}, {*State}, {*zip/postal} ??-> country; PO box;
-
+    self.addr_columns = indexes
   end
 
   def normalize_line(line)
     begin
       CSV.parse(line) do |row|
         begin
-          tokenized = TokenizedAddress.new(row[address_index])
+          if self.address_index
+            tokenized = TokenizedAddress.new(row[address_index])
+          elsif self.addr_columns
+            binding.pry
+            # use indexes to build concatenate columns into an address string
+            tokenized = TokenizedAddress.new(build_address_string(row))
+          else
+            p "WTF"
+          end
           # Catch empty address
         rescue NoMethodError
           strt_ad = ""
@@ -98,7 +105,6 @@ class FileParser
     indexes
   end
 
-
   def find_index_with_regex(array, regex)
     array.index do |x|
       regex =~ x
@@ -118,6 +124,16 @@ class FileParser
       country: /country/,
       po_box: /box/
     }
+  end
+
+  def build_address_string(row)
+      i = self.addr_columns
+     "#{addr_prop(row, :street_num)} #{addr_prop(row, :street_name)} #{addr_prop(row, :street_type)} #{addr_prop(row, :unit_type)} #{addr_prop(row, :unit_number)} #{addr_prop(row, :city)}, #{addr_prop(row, :state)} #{addr_prop(row, :zip)} #{addr_prop(row, :country)} #{addr_prop(row, :po_box)}"
+  end
+
+  def addr_prop row, key
+    return nil if self.addr_columns[key].nil?
+    row[self.addr_columns[key]]
   end
 
   # def handle_malformed_rows
