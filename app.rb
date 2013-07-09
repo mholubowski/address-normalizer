@@ -38,7 +38,8 @@ class AddressNormalizer < Sinatra::Base
   require "csv"
 
   # sets global for RedisDb singleton
-  $redis = RedisDb.instance
+  $redis = RedisDb.instance if development?
+  $redis = {} if production?
 
   # ROUTES
   get '/' do

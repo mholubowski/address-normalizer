@@ -4,7 +4,7 @@ class RedisDb
 
 	def initialize
 		@connection = Redis.new
-	end	
+	end
 
 	@@instance = RedisDb.new
 
@@ -21,9 +21,9 @@ class RedisDb
 			connection.send(method_name, *args, &block)
 		end
 	end
-	
+
 	private_class_method :new
-	
+
 	private
 
 	attr_reader :connection
