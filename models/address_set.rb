@@ -1,4 +1,5 @@
 require_relative 'tokenized_address'
+require_relative 'verified_address'
 
 class AddressSet
   include Enumerable
@@ -20,12 +21,21 @@ class AddressSet
     addresses.map {|addr| addr.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}}
   end
 
+  def self.find_verified_addresses(id)
+    addr_ids = $redis.lrange("set_id:#{id}:verified_address_ids", 0, -1)
+    addresses = addr_ids.map {|id| $redis.hgetall "verified_address_id:#{id}:hash"}
+    addresses.map {|addr| addr.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}}
+  end
+
   def self.find(id)
     set = AddressSet.new({id: id})
     set.stats = $redis.hgetall("set_id:#{id}:stats")
     set.stats = set.stats.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
     set.tokenized_addresses = AddressSet.find_addresses(id)
     set.tokenized_addresses.map {|addr| addr.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}}
+
+    set.verified_addresses = AddressSet.find_verified_addresses(id)
+    set.verified_addresses.map {|addr| addr.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}}
     set
   end
 
@@ -74,12 +84,8 @@ class AddressSet
   def save
     persist_stats
 
-    addr_ids = @tokenized_addresses.collect {|addr| addr.save}
+    save_tokenized_addresses
 
-    # pipeline breaks things with setting the redis id
-    # $redis.pipelined do
-    addr_ids.each {|id| $redis.rpush "set_id:#{redis_id}:address_ids", id}
-    # end
     CurrentUser::set_ids << redis_id
   end
 
@@ -87,6 +93,14 @@ class AddressSet
     unless @stats == {}
       $redis.hmset("set_id:#{redis_id}:stats", *@stats.flatten)
     end
+  end
+
+  def save_tokenized_addresses
+    addr_ids = @tokenized_addresses.collect {|addr| addr.save}
+    # pipeline breaks things with setting the redis id
+    # $redis.pipelined do
+    addr_ids.each {|id| $redis.rpush "set_id:#{redis_id}:address_ids", id}
+    # end
   end
 
   def simple_export
@@ -125,7 +139,7 @@ class AddressSet
   def addon_seperate_columns
     file = @stats[:filename]
 
-     csv_content = CSV.generate do |csv|
+    csv_content = CSV.generate do |csv|
       count = 0
       CSV.foreach(file) do |row|
         if count == 0
@@ -145,11 +159,18 @@ class AddressSet
   def verify_addresses
     @verified_addresses = @tokenized_addresses.map do |addr|
       r = ApiAddressVerifier.instance.verify_with_easypost(addr)
-      hash = {
-        address: "#{r[:street1]} #{r[:street2]} #{r[:city]}, #{r[:state]} #{r[:zip]} #{r[:country]}",
-      }
       #TODO split these up into attributes just like the tokenized_addresses
+      addr_string = "#{r[:street1]} #{r[:street2]} #{r[:city]}, #{r[:state]} #{r[:zip]} #{r[:country]}"
+      VerifiedAddress.new(addr_string)
     end
+  end
+
+  def save_verified_addresses
+    addr_ids = @verified_addresses.collect {|addr| addr.save}
+    # pipeline breaks things with setting the redis id
+    # $redis.pipelined do
+    addr_ids.each {|id| $redis.rpush "set_id:#{redis_id}:verified_address_ids", id}
+    # end
   end
 
 end

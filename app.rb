@@ -122,6 +122,17 @@ class AddressNormalizer < Sinatra::Base
     send_csv({content: csv_content, filename: filename})
   end
 
+  get '/address_set/:redis_id/verify' do
+    @set = AddressSet.find(params[:redis_id])
+    binding.pry
+    @set.verify_addresses
+    binding.pry
+    @set.save_verified_addresses
+
+    @set = AddressSet.find(params[:redis_id])
+    redirect to('/normalize')
+  end
+
   delete '/address_set/:redis_id' do
     redis_id = params[:redis_id].to_i
     CurrentUser::set_ids.delete(redis_id)

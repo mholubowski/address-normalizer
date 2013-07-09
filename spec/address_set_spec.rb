@@ -8,8 +8,8 @@ describe AddressSet do
 
 	before :each do
 		@a = AddressSet.new
-		@t1a = TokenizedAddress.new('7462 Denrock Ave. Los Angeles')
-		@t1b = TokenizedAddress.new('7462 Denrock Avenue Los Angeles')
+		@t1a = TokenizedAddress.new('7462 Denrock Ave. Los Angeles, CA')
+		@t1b = TokenizedAddress.new('7462 Denrock Avenue Los Angeles, CA')
 		@t2a = TokenizedAddress.new('240 Ofarrel St')
 	end
 
@@ -111,7 +111,7 @@ describe AddressSet do
 		$redis.lrange('set_id:1:address_ids', 0, -1).should eq(['1','2'])
 	end
 
-	it ".save should also store addresses" do
+	it ".save should also store tokenized_addresses" do
 		counter = $redis.get('global:address_id').to_i
 
 		set_a = AddressSet.new
@@ -120,6 +120,20 @@ describe AddressSet do
 		set_a.save
 
 		$redis.get('global:address_id').to_i.should eq(counter + 2)
+	end
+
+	it ".save should also store verified_addresses" do
+		counter = $redis.get('global:verified_address_id').to_i
+
+		set_a = AddressSet.new
+		set_a.tokenized_addresses << @t1a << @t1b
+
+		set_a.save
+		set_a = AddressSet.find(1)
+		set_a.verify_addresses
+		set_a.save_verified_addresses
+
+		$redis.get('global:verified_address_id').to_i.should eq(2)
 	end
 
 	it ".save should store stats hash" do
