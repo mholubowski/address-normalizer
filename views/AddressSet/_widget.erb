@@ -20,7 +20,6 @@
     </div>
 
     <div class="bottom-row">
-      <div class="btn disabled">API</div>
       <div class="btn disabled dragger"><i class="icon-hand-up"></i></div>
       <div class="btn disabled">Gazetteer</div>
 
@@ -30,13 +29,26 @@
           Simple
         </a>
 
-        <a rel="tooltip" data-placement="top" title="Append a column of Normalized Addresse to the original file" href="/address_set/<%= @set.redis_id%>/addon-export" class="export-btn btn btn-info">
+        <a rel="tooltip" data-placement="top" title="Append a column of Normalized Addresses to the original file" href="/address_set/<%= @set.redis_id%>/addon-export" class="export-btn btn btn-info">
           Addon
         </a>
 
         <a rel="tooltip" data-placement="top" title="Append multiple columns to the original file - one for each address property" href="/address_set/<%= @set.redis_id%>/addon-seperate-columns" class="export-btn btn btn-info">
           Columns
         </a>
+        <% if @set.verified_addresses.count > 0 %>
+        <a rel="tooltip" data-placement="top" title="Append a column of Normalized & Verified Addresses to the original file" href="/address_set/<%= @set.redis_id%>/addon-verified-columns" class="export-btn btn btn-success">
+          Addon w/ Verified
+        </a>
+        <% end %>
+      </div>
+
+      <div class="verify-wrapper">
+        Verify:
+        <a rel="tooltip" data-placement="top" title="Run the addresses through EasyPost's API. Warning: SLOW" href="/address_set/<%= @set.redis_id%>/verify" class="verify-btn btn btn-info">
+          Easypost
+        </a>
+        <div class="time-to-verify">Time to verify: <%= time_to_verify(@set.tokenized_addresses.count) %></div>
       </div>
 
     </div>

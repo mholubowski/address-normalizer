@@ -12,4 +12,14 @@ def send_csv options
   content
 end
 
+def time_to_verify count
+  seconds = count * 1.6 + 1
+  seconds = seconds.round
+  if seconds < 60
+    "#{seconds} sec"
+  else
+    "#{seconds/60} min #{seconds%60} sec"
+  end
+end
+
 

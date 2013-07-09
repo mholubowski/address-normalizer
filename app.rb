@@ -122,11 +122,18 @@ class AddressNormalizer < Sinatra::Base
     send_csv({content: csv_content, filename: filename})
   end
 
+  get '/address_set/:redis_id/addon-verified-columns' do
+    @set = AddressSet.find(params[:redis_id])
+    csv_content = @set.addon_verified_columns
+
+    filename = "normalized_"+@set.stats[:filename]
+    send_csv({content: csv_content, filename: filename})
+  end
+
   get '/address_set/:redis_id/verify' do
     @set = AddressSet.find(params[:redis_id])
-    binding.pry
+    @set.verified_addresses.clear
     @set.verify_addresses
-    binding.pry
     @set.save_verified_addresses
 
     @set = AddressSet.find(params[:redis_id])

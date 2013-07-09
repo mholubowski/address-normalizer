@@ -15,7 +15,11 @@ class ApiAddressVerifier
 	def verify_with_easypost(addr)
 		parsed = parse_address_for_easypost(addr)
 		easypost_addr = EasyPost::Address.create(parsed)
-		easypost_addr.verify
+		begin
+			easypost_addr.verify
+		rescue => e
+			{error: e.message[0..34]}
+		end
 	end
 
 	def create_easypost_call(addr)

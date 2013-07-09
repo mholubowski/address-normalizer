@@ -135,6 +135,26 @@ class AddressSet
     csv_content
   end
 
+  def addon_verified_columns
+    # UPLOADS = Dir.pwd
+    file = @stats[:filename]
+
+    csv_content = CSV.generate do |csv|
+      count = 0
+      CSV.foreach(file) do |row|
+        if count == 0
+          csv << row + ['NORMALIZED'] + ['VERIFIED (EasyPost)']
+          count += 1
+          next
+        end
+        csv << row + [@tokenized_addresses[count-1][:address]] + [@verified_addresses[count-1][:address]]
+        count += 1
+      end
+    end
+
+    csv_content
+  end
+
   # these names are embarassing...
   def addon_seperate_columns
     file = @stats[:filename]
@@ -158,19 +178,22 @@ class AddressSet
 
   def verify_addresses
     @verified_addresses = @tokenized_addresses.map do |addr|
+
       r = ApiAddressVerifier.instance.verify_with_easypost(addr)
       #TODO split these up into attributes just like the tokenized_addresses
-      addr_string = "#{r[:street1]} #{r[:street2]} #{r[:city]}, #{r[:state]} #{r[:zip]} #{r[:country]}"
+      if r[:error]
+        addr_string = "#{r[:error]}"
+      else
+        addr_string = "#{r[:street1]} #{r[:street2]} #{r[:city]}, #{r[:state]} #{r[:zip]} #{r[:country]}"
+      end
       VerifiedAddress.new(addr_string)
     end
   end
 
   def save_verified_addresses
     addr_ids = @verified_addresses.collect {|addr| addr.save}
-    # pipeline breaks things with setting the redis id
-    # $redis.pipelined do
+    $redis.del "set_id:#{redis_id}:verified_address_ids"
     addr_ids.each {|id| $redis.rpush "set_id:#{redis_id}:verified_address_ids", id}
-    # end
   end
 
 end

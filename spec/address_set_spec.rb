@@ -210,11 +210,32 @@ describe AddressSet do
 		set.verified_addresses.should eq([])
 
 		set.verify_addresses
+		set.save_verified_addresses
+
+		set = AddressSet.find(1)
 		addr1 = set.verified_addresses[0]
 
 		addr1[:address].should eq('7462 DENROCK AVE  LOS ANGELES, CA 90045 US')
 		#TODO pending completion of splitting up VerifiedAddress into hash of attributes
 		#addr1[:zip].should eq('90045')
+	end
+
+	it ".verify_addresses should catch EasyPost error" do
+		$redis.flushdb
+		filename = Dir.pwd + "/spec/example_data/test1_withfake.csv"
+		set = FileParser.instance.create_address_set({filename: filename})
+		set.save
+
+		set = AddressSet.find(1)
+		set.verified_addresses.should eq([])
+
+		set.verify_addresses
+		set.save_verified_addresses
+
+		set = AddressSet.find(1)
+		addr1 = set.verified_addresses[2]
+
+		addr1[:address].should eq('Insufficient address data provided.')
 	end
 
 	after :each do

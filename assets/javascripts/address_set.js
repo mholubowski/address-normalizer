@@ -27,6 +27,7 @@ $(function(){
 	})
 
 	$('.export-btn').tooltip();
+	$('.verify-btn').tooltip();
 
 
 
