@@ -26,6 +26,9 @@ class AddressNormalizer < Sinatra::Base
   configure :production do
     # sprockets.css_compressor = YUI::CssCompressor.new
     # sprockets.js_compressor = Uglifier.new
+
+    uri = URI.parse(ENV["REDISCLOUD_URL"])
+    $redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
   end
 
   # Includes
@@ -39,7 +42,6 @@ class AddressNormalizer < Sinatra::Base
 
   # sets global for RedisDb singleton
   $redis = RedisDb.instance if development?
-  $redis = {} if production?
 
   # ROUTES
   get '/' do
