@@ -24,8 +24,8 @@ class AddressNormalizer < Sinatra::Base
   end
 
   configure :production do
-    sprockets.css_compressor = YUI::CssCompressor.new
-    sprockets.js_compressor = Uglifier.new
+    # sprockets.css_compressor = YUI::CssCompressor.new
+    # sprockets.js_compressor = Uglifier.new
   end
 
   # Includes
