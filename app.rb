@@ -62,6 +62,8 @@ class AddressNormalizer < Sinatra::Base
   end
 
   get '/logout' do
+    #TODO Delete all address Sets
+    #Use this to auto cleanup redis?
     session_end!
     redirect to('/')
   end
@@ -98,6 +100,7 @@ class AddressNormalizer < Sinatra::Base
     end
   end
 
+# ---------------- EXPORT ROUTES ----------------
   get '/address_set/:redis_id/simple-export' do
     @set = AddressSet.find(params[:redis_id])
     csv_content = @set.simple_export
@@ -129,7 +132,7 @@ class AddressNormalizer < Sinatra::Base
     filename = "normalized_"+@set.stats[:filename]
     send_csv({content: csv_content, filename: filename})
   end
-
+# -------------------------------------------------
   get '/address_set/:redis_id/verify' do
     @set = AddressSet.find(params[:redis_id])
     @set.verified_addresses.clear
@@ -142,6 +145,7 @@ class AddressNormalizer < Sinatra::Base
 
   delete '/address_set/:redis_id' do
     redis_id = params[:redis_id].to_i
+    #TODO also clean up everything from REDIS and file storage
     CurrentUser::set_ids.delete(redis_id)
     redirect back unless request.xhr?
   end
