@@ -1,0 +1,4 @@
+name, street number, street name, street type, city, state, zip
+Mike, 7462, Denrock, Avenue, Los Angeles, CA, 90045
+Jack, 7462, Denrock, Ave, Los Angeles, California, 90045
+Greg, 6587, Del Playa, Dr, Goleta, CA, 93117

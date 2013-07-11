@@ -28,7 +28,9 @@ $(function(){
 
 	$('.export-btn').tooltip();
 	$('.verify-btn').tooltip();
-
+	$('.verify-btn').on('click', function() {
+		console.log('click')
+	})
 
 
 })

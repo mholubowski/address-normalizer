@@ -27,8 +27,11 @@
 		}
 	}
 
+	.middle {
+		height: 60px;
+	}
+
 	.bottom-row {
-		border-top: 1px solid #ccc;
 		padding: 3px;
 	}
 
@@ -41,4 +44,20 @@
 			border-radius: 2px;
 		}
 	}
+}
+
+.full-modal {
+width: 100%;
+left: 0;
+margin-left: 0;
+top: 0;
+margin-top: 0!important;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.51);
+position: absolute;
+ .inner {
+ 	position: absolute;
+ 	top: 400px;
+ 	background-color: white;
+ }
 }
