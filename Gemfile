@@ -13,6 +13,7 @@ gem 'uglifier'
 gem 'pry'
 gem 'StreetAddress', :require => "street_address"
 gem 'aws-sdk', '~> 1.0'
+gem 'tux'
 
 gem 'cmess'
 gem 'redis'

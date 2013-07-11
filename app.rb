@@ -43,6 +43,19 @@ class AddressNormalizer < Sinatra::Base
   # sets global for RedisDb singleton
   $redis = RedisDb.instance if development?
 
+  # Amazon S3 Config
+
+  AWS.config(
+  :access_key_id => ENV['ACCESS_KEY_ID'],
+  :secret_access_key => ENV['SECRET_ACCESS_KEY']
+  )
+
+  $s3 = AWS::S3.new
+  $bucket = 'TEST_address_normalizer' if development?
+  $bucket = 'PRODUCTION_address_normalizer' if production?
+
+
+
   # ROUTES
   get '/' do
     @title = 'Address Normalizer'
