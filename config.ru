@@ -1,12 +1,4 @@
-require 'bundler'
-Bundler.require
+# This file is used by Rack-based servers to start the application.
 
-require './app'
-
-map '/assets' do
-    run AddressNormalizer.sprockets
-end
-
-map '/' do
-    run AddressNormalizer
-end
+require ::File.expand_path('../config/environment',  __FILE__)
+run Rails.application

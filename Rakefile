@@ -1,20 +1,6 @@
-require 'bundler'
-Bundler.require
+# Add your own tasks in files placed in lib/tasks ending in .rake,
+# for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
-# Require sprockets task
-require 'rake/sprocketstask'
+require File.expand_path('../config/application', __FILE__)
 
-# Require sinatra applicaton
-require './app'
-
-# Get path to the public assets folder
-target = File.join(AddressNormalizer.public_folder, File.basename(AddressNormalizer.assets_folder))
-
-namespace :sprockets do
-  # Create new sprockets rake task
-  Rake::SprocketsTask.new do |t|
-    t.environment = AddressNormalizer.sprockets
-    t.output      = target
-    t.assets      = %w( application.js application.css )
-  end
-end
+AddressNormalizer::Application.load_tasks
