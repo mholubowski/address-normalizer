@@ -10,8 +10,9 @@
  *
  *= require_self
  *= require_tree .
- *= require twitter/bootstrap
  */
 
-@import 'bootstrap/glyphicons';
+$sexyGreen: #1dd3c3;
 
+$linkColor: $sexyGreen;
+@import "bootstrap";
