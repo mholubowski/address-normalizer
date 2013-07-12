@@ -4,9 +4,7 @@ class UploadedFilesController < ApplicationController
   end
 
   def create
-    # Store file in S3
     @file = params[:uploaded_file][:thefile].tempfile
-    # @uploaded_file = UploadedF
   end
 
   def edit
