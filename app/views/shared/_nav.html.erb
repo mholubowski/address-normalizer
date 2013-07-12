@@ -1,0 +1,16 @@
+<div class="navbar">
+  <div class="navbar-in">
+    <a href="/" class="logo">
+      <i class="icon-th-large"></i>
+      Address Normalizer
+    </a>
+    <div class="user-info">
+      <% if true %>
+        Hello, <%#= session[:username] %>
+        <a href="/logout">Logout</a>
+      <% else %>
+        <a href="/login">Login</a>
+      <% end %>
+    </div>
+  </div>
+</div>

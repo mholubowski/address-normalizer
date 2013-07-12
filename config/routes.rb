@@ -1,4 +1,19 @@
 AddressNormalizer::Application.routes.draw do
+
+  root 'welcome#home'
+
+  get "welcome/home"
+  get "welcome/about"
+
+
+
+
+
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +54,7 @@ AddressNormalizer::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

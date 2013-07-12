@@ -1,0 +1,15 @@
+.navbar {
+
+  .logo {
+    font-size: 26px;
+    text-decoration: none;
+    color: #1DD3C3;
+    &:hover {
+      color: darken(#1DD3C3, 15%)
+    }
+  }
+
+  .user-info {
+    float: right;
+  }
+}
