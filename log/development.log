@@ -3766,3 +3766,258 @@ NoMethodError (undefined method `pry' for #<Binding:0x007f99dc7d1428>):
   Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
   Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
   Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.8ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:22:21 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f99dcdb80a8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-93823-j9e9u3>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `pry' for #<Binding:0x007f99df10e098>):
+  app/controllers/uploaded_files_controller.rb:9:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 16:22:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (149.4ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 410ms (Views: 342.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 16:22:36 -0700
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:22:41 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fb7ef1433f0 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-21215-17titv5>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  Rendered uploaded_files/create.html.erb within layouts/application (0.8ms)
+  Rendered shared/_nav.html.erb (0.3ms)
+Completed 200 OK in 73662ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 16:23:54 -0700
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:23:57 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fb7ef03c3f8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-21215-1w9fmnx>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  Rendered uploaded_files/create.html.erb within layouts/application (0.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 3343ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:00 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 16:24:28 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (1.2ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:29 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 16:24:30 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (59.8ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 153ms (Views: 72.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:24:34 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fb7ebf81ee8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-21215-oyndu8>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  Rendered uploaded_files/create.html.erb within layouts/application (0.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:35 -0700
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fb7ef129dd8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-21215-kutac5>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  Rendered uploaded_files/create.html.erb within layouts/application (1.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 16:24:46 -0700

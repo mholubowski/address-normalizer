@@ -1,4 +1,7 @@
 <h1>UploadedFiles#create</h1>
 <p>Find me in app/views/uploaded_files/create.html.erb</p>
 
-<%#= CSV. %>
+<% File.foreach @file do |row| %>
+<p>hi</p>
+<%= row %>
+<% end %>
