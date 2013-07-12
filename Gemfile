@@ -11,6 +11,9 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+# database
+gem 'pg'
+
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
@@ -33,13 +36,12 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
-  gem 'sqlite3'
   gem 'pry'
 end
 
-group :production do
-  gem 'pg'
-end
+#for heroku to work
+gem 'rails_12factor', group: :production
+
 
 gem 'bootstrap-glyphicons'
 gem 'anjlab-bootstrap-rails'
