@@ -4,7 +4,8 @@ class UploadedFilesController < ApplicationController
   end
 
   def create
-    # @file = params[:uploaded_file][:thefile].tempfile
+    @file = params[:uploaded_file][:thefile].tempfile
+    # @uploaded_file = UploadedF
   end
 
   def edit
