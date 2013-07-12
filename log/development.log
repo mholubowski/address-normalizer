@@ -3599,3 +3599,79 @@ Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 16:03:42 -070
 
 
 Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 16:03:42 -0700
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f99dcea6c30 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-93823-bdbc63>, @original_filename="mike_holubowski.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"mike_holubowski.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Uploaded file"}
+  Rendered uploaded_files/create.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 66ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 16:07:45 -0700
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f99df117e68 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-93823-4av1ck>, @original_filename="mike_holubowski.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"mike_holubowski.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Uploaded file"}
+  Rendered uploaded_files/create.html.erb within layouts/application (0.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 16:07:54 -0700

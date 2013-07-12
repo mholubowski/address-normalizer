@@ -5,7 +5,7 @@ class UploadedFilesController < ApplicationController
 
   def create
     # Store file in S3
-    # @params = params[:uploaded_file][:thefile]
+    @file = params[:uploaded_file][:thefile]
   end
 
   def edit
