@@ -4021,3 +4021,32 @@ Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:24
 
 
 Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 16:24:46 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 16:42:55 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 16:42:55 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 16:42:55 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 16:42:56 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (50.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 139ms (Views: 64.8ms | ActiveRecord: 1.2ms)
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "address_sets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "uploaded_files" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "column_headers" text, "first_row" text, "second_row" text, "third_row" text, "fourth_row" text, "address_column_index" integer, "address_set_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE INDEX "index_uploaded_files_on_address_set_id" ON "uploaded_files" ("address_set_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712201928')[0m
+  [1m[35m (1.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712174328')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

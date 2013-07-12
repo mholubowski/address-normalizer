@@ -37,6 +37,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'pry'
+  gem 'sqlite3'
 end
 
 #for heroku to work
