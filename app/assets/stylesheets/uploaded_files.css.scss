@@ -1,11 +1,23 @@
 // Place all the styles related to the UploadedFiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$sexyGreen: #1dd3c3;
+$sexyGreen: #DAFFDB;
+// TODO Move these:
+.color-orange {
+  color: orange;
+}
+.color-green {
+  color: green;
+}
 
 .instruction {
   padding: 30px;
   font-size: 20px;
+}
+
+.attention-arrow {
+  float: left;
+  padding: 5px;
 }
 
 .step-header {
@@ -16,13 +28,24 @@ $sexyGreen: #1dd3c3;
   max-width: 100%;
   overflow-x: scroll;
   box-shadow: inset 0px 0px 14px 4px #ccc;
-  margin: 20px;
+  margin: 0 0px 20px 0px;
   th {
-
-    &:hover {
+    background-color: #ccc;
+    &.active {
       background-color: $sexyGreen;
+    }
+    &:hover {
+      background-color: lighten($sexyGreen, 15%);
       cursor: hand;
       cursor: pointer;
     }
+    &:active {
+      background-color: $sexyGreen;
+    }
   }
+}
+
+.proceed-btn {
+  text-align: center;
+  display: none;
 }

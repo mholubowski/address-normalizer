@@ -7098,3 +7098,3150 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:34
 
 
 Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-13 13:50:55 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-13 13:50:56 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-13 13:50:57 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (4.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fbd780297d8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130713-1841-1gnsbkl>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "uploaded_files" ("content", "created_at", "filename", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["created_at", Sat, 13 Jul 2013 20:51:01 UTC +00:00], ["filename", "tester.csv"], ["updated_at", Sat, 13 Jul 2013 20:51:01 UTC +00:00]]
+  [1m[35m (15.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/uploaded_files/7/edit
+Completed 302 Found in 24ms (ActiveRecord: 15.9ms)
+
+
+Started GET "/uploaded_files/7/edit" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUploadedFile Load (2.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (2.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 22ms (Views: 17.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 13:51:01 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/uploaded_files/7/edit" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "7"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (4.9ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 57ms (Views: 19.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:00:49 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-13 14:00:50 -0700
+
+
+Started GET "/uploaded_files/7/edit" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (2.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 21ms (Views: 16.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:02 -0700
+
+
+Started GET "/uploaded_files/7/edit" for 127.0.0.1 at 2013-07-13 14:01:31 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUploadedFile Load (5.4ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "7"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (1.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1836ms (Views: 1827.7ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:33 -0700
+
+
+Started GET "/uploaded_files/7/edit" for 127.0.0.1 at 2013-07-13 14:01:54 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (2.5ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 2536ms (Views: 2531.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:01:57 -0700
+
+
+Started GET "/uploaded_files/7/edit" for 127.0.0.1 at 2013-07-13 14:02:44 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "7"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (2.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1642ms (Views: 1637.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:02:46 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.5ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (21.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:01 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:03:24 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (20.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1607ms (Views: 1605.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:25 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (21.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 34.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:03:55 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (19.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 31.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:07:40 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (30.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 52ms (Views: 49.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:01 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:10:49 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.9ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:10:50 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:11:09 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (58.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1661ms (Views: 1657.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:11:11 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:13:37 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (20.3ms)
+Completed 500 Internal Server Error in 2271ms
+
+ActionView::Template::Error (File to import not found or unreadable: font-awesome.
+Load paths:
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/images
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/javascripts
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/stylesheets
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/vendor/assets/javascripts
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/vendor/assets/stylesheets
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-glyphicons-0.0.1/app/assets/fonts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-glyphicons-0.0.1/app/assets/stylesheets
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/turbolinks-1.3.0/lib/assets/javascripts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/jquery-rails-3.0.4/vendor/assets/javascripts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/coffee-rails-4.0.0/lib/assets/javascripts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-2.3.2.0/vendor/assets/images
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-2.3.2.0/vendor/assets/javascripts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-2.3.2.0/vendor/assets/stylesheets
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/vendor/assets/stylesheets
+  (in /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/stylesheets/application.css.scss:20)):
+    2: <html>
+    3: <head>
+    4:   <title>AddressNormalizer</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/assets/stylesheets/application.css.scss:20
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___209123268054312780_70225841801240'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.5ms)
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:13:43 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (20.1ms)
+Completed 500 Internal Server Error in 1370ms
+
+ActionView::Template::Error (File to import not found or unreadable: font-awesome.
+Load paths:
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/images
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/javascripts
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/stylesheets
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/vendor/assets/javascripts
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/vendor/assets/stylesheets
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-glyphicons-0.0.1/app/assets/fonts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-glyphicons-0.0.1/app/assets/stylesheets
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/turbolinks-1.3.0/lib/assets/javascripts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/jquery-rails-3.0.4/vendor/assets/javascripts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/coffee-rails-4.0.0/lib/assets/javascripts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-2.3.2.0/vendor/assets/images
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-2.3.2.0/vendor/assets/javascripts
+  /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/bootstrap-sass-2.3.2.0/vendor/assets/stylesheets
+  /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/vendor/assets/stylesheets
+  (in /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/stylesheets/application.css.scss:20)):
+    2: <html>
+    3: <head>
+    4:   <title>AddressNormalizer</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/assets/stylesheets/application.css.scss:20
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___209123268054312780_70225841801240'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (66.1ms)
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:13:53 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.4ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (70.7ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 2351ms (Views: 2226.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2013-07-13 14:13:56 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:15:16 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (30.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 66ms (Views: 59.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:16 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:15:17 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:17 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:15:17 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:17 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:15:17 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:15:17 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:17 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:17 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:17 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:15:24 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (19.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 32.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:15:24 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:15:24 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:24 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:15:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:15:25 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:25 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:25 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:15:25 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:16:03 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (17.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2025ms (Views: 2022.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2013-07-13 14:16:05 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:16:19 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (19.9ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1928ms (Views: 1924.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:21 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:21 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:22 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:22 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:22 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:22 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:22 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:16:45 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (19.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1853ms (Views: 1850.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:16:47 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:17:29 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1947ms (Views: 1944.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:17:31 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:22:49 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (19.6ms)
+Completed 500 Internal Server Error in 405ms
+
+ActionView::Template::Error (SyntaxError: reserved word "function"
+  (in /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/javascripts/uploaded_files.js.coffee)):
+    3: <head>
+    4:   <title>AddressNormalizer</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+    9: <body>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb__3864597599169904181_70206312203780'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (25.5ms)
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:25:55 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.4ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (23.3ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 518ms (Views: 512.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:25:56 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:26:52 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.4ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (24.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 415ms (Views: 411.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:26:53 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:27:07 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (35.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 568ms (Views: 564.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:27:07 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:27:07 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:27:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:27:07 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:27:07 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:27:08 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:27:08 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:27:08 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:27:08 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:27:08 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (19.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 365ms (Views: 360.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:17 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:28:52 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 333ms (Views: 329.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:28:53 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:29:20 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (1.6ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 354ms (Views: 349.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:29:20 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:20 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:29:20 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:20 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:21 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:29:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:21 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:21 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:29:21 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:21 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:29:54 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (20.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1961ms (Views: 1957.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:29:56 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:30:20 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1895ms (Views: 1890.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:22 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:30:37 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (24.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1982ms (Views: 1978.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:30:39 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:31:01 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (21.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2111ms (Views: 2107.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:31:03 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:31:03 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:03 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:31:03 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:03 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:03 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:03 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:31:03 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:04 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:04 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:31:19 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (19.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1905ms (Views: 1899.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:31:21 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:32:47 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (17.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 319ms (Views: 315.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:32:48 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (17.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 344ms (Views: 340.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:18 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:33:31 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (17.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 323ms (Views: 320.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:33:32 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:36:42 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (28.0ms)
+  Rendered shared/_nav.html.erb (1.0ms)
+Completed 200 OK in 562ms (Views: 558.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:36:43 -0700
+
+
+Started GET "/assets/fontawesome-webfont.woff" for 127.0.0.1 at 2013-07-13 14:36:44 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:37:41 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.9ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 439ms (Views: 435.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:37:42 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:38:50 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (19.2ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 2251ms (Views: 2248.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:38:52 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:41:41 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.8ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 438ms (Views: 433.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:41:42 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:43:06 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.7ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (25.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 589ms (Views: 583.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:07 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:43:13 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.9ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 447ms (Views: 443.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:14 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:43:29 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.4ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (145.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 768ms (Views: 758.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:43:30 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:44:15 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 427ms (Views: 423.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:16 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (19.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 32.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:19 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.6ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (17.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:44:35 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:45:23 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (16.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 29.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:45:24 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:46:00 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 442ms (Views: 439.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:01 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.5ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (16.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 30.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:11 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:46:20 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (16.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 386ms (Views: 379.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:20 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:20 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:20 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:20 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:20 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:21 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:46:21 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:21 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:46:21 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:48:58 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (14.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1850ms (Views: 1846.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:00 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:49:22 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (15.3ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 1984ms (Views: 1979.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:49:24 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (85.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 105ms (Views: 99.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:52:04 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:52:35 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (14.9ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1874ms (Views: 1870.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:52:37 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (14.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:08 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:53:26 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (14.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1966ms (Views: 1963.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:28 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:53:47 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (14.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2208ms (Views: 2205.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 38ms (Views: 34.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:53:49 -0700
+
+
+Started GET "/uploaded_files/6/new_address_set" for 127.0.0.1 at 2013-07-13 14:54:31 -0700
+
+ActionController::RoutingError (No route matches [GET] "/uploaded_files/6/new_address_set"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (45.8ms)
+
+
+Started GET "/uploaded_files/6/new_address_set" for 127.0.0.1 at 2013-07-13 14:54:31 -0700
+
+ActionController::RoutingError (No route matches [GET] "/uploaded_files/6/new_address_set"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (33.5ms)
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:54:40 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (17.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2198ms (Views: 2188.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:54:42 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (21.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 38.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:54:43 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:55:38 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (16.6ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 419ms (Views: 415.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:55:38 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:55:38 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:38 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:38 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:55:38 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:55:39 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:39 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:39 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:39 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:39 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:55:52 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (36.1ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 67ms (Views: 60.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:55:53 -0700
+
+
+Started GET "/uploaded_files/6/new_address_set" for 127.0.0.1 at 2013-07-13 14:56:01 -0700
+
+ActionController::RoutingError (No route matches [GET] "/uploaded_files/6/new_address_set"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (33.8ms)
+
+
+Started GET "/uploaded_files/6/new_address_set" for 127.0.0.1 at 2013-07-13 14:56:01 -0700
+
+ActionController::RoutingError (No route matches [GET] "/uploaded_files/6/new_address_set"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/MichaelHolubowski/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (34.6ms)
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:56:21 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (18.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 30.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:22 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (3.1ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (27.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 52ms (Views: 45.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 14:56:25 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:11:30 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (15.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 27.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:11:30 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:11:30 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:30 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:11:30 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:31 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:31 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:31 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:31 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:11:31 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:31 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:11:55 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (13.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1804ms (Views: 1799.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:11:57 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (15.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:12:39 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:14:20 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (22.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 94ms (Views: 45.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:20 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:21 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:21 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:21 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:21 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:21 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:21 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:21 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (24.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 41.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:30 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:14:54 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (36.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 62ms (Views: 52.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:54 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:54 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:54 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:54 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:14:54 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:54 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:54 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:55 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:55 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:14:55 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (23.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 51ms (Views: 47.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:15:35 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (50.9ms)
+  Rendered shared/_nav.html.erb (4.5ms)
+Completed 200 OK in 86ms (Views: 82.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:15:53 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:16:09 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (30.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 57ms (Views: 51.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:16:09 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:16:09 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:16:09 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:16:09 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:16:09 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:16:09 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:16:09 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:16:10 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:16:10 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:16:10 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.8ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (30.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 49ms (Views: 42.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:24 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:30:28 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.7ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (35.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 66ms (Views: 54.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:29 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (46.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 82ms (Views: 77.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 15:30:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTokenizedAddresses (20130713224812)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "tokenized_addresses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar(255), "line1" varchar(255), "number" varchar(255), "street" varchar(255), "street_type" varchar(255), "unit" varchar(255), "unit_prefix" varchar(255), "suffix" varchar(255), "prefix" varchar(255), "city" varchar(255), "state" varchar(255), "postal_code" varchar(255), "postal_code_ext" varchar(255), "address_set_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.3ms)[0m  CREATE INDEX "index_tokenized_addresses_on_address_set_id" ON "tokenized_addresses" ("address_set_id")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130713224812"]]
+  [1m[35m (13.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (8.8ms)[0m  INSERT INTO "tokenized_addresses" ("address", "city", "created_at", "line1", "number", "postal_code", "state", "street", "street_type", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "7462 Denrock Ave, Los Angeles, CA 90045"], ["city", "Los Angeles"], ["created_at", Sat, 13 Jul 2013 22:53:29 UTC +00:00], ["line1", "7462 Denrock Ave"], ["number", "7462"], ["postal_code", "90045"], ["state", "CA"], ["street", "Denrock"], ["street_type", "Ave"], ["updated_at", Sat, 13 Jul 2013 22:53:29 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m

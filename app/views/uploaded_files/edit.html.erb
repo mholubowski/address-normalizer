@@ -1,27 +1,53 @@
 <div class="instruction well">
   <div class="step-header">Step 1</div>
-  <i class="icon-hand-up"></i> Select the address column
+  <i class="icon-hand-up"></i> Select the address column by clicking on the correct cell
+  <div class="status-wrapper">Status: <span class="label label-warning">Pending</span></div>
 </div>
 
-<div id="column-selector-table">
-<table  class="table">
-  <thead>
-    <tr>
-      <% @file.column_headers.each do |cell| %>
-      <th><%= cell %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% (1..4).each do |i| %>
-      <tr>
-        <% @file.row(i).each do |cell| %>
+<div class="attention-arrow"><i class="icon-arrow-right icon-3x color-orange"></i> </div>
+
+<div class="row">
+
+<div class="span10">
+  <div id="column-selector-table">
+    <table class="table table-bordered table-condensed">
+      <thead>
+        <tr>
+          <% @file.column_headers.each do |cell| %>
+          <th><%= cell %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% (1..3).each do |i| %>
+        <tr>
+          <% @file.row(i).each do |cell| %>
           <td><%= cell %></td>
+          <% end %>
+        </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<%= link_to 'new_address_set', 'Process', class: 'btn btn-success text-center' %>
+<div class="span3">
+  <div class="well file-stats">
+    <h3>File Stats:</h3>
+    <h4>File name: </h4>
+    <p><%= @file.filename %></p>
+    <h4>Column Count:</h4>
+    <p><%= @file.column_headers.count %></p>
+    <h4>Row Count: </h4>
+    <p><%= @file.row_count - 1%></p>
+
+  </div>
+
+</div>
+
+
+</div>
+
+<div class="proceed-btn">
+  <%= link_to 'Process File', 'new_address_set', class: 'disabled process btn btn-success text-center btn-large' %>
+</div>

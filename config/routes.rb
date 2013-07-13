@@ -1,10 +1,12 @@
 AddressNormalizer::Application.routes.draw do
+
   root "welcome#home"
 
   get "welcome/home"
   get "welcome/about"
 
   resources :uploaded_files, except: [:show]
+  resources :address_sets
 
 
 

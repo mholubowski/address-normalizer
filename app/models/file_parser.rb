@@ -1,0 +1,3 @@
+class FileParser
+  # self
+end

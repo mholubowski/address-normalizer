@@ -16,6 +16,10 @@ class UploadedFile < ActiveRecord::Base
     CSV.parse(self.content)[index]
   end
 
+  def row_count
+    CSV.parse(self.content).count
+  end
+
   private
   def parse_file
     temp = @file.tempfile
