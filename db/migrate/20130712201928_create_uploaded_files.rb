@@ -1,12 +1,8 @@
 class CreateUploadedFiles < ActiveRecord::Migration
   def change
     create_table :uploaded_files do |t|
-      t.string :url
-      t.text :column_headers
-      t.text :first_row
-      t.text :second_row
-      t.text :third_row
-      t.text :fourth_row
+      t.string :filename
+      t.text :content
       t.integer :address_column_index
       t.references :address_set, index: true
 

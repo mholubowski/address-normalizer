@@ -4,7 +4,7 @@ AddressNormalizer::Application.routes.draw do
   get "welcome/home"
   get "welcome/about"
 
-  resources :uploaded_files, except: [:index, :show]
+  resources :uploaded_files, except: [:show]
 
 
 

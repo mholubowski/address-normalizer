@@ -19,12 +19,8 @@ ActiveRecord::Schema.define(version: 20130712201928) do
   end
 
   create_table "uploaded_files", force: true do |t|
-    t.string   "url"
-    t.text     "column_headers"
-    t.text     "first_row"
-    t.text     "second_row"
-    t.text     "third_row"
-    t.text     "fourth_row"
+    t.string   "filename"
+    t.text     "content"
     t.integer  "address_column_index"
     t.integer  "address_set_id"
     t.datetime "created_at"

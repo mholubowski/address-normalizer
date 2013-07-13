@@ -1,3 +1,28 @@
 // Place all the styles related to the UploadedFiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$sexyGreen: #1dd3c3;
+
+.instruction {
+  padding: 30px;
+  font-size: 20px;
+}
+
+.step-header {
+  font-size: 24px;
+}
+
+#column-selector-table {
+  max-width: 100%;
+  overflow-x: scroll;
+  box-shadow: inset 0px 0px 14px 4px #ccc;
+  margin: 20px;
+  th {
+
+    &:hover {
+      background-color: $sexyGreen;
+      cursor: hand;
+      cursor: pointer;
+    }
+  }
+}

@@ -4402,3 +4402,2699 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 16:46:12
 
 
 Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 16:46:12 -0700
+  [1m[36m (3.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAddressSets (20130712174328)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "address_sets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130712174328"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUploadedFiles (20130712201928)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "uploaded_files" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "column_headers" text, "first_row" text, "second_row" text, "third_row" text, "fourth_row" text, "content" text, "address_column_index" integer, "address_set_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_uploaded_files_on_address_set_id" ON "uploaded_files" ("address_set_id")
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130712201928"]]
+  [1m[35m (4.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:55:37 -0700
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fb7ef8a8dc0 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-21215-19k2n7e>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `original_filename' for #<Tempfile:0x007fb7ec7ddba0>):
+  app/controllers/uploaded_files_controller.rb:9:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (28.6ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:55:55 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fb7ef22e9e0 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-21215-1n7sg7o>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 7ms
+
+NameError (undefined local variable or method `tester' for #<UploadedFilesController:0x007fb7ef224a80>):
+  app/controllers/uploaded_files_controller.rb:10:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.2ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:56:10 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fb7ec77f7a8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-21215-1wj9jdv>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `tester' for UploadedFilesHelper:Module):
+  app/controllers/uploaded_files_controller.rb:10:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 16:56:39 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (3.6ms)
+  Rendered shared/_nav.html.erb (65.1ms)
+Completed 200 OK in 311ms (Views: 184.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 16:56:41 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (79.4ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 112ms (Views: 96.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:56:45 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f7fa40ecbc8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-31866-122tvcr>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `tester' for UploadedFilesHelper:Module):
+  app/controllers/uploaded_files_controller.rb:10:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.6ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (41.4ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:58:01 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f7fa41c98c0 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-31866-af6d2d>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  Rendered uploaded_files/create.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 31780ms
+
+ActionView::Template::Error (no implicit conversion of nil into String):
+    1: <h1>UploadedFiles#create</h1>
+    2: <p>Find me in app/views/uploaded_files/create.html.erb</p>
+    3: 
+    4: <% File.foreach @file do |row| %>
+    5: <p>hi</p>
+    6: <%= row %>
+    7: <% end %>
+  app/views/uploaded_files/create.html.erb:4:in `foreach'
+  app/views/uploaded_files/create.html.erb:4:in `_app_views_uploaded_files_create_html_erb__279112248282486828_70093068404580'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (17.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (50.5ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 16:58:36 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f7fa4873338 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-31866-zft5rh>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  Rendered uploaded_files/create.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 7731ms
+
+ActionView::Template::Error (no implicit conversion of nil into String):
+    1: <h1>UploadedFiles#create</h1>
+    2: <p>Find me in app/views/uploaded_files/create.html.erb</p>
+    3: 
+    4: <% File.foreach @file do |row| %>
+    5: <p>hi</p>
+    6: <%= row %>
+    7: <% end %>
+  app/views/uploaded_files/create.html.erb:4:in `foreach'
+  app/views/uploaded_files/create.html.erb:4:in `_app_views_uploaded_files_create_html_erb__279112248282486828_70093068404580'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.5ms)
+  [1m[36m (4.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAddressSets (20130712174328)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "address_sets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130712174328"]]
+  [1m[36m (5.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUploadedFiles (20130712201928)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "uploaded_files" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "filename" varchar(255), "column_headers" text, "first_row" text, "second_row" text, "third_row" text, "fourth_row" text, "content" text, "address_column_index" integer, "address_set_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_uploaded_files_on_address_set_id" ON "uploaded_files" ("address_set_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130712201928"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:00:04 -0700
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f7fa1727cc0 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-31866-1olwlt0>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  Rendered uploaded_files/create.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (no implicit conversion of nil into String):
+    1: <h1>UploadedFiles#create</h1>
+    2: <p>Find me in app/views/uploaded_files/create.html.erb</p>
+    3: 
+    4: <% File.foreach @file do |row| %>
+    5: <p>hi</p>
+    6: <%= row %>
+    7: <% end %>
+  app/views/uploaded_files/create.html.erb:4:in `foreach'
+  app/views/uploaded_files/create.html.erb:4:in `_app_views_uploaded_files_create_html_erb__279112248282486828_70093068404580'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 17:00:07 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.9ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 17:00:08 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (69.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 90ms (Views: 83.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 17:08:31 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (161.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 184ms (Views: 173.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 17:08:32 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 17:08:33 -0700
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:09:06 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fd14c05c0d8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-35473-gi18c>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 55ms
+
+NameError (uninitialized constant UploadedFilesController::UploadedFiles):
+  app/controllers/uploaded_files_controller.rb:45:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.5ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (33.4ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:09:28 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fd14bb862e8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-35473-z3hnwh>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 12ms
+
+NameError (undefined local variable or method `row1' for #<UploadedFilesController:0x007fd14bb74070>):
+  app/controllers/uploaded_files_controller.rb:46:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.3ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:09:56 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fd14e8e5978 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-35473-is2xdq>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[36m (2.2ms)[0m  [1mCREATE TABLE "address_sets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "uploaded_files" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "filename" varchar(255), "column_headers" text, "first_row" text, "second_row" text, "third_row" text, "fourth_row" text, "content" text, "address_column_index" integer, "address_set_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (1.8ms)[0m  [1mCREATE INDEX "index_uploaded_files_on_address_set_id" ON "uploaded_files" ("address_set_id")[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (2.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (2.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130712201928')[0m
+  [1m[35m (5.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130712174328')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Completed 500 Internal Server Error in 513257ms
+
+NameError (undefined local variable or method `row1' for #<UploadedFilesController:0x007fd14e8dc7d8>):
+  app/controllers/uploaded_files_controller.rb:48:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (37.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 17:18:34 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (1.9ms)
+  Rendered shared/_nav.html.erb (1.6ms)
+Completed 200 OK in 198ms (Views: 195.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 17:18:34 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 17:18:34 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 17:18:34 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 17:18:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 17:18:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 17:18:35 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 17:18:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 17:18:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 17:18:35 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 17:18:35 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 17:18:36 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (84.6ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 111ms (Views: 100.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:18:44 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fd14bb84880 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-35473-19drew8>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 10ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007fd14c27d358>):
+  app/controllers/uploaded_files_controller.rb:14:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (47.3ms)
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 17:20:22 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (3.2ms)
+  Rendered shared/_nav.html.erb (1.2ms)
+Completed 200 OK in 382ms (Views: 298.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 17:20:23 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 17:20:25 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (82.1ms)
+  Rendered shared/_nav.html.erb (0.9ms)
+Completed 200 OK in 117ms (Views: 99.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:20:30 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f9406321eb8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-39000-nra32x>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (66.5ms)[0m  [1mINSERT INTO "uploaded_files" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Sat, 13 Jul 2013 00:20:30 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:20:30 UTC +00:00]]
+  [1m[35m (2.3ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 78ms
+
+NameError (undefined local variable or method `delete_file' for #<UploadedFile:0x007f94063286c8>):
+  app/controllers/uploaded_files_controller.rb:13:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 17:21:05 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (2.9ms)
+  Rendered shared/_nav.html.erb (0.9ms)
+Completed 200 OK in 221ms (Views: 166.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 17:21:06 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 17:21:07 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (78.2ms)
+  Rendered shared/_nav.html.erb (0.7ms)
+Completed 200 OK in 107ms (Views: 96.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:21:12 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f98b516b6d8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-39224-zfuzfz>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (65.9ms)[0m  [1mINSERT INTO "uploaded_files" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Sat, 13 Jul 2013 00:21:12 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:21:12 UTC +00:00]]
+  [1m[35m (2.5ms)[0m  commit transaction
+Completed 500 Internal Server Error in 87ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007f98b58e97e8>):
+  app/controllers/uploaded_files_controller.rb:15:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (42.3ms)
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files"[0m
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:22:12 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007f98b5093850 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-39224-1fnqfue>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "uploaded_files" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", Sat, 13 Jul 2013 00:22:12 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:22:12 UTC +00:00]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 160ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007f98b5079720>):
+  app/controllers/uploaded_files_controller.rb:15:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.5ms)
+  [1m[35mUploadedFile Load (0.5ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files"
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 17:22:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (3.8ms)
+  Rendered shared/_nav.html.erb (1.4ms)
+Completed 200 OK in 276ms (Views: 173.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 17:22:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 17:22:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 17:22:35 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 17:22:35 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 17:22:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 17:22:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 17:22:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 17:22:36 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 17:22:36 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 17:22:36 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 17:22:37 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (84.4ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 111ms (Views: 101.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:22:41 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fda3d14df60 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-39669-1sih8jm>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (12.5ms)[0m  [1mINSERT INTO "uploaded_files" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Sat, 13 Jul 2013 00:22:41 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:22:41 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Completed 500 Internal Server Error in 90ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007fda3d14fb30>):
+  app/controllers/uploaded_files_controller.rb:15:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (43.1ms)
+  [1m[35mUploadedFile Load (0.4ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files"
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 17:23:06 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (3.3ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 225ms (Views: 166.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 17:23:07 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 17:23:07 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 17:23:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 17:23:07 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 17:23:07 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 17:23:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 17:23:08 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 17:23:08 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 17:23:08 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 17:23:08 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 17:23:08 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 17:23:08 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 17:23:09 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (84.3ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 111ms (Views: 99.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:23:13 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007ff8139b9f20 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-39836-iifajm>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (5.9ms)[0m  [1mINSERT INTO "uploaded_files" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Sat, 13 Jul 2013 00:23:13 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:23:13 UTC +00:00]]
+  [1m[35m (2.7ms)[0m  commit transaction
+Completed 500 Internal Server Error in 24ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007ff81390fb60>):
+  app/controllers/uploaded_files_controller.rb:15:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (42.3ms)
+  [1m[36mUploadedFile Load (7.6ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.2ms)[0m  [1mINSERT INTO "uploaded_files" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", Sat, 13 Jul 2013 00:24:05 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:24:05 UTC +00:00]]
+  [1m[35m (4.6ms)[0m  commit transaction
+  [1m[36mUploadedFile Load (0.4ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" ORDER BY "uploaded_files"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "uploaded_files" ("column_headers", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["column_headers", 2], ["created_at", Sat, 13 Jul 2013 00:24:49 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:24:49 UTC +00:00]]
+  [1m[35m (3.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (9.4ms)[0m  INSERT INTO "uploaded_files" ("column_headers", "created_at", "updated_at") VALUES (?, ?, ?)  [["column_headers", "HEYY"], ["created_at", Sat, 13 Jul 2013 00:25:39 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:25:39 UTC +00:00]]
+  [1m[36m (3.5ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 17:26:48 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 17:26:49 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 17:26:50 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (66.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 93ms (Views: 80.9ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:26:54 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007ff813fd92e8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-39836-ftfn2n>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "uploaded_files" ("column_headers", "created_at", "updated_at") VALUES (?, ?, ?)  [["column_headers", "HEYY"], ["created_at", Sat, 13 Jul 2013 00:26:54 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:26:54 UTC +00:00]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 24ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007ff813fdafd0>):
+  app/controllers/uploaded_files_controller.rb:15:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (49.1ms)
+  [1m[36mUploadedFile Load (0.4ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" ORDER BY "uploaded_files"."id" DESC LIMIT 1[0m
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:27:28 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007ff813e2bb30 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-39836-1s8vdk1>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "uploaded_files" ("column_headers", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["column_headers", "HEYY"], ["created_at", Sat, 13 Jul 2013 00:27:28 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:27:28 UTC +00:00]]
+  [1m[35m (2.9ms)[0m  commit transaction
+Completed 500 Internal Server Error in 97ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007ff813e23f48>):
+  app/controllers/uploaded_files_controller.rb:15:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.9ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 17:27:44 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007ff813d61538 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-39836-1uh0jn3>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "uploaded_files" ("column_headers", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["column_headers", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["content", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["created_at", Sat, 13 Jul 2013 00:27:56 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 00:27:56 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 11519ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007ff813d50b70>):
+  app/controllers/uploaded_files_controller.rb:15:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (113.4ms)
+  [1m[35mUploadedFile Load (0.6ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" ORDER BY "uploaded_files"."id" DESC LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:10:56 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (3.4ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 247ms (Views: 189.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 20:10:57 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:11:18 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (85.8ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 116ms (Views: 102.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:11:21 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (2.9ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 21.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/about" for 127.0.0.1 at 2013-07-12 20:12:11 -0700
+Processing by WelcomeController#about as HTML
+  Rendered welcome/about.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:12:13 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (4.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:12:14 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (2.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/about" for 127.0.0.1 at 2013-07-12 20:12:17 -0700
+Processing by WelcomeController#about as HTML
+  Rendered welcome/about.html.erb within layouts/application (0.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:12:25 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (2.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/about" for 127.0.0.1 at 2013-07-12 20:12:29 -0700
+Processing by WelcomeController#about as HTML
+  Rendered welcome/about.html.erb within layouts/application (0.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:12:31 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (2.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:12:41 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (2.7ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:13:14 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (2.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:13:15 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (3.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:13:18 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 20:13:18 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 20:13:18 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 20:13:18 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 20:13:18 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 20:13:18 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 20:13:18 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 20:13:19 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 20:13:19 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 20:13:19 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 20:13:19 -0700
+
+
+Started GET "/welcome/about" for 127.0.0.1 at 2013-07-12 20:13:29 -0700
+Processing by WelcomeController#about as HTML
+  Rendered welcome/about.html.erb within layouts/application (0.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:13:30 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (6.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/about" for 127.0.0.1 at 2013-07-12 20:13:32 -0700
+Processing by WelcomeController#about as HTML
+  Rendered welcome/about.html.erb within layouts/application (0.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:13:34 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.4ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:13:35 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:13:35 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:13:40 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:13:43 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:21:51 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (3.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:21:58 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (6.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 104ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 20:21:59 -0700
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 20:22:23 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fcab8ff3ae0 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-86978-1asp0vt>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (23.6ms)[0m  [1mINSERT INTO "uploaded_files" ("column_headers", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["column_headers", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["content", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["created_at", Sat, 13 Jul 2013 03:22:49 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 03:22:49 UTC +00:00]]
+  [1m[35m (56.2ms)[0m  commit transaction
+Completed 500 Internal Server Error in 26120ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007fcabc0005d0>):
+  app/controllers/uploaded_files_controller.rb:15:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (80.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.6ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (150.9ms)
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAddressSets (20130712174328)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "address_sets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130712174328"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUploadedFiles (20130712201928)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "uploaded_files" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "filename" varchar(255), "column_headers" text, "first_row" text, "second_row" text, "third_row" text, "fourth_row" text, "content" text, "address_column_index" integer, "address_set_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_uploaded_files_on_address_set_id" ON "uploaded_files" ("address_set_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130712201928"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 20:33:54 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/uploaded_files_controller.rb:12:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.5ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.3ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (73.7ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 20:33:59 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fcabc8036d8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-86978-f7jbx8>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+Completed 500 Internal Server Error in 76ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: file):
+  app/controllers/uploaded_files_controller.rb:13:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.3ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 20:34:12 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fcabca576c8 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-86978-4yt4kw>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "uploaded_files" ("column_headers", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["column_headers", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["content", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["created_at", Sat, 13 Jul 2013 03:34:12 UTC +00:00], ["updated_at", Sat, 13 Jul 2013 03:34:12 UTC +00:00]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  Rendered uploaded_files/create.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (1.8ms)
+Completed 200 OK in 156861ms (Views: 61.5ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 20:36:49 -0700
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAddressSets (20130712174328)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "address_sets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130712174328"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUploadedFiles (20130712201928)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "uploaded_files" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "filename" varchar(255), "column_headers" text, "first_row" text, "second_row" text, "third_row" text, "fourth_row" text, "content" text, "address_column_index" integer, "address_set_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_uploaded_files_on_address_set_id" ON "uploaded_files" ("address_set_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130712201928"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (5.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAddressSets (20130712174328)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "address_sets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20130712174328"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUploadedFiles (20130712201928)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "uploaded_files" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "filename" varchar(255), "content" text, "address_column_index" integer, "address_set_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  CREATE INDEX "index_uploaded_files_on_address_set_id" ON "uploaded_files" ("address_set_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130712201928"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:35 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 20:58:36 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 20:58:47 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (2.8ms)
+  Rendered shared/_nav.html.erb (72.4ms)
+Completed 200 OK in 364ms (Views: 244.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 20:58:48 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 20:58:51 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (131.5ms)
+  Rendered shared/_nav.html.erb (1.3ms)
+Completed 200 OK in 188ms (Views: 150.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 20:58:58 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fbd74cdb4d0 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-1841-3qk1za>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (9.3ms)[0m  [1mINSERT INTO "uploaded_files" ("content", "created_at", "filename", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["created_at", Sat, 13 Jul 2013 03:58:58 UTC +00:00], ["filename", "tester.csv"], ["updated_at", Sat, 13 Jul 2013 03:58:58 UTC +00:00]]
+  [1m[35m (2.0ms)[0m  commit transaction
+Completed 500 Internal Server Error in 28ms
+
+NameError (undefined local variable or method `uploaded_files' for #<UploadedFilesController:0x007fbd74cc9780>):
+  app/controllers/uploaded_files_controller.rb:22:in `create'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.6ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (44.6ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 20:59:13 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fbd74772958 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-1841-1fftapr>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "uploaded_files" ("content", "created_at", "filename", "updated_at") VALUES (?, ?, ?, ?)  [["content", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["created_at", Sat, 13 Jul 2013 03:59:13 UTC +00:00], ["filename", "tester.csv"], ["updated_at", Sat, 13 Jul 2013 03:59:13 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/uploaded_files
+Completed 302 Found in 98ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/uploaded_files" for 127.0.0.1 at 2013-07-12 20:59:13 -0700
+Processing by UploadedFilesController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+NameError (uninitialized constant UploadedFilesController::UploadedFiles):
+  app/controllers/uploaded_files_controller.rb:4:in `index'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.5ms)
+
+
+Started GET "/uploaded_files" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+Processing by UploadedFilesController#index as HTML
+  Rendered uploaded_files/index.html.erb within layouts/application (0.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 29ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 20:59:25 -0700
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" ORDER BY "uploaded_files"."id" DESC LIMIT 1[0m
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" ORDER BY "uploaded_files"."id" DESC LIMIT 1
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" ORDER BY "uploaded_files"."id" DESC LIMIT 1[0m
+
+
+Started GET "/uploaded_files" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+Processing by UploadedFilesController#index as HTML
+  Rendered uploaded_files/index.html.erb within layouts/application (0.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:07:54 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:08:06 -0700
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 21:08:07 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (39.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 55ms (Views: 51.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fbd77252010 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-1841-13k1nxu>, @original_filename="tester.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"tester.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "uploaded_files" ("content", "created_at", "filename", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5"], ["created_at", Sat, 13 Jul 2013 04:08:12 UTC +00:00], ["filename", "tester.csv"], ["updated_at", Sat, 13 Jul 2013 04:08:12 UTC +00:00]]
+  [1m[35m (2.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/uploaded_files/3/edit
+Completed 302 Found in 15ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  Rendered uploaded_files/edit.html.erb within layouts/application (0.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:08:12 -0700
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:12:34 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUploadedFile Load (0.4ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 71ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <table class="table">
+    2:   <thead>
+    3:     <tr>
+    4:       <% @file.column_headers.each do |cell| %>
+    5:       <th><%= cell %></th>
+    6:       <% end %>
+    7:     </tr>
+  app/views/uploaded_files/edit.html.erb:4:in `_app_views_uploaded_files_edit_html_erb__927556144739956322_70225870151020'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (104.7ms)
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (0.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 88ms (Views: 20.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:13:56 -0700
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:14:43 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUploadedFile Load (0.5ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (97.9ms)
+Completed 500 Internal Server Error in 167ms
+
+ActionView::Template::Error (undefined local variable or method `new_address_set' for #<#<Class:0x007fbd780d2f40>:0x007fbd780d3198>):
+    11:   </tbody>
+    12: </table>
+    13: 
+    14: <%= link_to new_address_set %>
+  app/views/uploaded_files/edit.html.erb:14:in `_app_views_uploaded_files_edit_html_erb__927556144739956322_70225869835520'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (22.9ms)
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (3.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:15:26 -0700
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (1.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:15:38 -0700
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:15:39 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (0.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:15:40 -0700
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (1.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:16:07 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:16:08 -0700
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (0.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:16:38 -0700
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:19:40 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUploadedFile Load (0.7ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 71ms
+
+ActionView::Template::Error (undefined method `row' for "a,b,c\r1,2,3\r11,12,13\r44,44,44\r5,5,5":String):
+     9:   <tbody>
+    10:     <% (1..4).each do |i| %>
+    11:       <tr>
+    12:         <% @file.content.row[i].each do |cell| %>
+    13:           <td><%= cell %></td>
+    14:         <% end %>
+    15:       </tr>
+  app/views/uploaded_files/edit.html.erb:12:in `block in _app_views_uploaded_files_edit_html_erb__927556144739956322_70225843815900'
+  app/views/uploaded_files/edit.html.erb:10:in `each'
+  app/views/uploaded_files/edit.html.erb:10:in `_app_views_uploaded_files_edit_html_erb__927556144739956322_70225843815900'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.5ms)
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:19:57 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUploadedFile Load (0.8ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+     9:   <tbody>
+    10:     <% (1..4).each do |i| %>
+    11:       <tr>
+    12:         <% @file.row[i].each do |cell| %>
+    13:           <td><%= cell %></td>
+    14:         <% end %>
+    15:       </tr>
+  app/models/uploaded_file.rb:14:in `row'
+  app/views/uploaded_files/edit.html.erb:12:in `block in _app_views_uploaded_files_edit_html_erb__927556144739956322_70225861665980'
+  app/views/uploaded_files/edit.html.erb:10:in `each'
+  app/views/uploaded_files/edit.html.erb:10:in `_app_views_uploaded_files_edit_html_erb__927556144739956322_70225861665980'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.9ms)
+
+
+Started GET "/uploaded_files/3/edit" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (10.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:20:20 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:20:21 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-12 21:21:21 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (1.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-12 21:21:22 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (3.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-12 21:21:27 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fbd7745b820 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130712-1841-g2prac>, @original_filename="test1.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"test1.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.8ms)[0m  [1mINSERT INTO "uploaded_files" ("content", "created_at", "filename", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "a,b,c,address,something\n1,2,3,\"7462 Denrock Ave. Los Angeles, CA 90045\",11\n1,2,3,\"7462 Denrock Avenue Los Angeles, CA 90045\",11\n1,2,3,\"7462 Denrock Ave Los Angeles, CA\",11\n1,2,3,\"7462 Denrock Ave 90045\",11\n"], ["created_at", Sat, 13 Jul 2013 04:21:27 UTC +00:00], ["filename", "test1.csv"], ["updated_at", Sat, 13 Jul 2013 04:21:27 UTC +00:00]]
+  [1m[35m (12.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/uploaded_files/4/edit
+Completed 302 Found in 28ms (ActiveRecord: 14.8ms)
+
+
+Started GET "/uploaded_files/4/edit" for 127.0.0.1 at 2013-07-12 21:21:27 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (4.6ms)
+  Rendered shared/_nav.html.erb (73.4ms)
+Completed 200 OK in 99ms (Views: 96.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/uploaded_files/4/edit" for 127.0.0.1 at 2013-07-12 21:22:54 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "4"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (7.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2141ms (Views: 2138.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:22:56 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:22:57 -0700
+
+
+Started GET "/uploaded_files/4/edit" for 127.0.0.1 at 2013-07-12 21:23:36 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 29ms
+
+ActionView::Template::Error (Undefined variable: "$sexyGreen".
+  (in /Users/MichaelHolubowski/Desktop/Coding/Code_For_America/address_normalizer/app/assets/stylesheets/uploaded_files.css.scss:9)):
+    2: <html>
+    3: <head>
+    4:   <title>AddressNormalizer</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/assets/stylesheets/uploaded_files.css.scss:9
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___209123268054312780_70225841801240'
+
+
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Users/MichaelHolubowski/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (37.1ms)
+
+
+Started GET "/uploaded_files/4/edit" for 127.0.0.1 at 2013-07-12 21:24:04 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "4"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (7.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2231ms (Views: 2228.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:06 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:06 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:06 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:06 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:06 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:06 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:06 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:06 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:06 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:07 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:24:07 -0700
+
+
+Started GET "/uploaded_files/4/edit" for 127.0.0.1 at 2013-07-12 21:24:15 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (2.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2264ms (Views: 2261.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:24:18 -0700
+
+
+Started GET "/uploaded_files/4/edit" for 127.0.0.1 at 2013-07-12 21:24:23 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "4"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (2.6ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 2456ms (Views: 2450.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/assets/glyphicons-halflings.png" for 127.0.0.1 at 2013-07-12 21:24:26 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-13 10:36:02 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (3.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 38ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-13 10:36:03 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (3.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-13 10:36:11 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fbd770ab270 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130713-1841-13d25u9>, @original_filename="test1.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"test1.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[36m (2.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "uploaded_files" ("content", "created_at", "filename", "updated_at") VALUES (?, ?, ?, ?)  [["content", "Name,Age,Favority Color,address,something\nJack Smith,21,Red,\"7462 Denrock Ave. Los Angeles, CA 90045\",11\nGreg Pollock,21,Green,\"7462 Denrock Avenue Los Angeles, CA 90045\",11\nMike Smith,21,Blue,\"7462 Denrock Ave Los Angeles, CA\",11\nJuicy Toots,21,Pink,\"7462 Denrock Ave 90045\",11\n"], ["created_at", Sat, 13 Jul 2013 17:36:11 UTC +00:00], ["filename", "test1.csv"], ["updated_at", Sat, 13 Jul 2013 17:36:11 UTC +00:00]]
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/uploaded_files/5/edit
+Completed 302 Found in 22ms (ActiveRecord: 15.0ms)
+
+
+Started GET "/uploaded_files/5/edit" for 127.0.0.1 at 2013-07-13 10:36:11 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "5"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (2.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:36:11 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:36:11 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:36:11 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:36:11 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:36:11 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:36:11 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:36:12 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:36:12 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:36:12 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:36:12 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-13 10:37:01 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (4.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/uploaded_files/new" for 127.0.0.1 at 2013-07-13 10:37:02 -0700
+Processing by UploadedFilesController#new as HTML
+  Rendered uploaded_files/new.html.erb within layouts/application (2.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/uploaded_files" for 127.0.0.1 at 2013-07-13 10:37:09 -0700
+Processing by UploadedFilesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R8T/khsIWSRqIPj6FqQOJjFUNJXloFjvEtOcEQ+QS+I=", "uploaded_file"=>{"thefile"=>#<ActionDispatch::Http::UploadedFile:0x007fbd7802b088 @tempfile=#<Tempfile:/var/folders/1t/qw8yn50x5nzgpqfxtvsgx8ch0000gn/T/RackMultipart20130713-1841-crij89>, @original_filename="lives-sf.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"uploaded_file[thefile]\"; filename=\"lives-sf.csv\"\r\nContent-Type: text/csv\r\n">}, "commit"=>"Create Uploaded file"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "uploaded_files" ("content", "created_at", "filename", "updated_at") VALUES (?, ?, ?, ?)  [["content", "Assigned to,id,name,address,zip,country,latitude,longitude,phone,Yelp URL of Business,City Page,Notes,Yelp search URL\n,2704,JUDY'S CAFE,2268 CHESTNUT ST.,94123,US,37.800297,-122.440554,,judys-homestyle-cafe-san-francisco,,,\nJE,5613,CP - ROOM 438,CANDLESTICK PARK,94124,US,37.712613,-122.387477,14155332420,-unmatched,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:5613,,\"http://www.yelp.com/search?find_desc=CP - ROOM 438#find_loc=CANDLESTICK PARK,sf\"\n,5916,UNIVERSITY HIGH SCHOOL,3065 JACKSON ST,94115,US,37.791043,-122.445476,,university-high-school-san-francisco,,,\nkl,1685,\"NEW LUN TING CAFE, INC\",670 JACKSON ST,94133,US,37.796098,-122.406275,,new-lun-ting-cafe-san-francisco,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:1685,,\nAG,3694,PAKWAN RESTAURANT,3180 16TH ST,94103,US,37.764838,-122.423623,14155252440,http://www.yelp.com/biz/pakwan-san-francisco#query:PAKWAN%20RESTAURANT,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:3694,,\"http://www.yelp.com/search?find_desc=PAKWAN RESTAURANT#find_loc=3180 16TH ST,sf\"\nJE,4492,MOLLIE STONE'S GRAND CENTRAL MARKET (MEZZANINE LEVEL),2435 CALIFORNIA ST,94115,US,37.788773,-122.434697,14155564902,http://www.yelp.com/biz/mollie-stones-san-francisco-3#query:MOLLIE%20STONE%27S%20GRAND,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:4492,,\"http://www.yelp.com/search?find_desc=MOLLIE STONE'S GRAND CENTRAL MARKET (MEZZANINE LEVEL)#find_loc=2435 CALIFORNIA ST,sf\"\n,1327,SEA BISCUIT CAFE,3815 NORIEGA ST,94122,US,37.752963,-122.50458,,sea-biscuit-cafe-san-francisco,,,\nAG,3279,BURGER KING 4525,1701 FILLMORE ST,94115,US,37.785474,-122.433184,,http://www.yelp.com/biz/burger-king-san-francisco-10,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:3279,,\"http://www.yelp.com/search?find_desc=BURGER KING 4525#find_loc=1701 FILLMORE ST,sf\"\n,68608,CORIANDER GOURMET THAI,135 04TH ST FC-07,94103,US,37.784103,-122.403669,,coriander-gourmet-thai-san-francisco-2,,,\nPartha,40032,FAMOUS SMOKE SHOP & WIRELESS,3319A MISSION ST.,94110,US,37.743831,-122.421,,famous-smoke-shop-and-wireless-san-francisco,,,\n,63404,COMMONWEALTH,2224 MISSION ST,94110,US,37.761337,-122.419355,14155351500,commonwealth-san-francisco,,,\n,2072,STARBUCKS COFFEE,2163 POLK ST,94109,US,37.796527,-122.421953,,starbucks-coffee-san-francisco-68,,,\nkl,1516,AT&T - FIELD CLUB KITCHEN [145082],24 WILLIE MAYS PLAZA 1.11.04,94107,US,37.778382,-122.391151,14155971500,-unmatched,,,\n,68068,THE CHAI CART,525 MARKET/360 VALENCIA,,US,,,,the-chai-cart-san-francisco,,,\n,3294,TORAYA,1734 POST ST,94115,US,37.785528,-122.430374,,toraya-japanese-restaurant-san-francisco,,,\nSM,7243,CASA LUCAS #3,4555 MISSION ST,94112,US,37.725432,-122.434216,,casa-lucas-san-francisco,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:7243,,\"http://www.yelp.com/search?find_desc=CASA LUCAS #3#find_loc=4555 MISSION ST,sf\"\n,14526,THE GYMBOREE CORP,500  HOWARD ST 8/F,94105,US,37.788294,-122.396419,,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:14526,,\"http://www.yelp.com/search?find_desc=THE GYMBOREE CORP#find_loc=500  HOWARD ST 8/F,sf\"\nSM,7989,SUN VALLEY PRODUCE,2000 MCKINNON AVE BLDG.417#18,94124,US,37.740179,-122.396761,,unmatched,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:7989,,\"http://www.yelp.com/search?find_desc=SUN VALLEY PRODUCE#find_loc=2000 MCKINNON AVE BLDG.417#18,sf\"\n,36911,ROYAL MARKET & BAKERY,5331 GEARY BLVD,94121,US,37.780383,-122.47673,,royal-market-and-bakery-san-francisco,,,\"http://www.yelp.com/search?find_desc=ROYAL MARKET & BAKERY#find_loc=5331 GEARY BLVD,sf\"\n,3070,FLOWER MARKET CAFE,698 BRANNAN ST,94107,US,37.775664,-122.399999,14155497162,bechellis-flower-market-cafe-san-francisco,,,\"http://www.yelp.com/search?find_desc=FLOWER MARKET CAFE#find_loc=698 BRANNAN ST,sf\"\n,38565,DISCOUNT CENTER,1200 VALENCIA ST,94110,US,37.753497,-122.420825,,first-discount-center-san-francisco,,,\"http://www.yelp.com/search?find_desc=DISCOUNT CENTER#find_loc=1200 VALENCIA ST,sf\"\nPartha,68189,SILVERSTONE CAFÉ,3278 24TH ST,94110,US,37.752308,-122.417962,,http://www.yelp.com/biz/silverstone-coffee-san-francisco#query:SILVERSTONE%20CAF%C3%89,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:68189,,\"http://www.yelp.com/search?find_desc=SILVERSTONE CAFÉ#find_loc=3278 24TH ST,sf\"\n,4190,MR. BING'S,201 COLUMBUS AVE,94133,US,37.797031,-122.405451,,mr-bings-san-francisco,,,\"http://www.yelp.com/search?find_desc=MR. BING'S#find_loc=201 COLUMBUS AVE,sf\"\n,13814,GO GO MARKET & DELI,99 09TH ST,94103,US,37.774722,-122.406761,14155863536,go-go-market-and-deli-san-francisco,,,\"http://www.yelp.com/search?find_desc=GO GO MARKET & DELI#find_loc=99 09TH ST,sf\"\n,26341,\"NATURAL MARKET, INC.\",2201 PINE ST,94115,US,37.788113,-122.432147,14155921320,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:26341,,\"http://www.yelp.com/search?find_desc=NATURAL MARKET, INC.#find_loc=2201 PINE ST,sf\"\n,39404,ACADEMY CAFÉ COFFEE & ICE CREAM CART,55  DR,94118,US,,,,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:39404,,\"http://www.yelp.com/search?find_desc=ACADEMY CAFÉ COFFEE & ICE CREAM CART#find_loc=55  DR,sf\"\n,2080,LA CUCINA,2136 UNION ST,94123,US,37.797238,-122.434524,,la-cucina-san-francisco,,,\nSY,64667,JASMINE RAE BAKEKRY,1890 BRYANT ST #309,94110,US,37.763156,-122.410351,,http://www.yelp.com/biz/jasmine-rae-bakery-san-francisco,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:64667,,\"http://www.yelp.com/search?find_desc=JASMINE RAE BAKEKRY#find_loc=1890 BRYANT ST #309,sf\"\n,32702,CAFE LA VIE,514 OCTAVIA ST,94102,US,37.776924,-122.424666,,cafe-la-vie-san-francisco,,,\nMW,71170,FOXTAIL CATERING & EVENTS,425 BARNEVELD AVE,94124,US,,,,http://www.yelp.com/biz/foxtail-catering-and-events-san-francisco,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:71170,,\"http://www.yelp.com/search?find_desc=FOXTAIL CATERING & EVENTS#find_loc=425 BARNEVELD AVE,sf\"\n,2898,THE CHEESECAKE FACTORY,\"251 GEARY ST, 8TH FLOOR\",94102,US,37.787423,-122.407417,,the-cheesecake-factory-san-francisco-2,,,\n,65426,MIRTILLE,87 MCALLISTER ST,94102,US,37.780953,-122.413297,,mirtille-san-francisco,,,\nSM,12283,GUCKENHEIMER,405 HOWARD STREET,94105,US,37.789057,-122.395322,,orrick-cafe-san-francisco,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:12283,,\"http://www.yelp.com/search?find_desc=GUCKENHEIMER#find_loc=405 HOWARD STREET,sf\"\n,39092,THAI CORNER EXPRESS,545 SANSOME ST,94111,US,37.795521,-122.401623,,thai-corner-express-san-francisco,,,\nJE,3090,YANK SING RESTAURANT,101 SPEAR ST A-16,94105,US,37.792577,-122.393992,,http://www.yelp.com/biz/yank-sing-san-francisco-2#query:YANK%20SING%20RESTAURANT,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:3090,,\"http://www.yelp.com/search?find_desc=YANK SING RESTAURANT#find_loc=101 SPEAR ST A-16,sf\"\n,18921,NOPA,560 DIVISADERO ST,94117,US,37.774778,-122.437717,,nopa-san-francisco,,,\n,5938,HAMLIN,2120 BROADWAY ST,94115,US,37.794608,-122.432474,,hamlin-mansion-san-francisco,,,\n,29950,MRS FIELD'S COOKIES,PIER 39  B-06,94133,US,37.802479,-122.411234,,mrs-fields-cookies-san-francisco-3,,,\n,15697,SUBWAY #33847,795 FOLSOM ST,94107,US,37.782214,-122.400847,,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:15697,,\"http://www.yelp.com/search?find_desc=SUBWAY #33847#find_loc=795 FOLSOM ST,sf\"\n,19207,BROWN JUG,496 EDDY ST,94109,US,37.783576,-122.41582,,the-brown-jug-san-francisco,,,\n,68938,PA'INA LOUNGE & RESTAURANT,1865 POST ST,94115,US,37.785223,-122.432337,,paina-lounge-and-restaurant-san-francisco,,,\nLR,32586,TERROIR,81 LANGTON ST,94103,US,37.776494,-122.408562,14155718949,http://www.yelp.com/biz/terroir-natural-wine-merchant-san-francisco?start=160,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:32586,,\"http://www.yelp.com/search?find_desc=TERROIR#find_loc=81 LANGTON ST,sf\"\n,67096,AK DOUBLE UP,665 03RD ST STE.#20,94107,US,37.779334,-122.393292,,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:67096,,\"http://www.yelp.com/search?find_desc=AK DOUBLE UP#find_loc=665 03RD ST STE.#20,sf\"\n,4944,FRENCH BAKERY,1101 TARAVAL ST,94116,US,37.742914,-122.478149,,french-bakery-san-francisco,,,\n,60060,IL PASTAIO FRESH PASTA COMPANY,100 ALEMANY BLVD,94110,US,,,,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:60060,,\"http://www.yelp.com/search?find_desc=IL PASTAIO FRESH PASTA COMPANY#find_loc=100 ALEMANY BLVD,sf\"\n,34394,PIZZA ORGASMICA & BREWING CO.,823 CLEMENT ST,94118,US,37.782733,-122.46807,,pizza-orgasmica-and-brewing-company-san-francisco,,,\nAG,3595,SAFEWAY #785,850 LA PLAYA ST,94121,US,37.772323,-122.509946,,http://www.yelp.com/biz/safeway-san-francisco-19,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:3595,,\"http://www.yelp.com/search?find_desc=SAFEWAY #785#find_loc=850 LA PLAYA ST,sf\"\n,3817,HAPPY CHINESE RESTAURANT,1324 POWELL ST,94133,US,37.796848,-122.410097,,happy-chinese-restaurant-san-francisco,,,\n,67145,DIVINE PETITES,1700 O'FARRELL @ FILLMORE,94115,US,,,,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:67145,,\"http://www.yelp.com/search?find_desc=DIVINE PETITES#find_loc=1700 O'FARRELL @ FILLMORE,sf\"\nLD,36961,\"DICK LEE PASTRY, INC\",716 JACKSON ST,94133,US,37.796008,-122.407014,,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:36961,,\"http://www.yelp.com/search?find_desc=DICK LEE PASTRY, INC#find_loc=716 JACKSON ST,sf\"\nJE,3095,WHITCOMB HOTEL BAR & GRILL,1231 MARKET ST,94103,US,37.778357,-122.415182,14155628000,-unmatched,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:3095,hotel w/ no restaurant listing,\"http://www.yelp.com/search?find_desc=WHITCOMB HOTEL BAR & GRILL#find_loc=1231 MARKET ST,sf\"\n,59178,LITTLE DELHI INDIA RESTAURANT,83 EDDY ST,94102,US,37.784394,-122.409047,,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:59178,,\"http://www.yelp.com/search?find_desc=LITTLE DELHI INDIA RESTAURANT#find_loc=83 EDDY ST,sf\"\n,35502,JAVALENCIA CAFÉ,3900 03RD ST,94124,US,37.741822,-122.388382,,javalencia-cafe-san-francisco-2,,,\nMW,71259,CRÈME BRULEE TO GO,801 MARKET ST,94103,US,,,,http://www.yelp.com/biz/the-cr%C3%A8me-br%C3%BBl%C3%A9e-cart-wesfield-shopping-centre-san-francisco,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:71259,,\"http://www.yelp.com/search?find_desc=CRÈME BRULEE TO GO#find_loc=801 MARKET ST,sf\"\nLD,3736,SAFEWAY #2646,735 07TH AVE,94118,US,37.774758,-122.464955,,http://www.yelp.com/biz/safeway-san-francisco-13,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:3736,,\"http://www.yelp.com/search?find_desc=SAFEWAY #2646#find_loc=735 07TH AVE,sf\"\n,4888,NEW STAR ELL LIQUOR,501 DIVISADERO ST,94117,US,37.774194,-122.437664,,new-star-ell-liquor-san-francisco,,,\nPartha,67472,ALSTON FARMS,3861 24TH ST,94114,US,,,,-unmatched,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:67472,,\"http://www.yelp.com/search?find_desc=ALSTON FARMS#find_loc=3861 24TH ST,sf\"\nKC,6620,NEW OCEAN SEAFOOD & PRODUCE,838 JACKSON ST,94133,US,37.795788,-122.408834,,unmatched,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:6620,,\"http://www.yelp.com/search?find_desc=NEW OCEAN SEAFOOD & PRODUCE#find_loc=838 JACKSON ST,sf\"\n,38479,ZARE AT FLY TRAP,606 FOLSOM ST,94107,US,37.785404,-122.396979,,zare-at-fly-trap-san-francisco,,,\n,64313,50 MASON SOCIAL HOUSE,50 MASON ST,94102,US,37.783906,-122.409135,,50-mason-social-house-san-francisco,,,\n,4387,COMET CLUB,3111 FILLMORE ST,94123,US,37.798139,-122.435778,,comet-club-san-francisco,,,\nLD,3735,BETEL NUT,2030 UNION ST,94123,US,37.797478,-122.432664,14155928855,http://www.yelp.com/biz/betelnut-san-francisco,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:3735,,\"http://www.yelp.com/search?find_desc=BETEL NUT#find_loc=2030 UNION ST,sf\"\nJE,4410,\"OPERA HOUSE - 2F, MEZZANINE\",301 VAN NESS AVE,94102,US,37.778272,-122.420031,14155251932,-unmatched,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:4410,multiple locations,\"http://www.yelp.com/search?find_desc=OPERA HOUSE - 2F, MEZZANINE#find_loc=301 VAN NESS AVE,sf\"\nMW,70014,KETTLE CORN STAR,PUBLIC RIGHT OF WAY,,US,,,,http://www.yelp.com/biz/kettle-corn-star-san-leandro,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:70014,,\"http://www.yelp.com/search?find_desc=KETTLE CORN STAR#find_loc=PUBLIC RIGHT OF WAY,sf\"\n,1950,BULLSHEAD RESTAURANT,840 ULLOA ST,94127,US,37.740785,-122.465507,14155664350,bullshead-restaurant-san-francisco,,,\nSS,4718,MAY FLOWER MKT.,2498 FILLMORE ST,94115,US,37.792455,-122.434474,,http://www.yelp.com/biz/mayflower-market-san-francisco-2,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:4718,,\"http://www.yelp.com/search?find_desc=MAY FLOWER MKT.#find_loc=2498 FILLMORE ST,sf\"\n,60123,LIBA,155 DE HARO ST,94103,US,37.768324,-122.401906,,,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:60123,,\"http://www.yelp.com/search?find_desc=LIBA#find_loc=155 DE HARO ST,sf\"\n,33935,AVEDANO'S,235 CORTLAND AVE.,94110,US,37.739466,-122.41895,,avedanos-holly-park-market-san-francisco-2,,,\n,67563,LUCKY ONE MINI MART,1010 MARKET ST,94102,US,37.781874,-122.410818,,lucky-one-mini-mart-san-francisco,,,\n,3990,MARINES MEMORIAL THEATRE,\"609 SUTTER ST, 2ND FLOOR\",94102,US,37.788936,-122.410387,,marines-memorial-theatre-san-francisco,,,\nLD,5335,STEVE'S  MOBILE  DELI,674 ORANGE AVENUE,94945,US,,,14155896221,unmatched,http://dph-extranet2.sfdph.org:7777/pls/eeop_htmldb/f?p=132:2:3389746375077206::NO::P2_LOCATIONID:5335,,\"http://www.yelp.com/search?find_desc=STEVE'S  MOBILE  DELI#find_loc=674 ORANGE AVENUE,sf\"\n,67614,HARROW,357 KEARNY ST,94108,US,37.791534,-122.404214,,harrow-san-francisco,,,\n,33318,UNICORN,191 PINE ST,94111,US,37.792273,-122.399387,,unicorn-san-francisco,,,\n,65053,PARA BELLUM VERDE,1051 MARKET ST,94103,US,37.781301,-122.411392,,para-bellum-verde-san-francisco,,,\n"], ["created_at", Sat, 13 Jul 2013 17:37:09 UTC +00:00], ["filename", "lives-sf.csv"], ["updated_at", Sat, 13 Jul 2013 17:37:09 UTC +00:00]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/uploaded_files/6/edit
+Completed 302 Found in 14ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:37:09 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (24.6ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 39.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:10 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:37:37 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (20.9ms)
+  Rendered shared/_nav.html.erb (0.4ms)
+Completed 200 OK in 2243ms (Views: 2240.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:39 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:37:50 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (25.2ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2092ms (Views: 2088.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:37:52 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:39:45 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (31.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2076ms (Views: 2068.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:39:47 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:40:52 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (8.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (25.9ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 53ms (Views: 39.7ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:40:53 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:41:18 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.2ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (25.1ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2358ms (Views: 2354.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:41:21 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:43:59 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.3ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (22.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2158ms (Views: 2155.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:44:01 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:44:02 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:44:02 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:02 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:02 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:02 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:44:02 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:02 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:02 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:02 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:44:41 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (27.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 2266ms (Views: 2261.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:44:44 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (4.0ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (24.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 52ms (Views: 40.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:48:19 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (28.0ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 42.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:49:16 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:49:46 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (26.4ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:49:46 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:49:46 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:49:46 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:46 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:49:46 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:46 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:46 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:46 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:47 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:49:47 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:50:13 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.3ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (22.7ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1955ms (Views: 1951.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:50:15 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:52:02 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mUploadedFile Load (0.2ms)[0m  SELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (28.3ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 1966ms (Views: 1962.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:52:04 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:52:04 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:04 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:04 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:52:04 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:52:04 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:04 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:04 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:05 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:05 -0700
+
+
+Started GET "/uploaded_files/6/edit" for 127.0.0.1 at 2013-07-13 10:52:31 -0700
+Processing by UploadedFilesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUploadedFile Load (0.4ms)[0m  [1mSELECT "uploaded_files".* FROM "uploaded_files" WHERE "uploaded_files"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  Rendered uploaded_files/edit.html.erb within layouts/application (28.9ms)
+  Rendered shared/_nav.html.erb (0.2ms)
+Completed 200 OK in 3173ms (Views: 3168.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 10:52:34 -0700

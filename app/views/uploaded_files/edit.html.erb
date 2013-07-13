@@ -1,2 +1,27 @@
-<h1>UploadedFiles#edit</h1>
-<p>Find me in app/views/uploaded_files/edit.html.erb</p>
+<div class="instruction well">
+  <div class="step-header">Step 1</div>
+  <i class="icon-hand-up"></i> Select the address column
+</div>
+
+<div id="column-selector-table">
+<table  class="table">
+  <thead>
+    <tr>
+      <% @file.column_headers.each do |cell| %>
+      <th><%= cell %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% (1..4).each do |i| %>
+      <tr>
+        <% @file.row(i).each do |cell| %>
+          <td><%= cell %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<%= link_to 'new_address_set', 'Process', class: 'btn btn-success text-center' %>
