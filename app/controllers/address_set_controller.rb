@@ -7,6 +7,7 @@ class AddressSetController < ApplicationController
     set = FileParser.create_address_set file
     if set.save
       redirect_to address_set_path(set)
+    end
   end
 
   def edit

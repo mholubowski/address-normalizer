@@ -10245,3 +10245,68 @@ Migrating to CreateTokenizedAddresses (20130713224812)
   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
   [1m[35mSQL (8.8ms)[0m  INSERT INTO "tokenized_addresses" ("address", "city", "created_at", "line1", "number", "postal_code", "state", "street", "street_type", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["address", "7462 Denrock Ave, Los Angeles, CA 90045"], ["city", "Los Angeles"], ["created_at", Sat, 13 Jul 2013 22:53:29 UTC +00:00], ["line1", "7462 Denrock Ave"], ["number", "7462"], ["postal_code", "90045"], ["state", "CA"], ["street", "Denrock"], ["street_type", "Ave"], ["updated_at", Sat, 13 Jul 2013 22:53:29 UTC +00:00]]
   [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-13 16:21:45 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (4.5ms)
+  Rendered shared/_nav.html.erb (2.2ms)
+Completed 200 OK in 3033ms (Views: 2972.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.8ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.5ms)
+  Rendered shared/_nav.html.erb (0.1ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (2.2ms)
+  Rendered shared/_nav.html.erb (0.8ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/address_set.css?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/uploaded_files.css?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/navbar.css?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/address_set.js?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/uploaded_files.js?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-13 16:21:49 -0700
