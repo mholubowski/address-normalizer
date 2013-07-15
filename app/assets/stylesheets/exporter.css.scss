@@ -3,3 +3,17 @@
   padding: 5px;
   border: 1px solid #ccc;
 }
+
+.exporter-preview-table-wrapper {
+  max-width: 980px;
+  overflow-x: auto;
+  box-shadow: inset 0px 0px 14px 4px #ccc;
+  margin: 0 0px 20px 0px;
+  padding: 10px 10px;
+
+  table {
+    thead tr:first-child {
+      background-color: #f2f2f2
+    }
+  }
+}
