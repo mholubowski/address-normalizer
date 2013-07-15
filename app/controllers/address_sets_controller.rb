@@ -7,7 +7,6 @@ class AddressSetsController < ApplicationController
     file = UploadedFile.find(file_id)
     # TODO BUG @set is nil in the view
     set = FileParser.create_address_set_from_file file
-    binding.pry
     if set.save
       redirect_to address_set_path(set)
     end

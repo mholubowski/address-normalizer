@@ -10,7 +10,6 @@ class UploadedFilesController < ApplicationController
   def create
     file   = params[:uploaded_file][:thefile]
     upload = UploadedFile.new {|u| u.file = file}
-
     if upload.save # before_create
       redirect_to edit_uploaded_file_path(upload)
     else
