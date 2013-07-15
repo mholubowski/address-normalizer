@@ -2,6 +2,7 @@ class FileParser
 
   def self.create_address_set_from_file uploaded_file
     set = AddressSet.new
+    set.uploaded_file = uploaded_file
 
     # source_encoding = get_encoding(filename)
 

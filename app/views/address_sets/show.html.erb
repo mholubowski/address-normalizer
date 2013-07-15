@@ -11,6 +11,4 @@
   </div>
 </div>
 
-<% @set.tokenized_addresses.each do |addr| %>
- <h4><%= addr.address %></h4>
-<% end %>
+<%= render 'address_sets/exporter/default' %>
