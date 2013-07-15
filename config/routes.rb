@@ -5,6 +5,8 @@ AddressNormalizer::Application.routes.draw do
   get "welcome/home"
   get "welcome/about"
 
+  get "address_sets/exporter"
+
   resources :uploaded_files, except: [:show]
   resources :address_sets
 

@@ -27,4 +27,11 @@ class AddressSetsController < ApplicationController
   def show
     @set = AddressSet.find(params[:id])
   end
+
+  # used to fetch over ajax
+  def exporter
+    @export_type = params[:type].parameterize.underscore.to_sym
+    @set = AddressSet.last
+    render partial: 'address_sets/exporter/default'
+  end
 end
