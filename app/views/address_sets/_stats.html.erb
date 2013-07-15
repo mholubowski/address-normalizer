@@ -1,0 +1,10 @@
+<h2>Stats</h2>
+<dl>
+  <dt>Total Addresses: <%= @set.tokenized_addresses.count %></dt>
+  <dd class="color-green">Normalized: <%= @set.tokenized_addresses.count - @set.error_count %></dd>
+  <dd class="color-red">Errors: <%= @set.error_count %> (link!)</dd>
+
+  <dt>Unique Addresses</dt>
+  <dd><%= @set.uniq_addresses.count %> (link!)</dd>
+
+</dl>

@@ -1,4 +1,15 @@
-<h1>AddressSet#show</h1>
+<div class="row">
+  <div class="span12 well">
+    <h2>Here is your processed file</h2>
+    <h4>You can <strong>export</strong> the data</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6 well">
+    <%= render 'address_sets/stats' %>
+  </div>
+</div>
 
 <% @set.tokenized_addresses.each do |addr| %>
  <h4><%= addr.address %></h4>
