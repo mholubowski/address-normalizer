@@ -1,7 +1,6 @@
 class UploadedFilesController < ApplicationController
 
   def index
-    @files = UploadedFile.all
   end
 
   def new
@@ -13,11 +12,11 @@ class UploadedFilesController < ApplicationController
     upload = UploadedFile.new {|u| u.file = file}
 
     if upload.save # before_create
-
+      redirect_to edit_uploaded_file_path(upload)
     else
-
+      # flash error
+      redirect_to new_uploaded_file_path
     end
-    redirect_to edit_uploaded_file_path(upload)
   end
 
   def edit
@@ -25,7 +24,12 @@ class UploadedFilesController < ApplicationController
   end
 
   def update
+    @file = UploadedFile.find(params[:id])
+    @file.update_attributes(address_column_index: params[:address_index])
 
+    # respond_to do |format|
+    #   format.json {'hi'}
+    # end
   end
 
   def destroy

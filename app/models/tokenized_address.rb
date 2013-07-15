@@ -7,10 +7,9 @@ class TokenizedAddress < ActiveRecord::Base
   private
   def use_street_address_gem
     obj = StreetAddress::US.parse(@init_string, {informal: true})
-
     self.address          = obj.to_s
 
-    self.line1           = obj.line1
+    self.line1            = obj.line1
 
     self.number           = obj.number
     self.street           = obj.street

@@ -9,7 +9,7 @@
 <div class="row">
 
 <div class="span10">
-  <div id="column-selector-table">
+  <div id="column-selector-table" data-id="<%= @file.id %>">
     <table class="table table-bordered table-condensed">
       <thead>
         <tr>
@@ -50,4 +50,6 @@
 
 <div class="proceed-btn">
   <%= link_to 'Process File', 'new_address_set', class: 'disabled process btn btn-success text-center btn-large' %>
+  <%= button_to 'Process File', address_sets_path(uploaded_file_id: @file.id), class: 'disabled process btn btn-success btn-large text-center' %>
+  <p>here: <%= address_sets_path %></p>
 </div>
