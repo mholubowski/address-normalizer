@@ -30,7 +30,7 @@ $sexyGreen: #DAFFDB;
 #column-selector-table {
   max-width: 980px;
   overflow-x: auto;
-  box-shadow: inset 0px 0px 14px 4px #ccc;
+  box-shadow: inset 0px 0px 6px 2px #ccc;
   margin: 0 0px 20px 0px;
   padding: 10px 10px;
   th {
@@ -56,4 +56,11 @@ $sexyGreen: #DAFFDB;
 
 #wizard-container {
   height: 80px;
+
+  .question-text {
+    border: 1px solid #567
+  }
+  .btn-container {
+    border: 1px solid red;
+  }
 }
