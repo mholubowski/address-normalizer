@@ -11,12 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130713224812) do
+ActiveRecord::Schema.define(version: 20130717220114) do
 
   create_table "address_sets", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "column_informations", force: true do |t|
+    t.boolean  "single_column_address"
+    t.integer  "single_column_index"
+    t.integer  "number_index"
+    t.integer  "street_index"
+    t.integer  "street_type_index"
+    t.integer  "unit_index"
+    t.integer  "unit_prefix_index"
+    t.integer  "suffix_index"
+    t.integer  "prefix_index"
+    t.integer  "city_index"
+    t.integer  "state_index"
+    t.integer  "postal_code_index"
+    t.integer  "postal_code_ext_index"
+    t.integer  "uploaded_file_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "column_informations", ["uploaded_file_id"], name: "index_column_informations_on_uploaded_file_id"
 
   create_table "tokenized_addresses", force: true do |t|
     t.string   "address"

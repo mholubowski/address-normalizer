@@ -1,0 +1,1 @@
+-Few things break if the csv has less than 3 rows (the display tables)

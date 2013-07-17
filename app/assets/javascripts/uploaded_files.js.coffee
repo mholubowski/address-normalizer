@@ -60,9 +60,11 @@ jQuery ->
       for key, value of @result_hash
         if value?
           html += "<dt><span class='label label-success'>#{key}</span></dt>"
+          html += "<dd>#{value}</dd>"
         else
-          html += "<dt><span class='label label-warning'>#{key}</span></dt>"
-        html += "<dd>#{value}</dd>"
+          # html += "<dt><span class='label label-warning'>#{key}</span></dt>"
+          # html += "<dd> - </dd>"
+        
       html += '</dl>'
       wrap.html(html)
 
@@ -71,7 +73,18 @@ jQuery ->
 
     finish: ->
       @active = false
+      @send_data_to_server()
       @readyToProceed()
+
+    send_data_to_server: ->
+      # vulnerability? just change the id?
+      id = $('#column-selector-table').data('id')
+      $.ajax({
+        url: "/uploaded_files/#{id}",
+        type: "PATCH",
+        data: {column_information: @result_hash}
+        }).done (data) ->
+          console.log(data)
     
     readyToProceed: ->
       $('.status-wrapper').replaceWith @status('ready')
@@ -123,11 +136,14 @@ jQuery ->
       button_type = if @fork then 'yes-no' else 'NA'
       container_elem.find('.btn-container').html(@create_buttons(button_type))
 
+      # TODO example address
+      # container_elem.find('.examples').html('<div>7462 Denrock <span class="color-green strong">Ave</span> Los Angeles, CA 90045</div>')
+
     create_buttons: (type) ->
       switch type
         when 'NA'
           """
-          <div class="btn" data-wizard_value="nil">Not Applicable</div>
+          <div class="btn" data-wizard_value="">No Column</div>
           """
         when 'yes-no'
           """
@@ -162,8 +178,8 @@ jQuery ->
   # if ONE COLUMN, ask which column
   step0b_opts = {
     step_wizard: window.wiz,
-    answer_for: 'single_column_address',
-    question_text: 'Is your address info all in one column?',
+    answer_for: 'single_column_index',
+    question_text: 'In which column is the <strong>Address</strong>? <small>(Click above)</small>',
     fork: false,
     next_path: (-> @step_wizard.finish()),
   }
@@ -173,7 +189,7 @@ jQuery ->
   step1_opts = {
     step_wizard: window.wiz,
     answer_for: 'number_index',
-    question_text: 'In which column is the <strong>Street Number</strong>',
+    question_text: 'In which column is the <strong>Street Number</strong>? <small>(Click above)</small>',
     fork: false,
     next_path: (-> step2.start()),
   }
@@ -182,7 +198,7 @@ jQuery ->
   step2_opts = {
     step_wizard: window.wiz,
     answer_for: 'street_index',
-    question_text: 'In which column is the <strong>Street Name</strong>',
+    question_text: 'In which column is the <strong>Street Name</strong>?',
     fork: false,
     next_path: (-> step3.start()),
   }
@@ -191,7 +207,7 @@ jQuery ->
   step3_opts = {
     step_wizard: window.wiz,
     answer_for: 'street_type_index',
-    question_text: 'In which column is the <strong>Street Type</strong>',
+    question_text: 'In which column is the <strong>Street Type</strong>?',
     fork: false,
     next_path: (-> step4.start()),
   }
@@ -200,17 +216,18 @@ jQuery ->
   step4_opts = {
     step_wizard: window.wiz,
     answer_for: 'unit_index',
-    question_text: 'In which column is the <strong>Unit Number</strong>',
+    question_text: 'In which column is the <strong>Unit Number</strong>?',
     fork: false,
-    next_path: (-> step5.start()),
+    next_path: (-> step8.start()),
   }
   step4 = new Step(step4_opts)
 
   # TODO unit prefix?
+  ###
   step5_opts = {
     step_wizard: window.wiz,
     answer_for: 'unit_prefix_index',
-    question_text: 'In which column is the <strong>Street Number</strong>',
+    question_text: 'In which column is the <strong>Street Number</strong>?',
     fork: false,
     next_path: (-> step6.start()),
   }
@@ -220,7 +237,7 @@ jQuery ->
   step6_opts = {
     step_wizard: window.wiz,
     answer_for: 'suffix_index',
-    question_text: 'In which column is the <strong>Street Number</strong>',
+    question_text: 'In which column is the <strong>Street Number</strong>?',
     fork: false,
     next_path: (-> step7.start()),
   }
@@ -230,17 +247,18 @@ jQuery ->
   step7_opts = {
     step_wizard: window.wiz,
     answer_for: 'prefix_index',
-    question_text: 'In which column is the <strong>Street Number</strong>',
+    question_text: 'In which column is the <strong>Street Number</strong>?',
     fork: false,
     next_path: (-> step8.start()),
   }
   step7 = new Step(step7_opts)
+  ###
 
   # city
   step8_opts = {
     step_wizard: window.wiz,
     answer_for: 'city_index',
-    question_text: 'In which column is the <strong>City</strong>',
+    question_text: 'In which column is the <strong>City</strong>?',
     fork: false,
     next_path: (-> step9.start()),
   }
@@ -250,7 +268,7 @@ jQuery ->
   step9_opts = {
     step_wizard: window.wiz,
     answer_for: 'state_index',
-    question_text: 'In which column is the <strong>State</strong>',
+    question_text: 'In which column is the <strong>State</strong>?',
     fork: false,
     next_path: (-> step10.start()),
   }
@@ -260,7 +278,7 @@ jQuery ->
   step10_opts = {
     step_wizard: window.wiz,
     answer_for: 'postal_code_index',
-    question_text: 'In which column is the <strong>Postal Code</strong>',
+    question_text: 'In which column is the <strong>Postal Code</strong>?',
     fork: false,
     next_path: (-> step11.start()),
   }
@@ -270,7 +288,7 @@ jQuery ->
   step11_opts = {
     step_wizard: window.wiz,
     answer_for: 'postal_code_index',
-    question_text: 'In which column is the <strong>Postal Code Extension</strong>',
+    question_text: 'In which column is the <strong>Postal Code Extension</strong>?',
     fork: false,
     next_path: (-> @step_wizard.finish()),
   }

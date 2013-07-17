@@ -2,6 +2,7 @@ require 'csv'
 
 class UploadedFile < ActiveRecord::Base
   belongs_to :address_set
+  has_one :column_information
   before_create :parse_file
 
   attr_accessor :file

@@ -24,6 +24,7 @@ class UploadedFilesController < ApplicationController
 
   def update
     @file = UploadedFile.find(params[:id])
+    binding.pry
     @file.update_attributes(address_column_index: params[:address_index])
 
     # respond_to do |format|
