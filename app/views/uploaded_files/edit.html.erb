@@ -1,13 +1,16 @@
 <div class="instruction well">
-  <div class="step-header">Step 1</div>
-  <i class="icon-hand-up"></i> Select the address column by clicking on the correct cell
+  <i class="icon-hand-up"></i> Give us some more info about your data set
   <div class="status-wrapper">Status: <span class="label label-warning">Pending</span></div>
 </div>
 
 <div class="well" id="wizard-container">
-  <div class="question-text">Question goes here</div>
-  <div class="btn-container">Buttons!</div>
-
+  <div class="row">
+    <div class="span9">
+      <div class="step-header">Step 0</div>
+      <div class="question-text">Question goes here</div>
+      <div class="btn-container">Buttons!</div>
+    </div>
+  </div>
 </div>
 
 <div class="attention-arrow" style="position: relative; top: 35px;"><i class="icon-arrow-right icon-3x color-orange"></i> </div>
@@ -20,8 +23,8 @@
     <table class="table table-bordered table-condensed">
       <thead>
         <tr>
-          <% @file.column_headers.each do |cell| %>
-          <th><%= cell %></th>
+          <% @file.column_headers.each_with_index do |cell, i| %>
+          <th data-wizard_value="<%= i %>"><%= cell %></th>
           <% end %>
         </tr>
       </thead>
@@ -38,7 +41,7 @@
   </div>
 </div>
 
-<div class="span3">
+<!-- <div class="span3">
   <div class="well file-stats">
     <h3>File Stats:</h3>
     <h4>File name: </h4>
@@ -50,6 +53,13 @@
 
   </div>
 
+</div> -->
+
+<div class="span3">
+  <div class="well" id="response-tracker">
+    <div class="header">Progress</div>
+    <div class="container"></div>
+  </div>
 </div>
 
 

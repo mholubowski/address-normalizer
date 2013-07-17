@@ -16,6 +16,7 @@ $sexyGreen: #DAFFDB;
 .instruction {
   padding: 30px;
   font-size: 20px;
+  line-height: 23px;
 }
 
 .attention-arrow {
@@ -25,6 +26,10 @@ $sexyGreen: #DAFFDB;
 
 .step-header {
   font-size: 24px;
+  small {
+    font-size: 70%;
+    color: #666;
+  }
 }
 
 #column-selector-table {
