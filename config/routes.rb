@@ -1,5 +1,6 @@
 AddressNormalizer::Application.routes.draw do
 
+  get "column_information/create"
   root "welcome#home"
 
   get "welcome/home"
@@ -9,6 +10,7 @@ AddressNormalizer::Application.routes.draw do
 
   resources :uploaded_files, except: [:show]
   resources :address_sets
+  resources :column_informations, only: [:create]
 
 
 

@@ -26,6 +26,7 @@
       </thead>
       <tbody>
         <% @set.export_content(@export_type).each_with_index do |row, i| %>
+          <% next if i == 0 %> 
         <tr>
           <% row.each do |cell| %>
           <td><%= cell %></td>

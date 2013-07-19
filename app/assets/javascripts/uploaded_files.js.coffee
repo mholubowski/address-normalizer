@@ -79,10 +79,12 @@ jQuery ->
     send_data_to_server: ->
       # vulnerability? just change the id?
       id = $('#column-selector-table').data('id')
+      results = JSON.stringify(@result_hash)
       $.ajax({
-        url: "/uploaded_files/#{id}",
-        type: "PATCH",
-        data: {column_information: @result_hash}
+        url: "/column_informations",
+        type: "POST",
+        dataType: 'json',
+        data: {column_info: results, file_id: id}
         }).done (data) ->
           console.log(data)
     
@@ -287,7 +289,7 @@ jQuery ->
   # postal code extension
   step11_opts = {
     step_wizard: window.wiz,
-    answer_for: 'postal_code_index',
+    answer_for: 'postal_code_ext_index',
     question_text: 'In which column is the <strong>Postal Code Extension</strong>?',
     fork: false,
     next_path: (-> @step_wizard.finish()),

@@ -6,7 +6,7 @@ class TokenizedAddress < ActiveRecord::Base
 
   # private
   def use_street_address_gem
-    obj = StreetAddress::US.parse(@init_string, {informal: true})
+    obj = StreetAddress::US.parse(@init_string, {informal: true}) 
     #TODO handle errors better
     return self.address = 'ERROR' if obj.nil?
 
