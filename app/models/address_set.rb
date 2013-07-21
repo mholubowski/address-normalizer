@@ -56,8 +56,8 @@ end
 ## Set Exporter types
 
 class AddressSet < ActiveRecord::Base
-  has_one :uploaded_file
-  has_many :tokenized_addresses
+  has_one :uploaded_file, dependent: :destroy
+  has_many :tokenized_addresses, dependent: :destroy
   attr_accessor :content
 
   include Exporter
