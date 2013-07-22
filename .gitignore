@@ -1,3 +1,4 @@
 s3_credentials.rb
 log/
 tmp/
+db/development.sqlite3
