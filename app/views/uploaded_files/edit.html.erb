@@ -70,6 +70,6 @@
 </div>
 
 <div class="proceed-btn">
-  <%= button_to 'Process File', address_sets_path(uploaded_file_id: @file.id), class: 'disabled process btn btn-success btn-large text-center' %>
+  <%= button_to 'Process File', address_sets_path(uploaded_file_id: @file.id), class: 'disabled process btn btn-success btn-large text-center', onclick: "$(this).removeClass('btn-success').val('Processing..')", remote: true %>
   <p>Will take about <strong><%= time_to_address_set(@file.row_count) %></strong></p>  
 </div>

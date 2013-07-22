@@ -53,6 +53,7 @@ gem 'bootstrap-glyphicons'
 gem 'anjlab-bootstrap-rails'
 
 gem 'sidekiq'
+gem 'sidekiq-status'
 gem 'sinatra', require: false
 gem 'slim'
 # Use ActiveModel has_secure_password

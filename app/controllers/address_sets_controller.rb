@@ -4,11 +4,14 @@ class AddressSetsController < ApplicationController
 
   def create
     #todo move to sidekiq
-    file_id = params[:uploaded_file_id]
+    @file_id = params[:uploaded_file_id]
 
-    FileParserWorker.perform_async(file_id)
+    FileParserWorker.perform_async(@file_id)
 
-
+    respond_to do |format|
+      format.html {} 
+      format.js   {}
+    end
 
 
     # file = UploadedFile.find(file_id)

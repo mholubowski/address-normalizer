@@ -1,5 +1,6 @@
 class FileParserWorker 
   include Sidekiq::Worker
+  include Sidekiq::Status::Worker
   
   def perform(uploaded_file_id)
     file = UploadedFile.find(uploaded_file_id)
