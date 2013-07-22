@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 AddressNormalizer::Application.routes.draw do
 
   get "column_information/create"
@@ -14,9 +16,7 @@ AddressNormalizer::Application.routes.draw do
 
 
 
-
-
-
+  mount Sidekiq::Web, at: "/sidekiq"
 
 
 

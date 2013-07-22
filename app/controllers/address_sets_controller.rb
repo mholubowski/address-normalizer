@@ -3,13 +3,22 @@ class AddressSetsController < ApplicationController
   end
 
   def create
+    #todo move to sidekiq
     file_id = params[:uploaded_file_id]
-    file = UploadedFile.find(file_id)
+
+    FileParserWorker.perform_async(file_id)
+
+
+
+
+    # file = UploadedFile.find(file_id)
     # TODO BUG @set is nil in the view
-    set = FileParser.create_address_set_from_file file
-    if set.save
-      redirect_to address_set_path(set)
-    end
+    
+    # set = FileParser.create_address_set_from_file file
+
+    # if set.save
+      # redirect_to address_set_path(set)
+    # end
   end
 
   def edit
