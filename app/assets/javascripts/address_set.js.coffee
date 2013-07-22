@@ -5,15 +5,16 @@
 # --- Exporter ---
 jQuery ->
   $('.exporter-wrapper').on 'click', '.btn', (e) ->
-    type = e.currentTarget.textContent
+    id = $('.exporter-wrapper').data 'id'
+    export_type = e.currentTarget.textContent
     $.ajax({
       url: "/address_sets/exporter",
       type: "GET",
-      data: {type: type}
+      data: { export_type: export_type, id: id }
     }).done (data) ->
       $('.exporter-wrapper').html(data)
-      styleExporterTable(type)
+      styleExporterTable(export_type)
 
-  styleExporterTable = (type) ->
+  styleExporterTable = (export_type) ->
     # TODO make some cool stylings
-    console.log "styling for type: #{type}"
+    console.log "styling for export_type: #{export_type}"

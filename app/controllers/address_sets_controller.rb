@@ -30,8 +30,13 @@ class AddressSetsController < ApplicationController
 
   # used to fetch over ajax
   def exporter
-    @export_type = params[:type].parameterize.underscore.to_sym
-    @set = AddressSet.last
-    render partial: 'address_sets/exporter/default'
+    @set = AddressSet.find(params[:id])
+    @export_type = params[:export_type].parameterize.underscore.to_sym
+    filename = 'NORMALIZED_' + @set.uploaded_file.filename
+    respond_to do |format|
+      format.html { render partial: 'address_sets/exporter/default' }
+      format.csv  { send_data(@set.to_csv(@export_type), filename: filename) }
+    end
   end
+
 end

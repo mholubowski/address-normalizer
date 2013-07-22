@@ -37,5 +37,6 @@
       </tbody>
     </table>
   </div>
+  <%= link_to 'CSV', address_sets_exporter_path(@set, format: 'csv', export_type: @export_type, id: @set.id) %>
 </div>
 

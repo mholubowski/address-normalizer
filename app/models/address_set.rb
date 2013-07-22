@@ -22,10 +22,6 @@ module Exporter
     end
   end
 
-  def send_export_content(export_type)
-    #should send CSV file for download
-  end
-
   def export_column_headers(export_type = :addon_address)
     unless self.accepted.include? export_type
       raise ArgumentError, "Invalid export_type. Try one of these: \n \t #{self.accepted.join ' '}" 
@@ -73,5 +69,14 @@ class AddressSet < ActiveRecord::Base
   def parsed_content 
     @parsed_content ||= CSV.parse(self.uploaded_file.content)
   end
+
+  def to_csv(export_type)
+    CSV.generate do |csv|
+      self.export_content(export_type).each do |row|
+        csv << row
+      end
+    end
+  end
+
 end
 
