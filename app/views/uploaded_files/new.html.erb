@@ -1,5 +1,18 @@
+<div class="row">
+  <div class="span12 welcome-screen hero-unit">
+    <div class="slogan">Upload a CSV file with your address data</div>
 
-<%= form_for @uploaded_file do |f| %>
-  <%= f.file_field :thefile %>
-  <%= f.submit %>
-<% end %>
+    <div class="upload-file-form">
+    <%= debug(@uploaded_file.errors.any?) %>
+
+    <%= form_for @uploaded_file do |f| %>
+      <%= f.file_field :thefile %>
+      <%= f.submit 'Upload' %>
+    <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+
