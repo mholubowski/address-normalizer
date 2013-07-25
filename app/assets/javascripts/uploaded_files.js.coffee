@@ -4,19 +4,21 @@
 
 # ---- Column Selector ----
 jQuery ->
-  # $('#column-selector-table').on 'click','th', ->
-  #   id = $('#column-selector-table').data('id')
-  #   $('#column-selector-table th').removeClass 'active'
-  #   $(this).addClass 'active'
-  #   address_index = $('#column-selector-table th.active').index()
-  #   $.ajax({
-  #     url: "/uploaded_files/#{id}",
-  #     type: "PATCH",
-  #     data: {address_index: address_index}
-  #   }).done (data) ->
-  #     console.log 'DONE!'
-  #   readyToProceed()
 
+  # -------- File Upload Validation ------
+  window.validateFiles = (input) -> 
+    format = input.value.split('.')[1]
+    if format != 'csv'
+      $(input).val('')
+      $(input).closest('.upload-file-form').addClass('invalid')
+      $('.error-wrapper').html('You must upload a .CSV')
+    else
+      $(input).closest('.upload-file-form').removeClass('invalid').addClass('valid')
+      $('.error-wrapper').empty()
+
+  $('.upload-file-form').on 'click', 'input[type=submit]', ->
+    unless $(this).closest('.upload-file-form').hasClass('valid')
+      return false
 
 
   step_results_hash = {
@@ -313,4 +315,15 @@ jQuery ->
     wiz.collect_answer(answer)
 
 
+
+
+
+
+# window.checkValid = (e) ->
+#   e.preventDefault()
+#   # return false
+#   console.log(input)
+
+# alert 'hi'
+# validateFiles('hi')
 

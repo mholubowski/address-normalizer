@@ -2,15 +2,18 @@
   <div class="span12 welcome-screen hero-unit">
     <div class="slogan">Upload a CSV file with your address data</div>
 
-    <div class="upload-file-form">
-    <%= debug(@uploaded_file.errors.any?) %>
+    <%= debug(@uploaded_file.errors) if false%>
 
+    <div class="upload-file-form">
     <%= form_for @uploaded_file do |f| %>
-      <%= f.file_field :thefile %>
-      <%= f.submit 'Upload' %>
+      <%= f.file_field :thefile, onchange: "window.validateFiles(this);" %>
+      <%= f.submit 'Upload', onclick: "window.checkValid(e);" %>
     <% end %>
+    <div class="error-wrapper">
+    </div>
     </div>
 
+    <div class="slogan small">Then we'll start normalizing</div>
   </div>
 </div>
 

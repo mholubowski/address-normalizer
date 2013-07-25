@@ -5,6 +5,8 @@ class UploadedFile < ActiveRecord::Base
   has_one :column_information, dependent: :destroy
   before_create :parse_file
 
+  validate :filename, :with => /.csv/, :message => "File needs to be of .csv format"
+
   attr_accessor :file
 
   def column_headers
@@ -26,8 +28,8 @@ class UploadedFile < ActiveRecord::Base
     temp = @file.tempfile
     name = @file.original_filename
 
-    self.content  = File.read(temp)
     self.filename = name
+    self.content  = File.read(temp)
   end
 
 end

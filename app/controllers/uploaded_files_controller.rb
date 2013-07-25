@@ -9,12 +9,13 @@ class UploadedFilesController < ApplicationController
 
   def create
     file   = params[:uploaded_file][:thefile]
-    upload = UploadedFile.new {|u| u.file = file}
-    if upload.save # before_create
-      redirect_to edit_uploaded_file_path(upload)
+    @uploaded_file = UploadedFile.new {|u| u.file = file}
+    if @uploaded_file.save # before_create
+      redirect_to edit_uploaded_file_path(@uploaded_file)
     else
       # flash error
-      redirect_to new_uploaded_file_path
+      # redirect_to new_uploaded_file_path
+      render 'new'
     end
   end
 

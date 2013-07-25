@@ -16,7 +16,24 @@ $sexyGreen: #DAFFDB;
 // ---------- UploadedFiles#new ---------
 .upload-file-form {
   text-align: center;
-  margin-top: 70px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding: 10px;
+  display: inline-block;
+  box-shadow: inset 0px 0px 5px $sexyGreen;
+  border: 1px solid #E7E7E7;
+
+  &.invalid {
+    box-shadow: inset 0px 0px 5px red;
+  }
+  &.valid {
+    box-shadow: inset 0px 0px 5px #62F566;
+  }
+
+  .error-wrapper {
+    font-size: 14px;
+    color: red;
+  }
 }
 
 
