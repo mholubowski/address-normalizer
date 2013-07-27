@@ -7,20 +7,20 @@ class UploadedFile < ActiveRecord::Base
 
   validate :filename, :with => /.csv/, :message => "File needs to be of .csv format"
 
-  attr_accessor :file
+  attr_accessor :file, :parsed_content
 
   def column_headers
     # parse self.content -> return [headers]
-    CSV.parse(self.content).first
+    parsed_content.first
   end
 
   def row index
     # parse self.content -> return [row]
-    CSV.parse(self.content)[index]
+    parsed_content[index]
   end
 
   def row_count
-    CSV.parse(self.content).count
+    parsed_content.count
   end
 
   private
@@ -30,6 +30,10 @@ class UploadedFile < ActiveRecord::Base
 
     self.filename = name
     self.content  = File.read(temp)
+  end
+
+  def parsed_content
+    @parsed_content ||= CSV.parse(self.content)
   end
 
 end

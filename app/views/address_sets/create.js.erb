@@ -1,2 +1,7 @@
-$('body').append('<div class="redis-status">Redis-Status</div>')
+var job_id = "<%= escape_javascript(@job_id) %>"
+
+console.log(job_id);
+
+$('body').append('<div class="redis-status">Redis-Status</div>');
+
 
