@@ -50,7 +50,9 @@ gem 'rails_12factor', group: :production
 
 
 gem 'bootstrap-glyphicons'
-gem 'anjlab-bootstrap-rails'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails',
+                              :branch => '3.0.0'
 
 gem 'sidekiq'
 gem 'sidekiq-status'

@@ -10,12 +10,18 @@ poll_sidekiq(job_id);
 function poll_sidekiq (job_id) { 
   var url = '/sidekiq_poller/' + job_id; 
   $.getJSON(
-    url, 
-    function(data){ displaySideqikStatus(data, job_id); }
+    url, function(data){ displaySideqikStatus(data, job_id);}
     );
 };
 
+var animation_running = false;
+
 function displaySideqikStatus (data, job_id) {
+  if (!animation_running) {
+    animateProgressBar(30);
+    animation_running = true;
+  };
+  $('#adress-set-progress-modal').modal();
   if (data.status == 'complete')
     showComplete(data);
   else {
@@ -32,7 +38,22 @@ function displaySideqikStatus (data, job_id) {
       window.location = link;
   }
   function showIncomplete () {
+    $('#adress-set-progress-modal').modal();
     $('.redis-status').addClass('incomplete')
       .find('.inner').html('incomplete');
   }
 };
+
+function animateProgressBar (seconds) {
+  var bar = $('#adress-set-progress-modal').find('.progress-bar');
+  var current_percent = 0;
+  var percent_per_second = 100/seconds;
+  nextStep();
+
+  function nextStep () {
+    current_percent += percent_per_second;
+    bar.width(current_percent + '%');
+    console.log(current_percent);
+    setTimeout(nextStep, 1000);
+  }
+}

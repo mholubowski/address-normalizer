@@ -19,3 +19,14 @@
     background-color: green;
   }
 }
+
+
+// Popup Modal which shows progress
+#adress-set-progress-modal {
+  display: none;
+  // why the f*()k does this not work by default..
+  .progress-bar {
+    height: 100%;
+    background-color: rgb(131, 198, 252);
+  }
+}
