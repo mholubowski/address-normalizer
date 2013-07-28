@@ -2,6 +2,37 @@ var job_id = "<%= escape_javascript(@job_id) %>"
 
 console.log(job_id);
 
-$('body').append('<div class="redis-status">Redis-Status</div>');
+$('body').append('<div class="redis-status">Redis-Status <div class="inner"></div></div>');
 
 
+poll_sidekiq(job_id);
+
+function poll_sidekiq (job_id) { 
+  var url = '/sidekiq_poller/' + job_id; 
+  $.getJSON(
+    url, 
+    function(data){ displaySideqikStatus(data, job_id); }
+    );
+};
+
+function displaySideqikStatus (data, job_id) {
+  if (data.status == 'complete')
+    showComplete(data);
+  else {
+    showIncomplete();
+    setTimeout(function() {
+      poll_sidekiq(job_id)
+    }, 3000);
+  }
+
+  function showComplete (data) {
+    $('.redis-status').removeClass('incomplete').addClass('complete')
+      .find('.inner').html('complete: ' + data.address_set_id);
+      var link = '/address_sets/' + data.address_set_id;
+      window.location = link;
+  }
+  function showIncomplete () {
+    $('.redis-status').addClass('incomplete')
+      .find('.inner').html('incomplete');
+  }
+};

@@ -10,5 +10,12 @@
   bottom: 0px;
   width: 200px;
   height: 130px;
-  background-color: green;
+
+  &.incomplete {
+    background-color: yellow;
+  }
+
+  &.complete {
+    background-color: green;
+  }
 }

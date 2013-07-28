@@ -10,11 +10,11 @@ AddressNormalizer::Application.routes.draw do
 
   get "address_sets/exporter"
 
+  get "sidekiq_poller/:id", to: 'sidekiq_poller#show'
+
   resources :uploaded_files, except: [:show]
   resources :address_sets
   resources :column_informations, only: [:create]
-
-
 
   mount Sidekiq::Web, at: "/sidekiq"
 
