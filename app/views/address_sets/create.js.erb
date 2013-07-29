@@ -1,10 +1,5 @@
 var job_id = "<%= escape_javascript(@job_id) %>"
 
-console.log(job_id);
-
-$('body').append('<div class="redis-status">Redis-Status <div class="inner"></div></div>');
-
-
 poll_sidekiq(job_id);
 
 function poll_sidekiq (job_id) { 
@@ -14,48 +9,33 @@ function poll_sidekiq (job_id) {
     );
 };
 
-var animation_running = false;
 
 function displaySideqikStatus (data, job_id) {
-  if (!animation_running) {
-    // animateProgressBar(30);
-    animation_running = true;
-  };
   $('#adress-set-progress-modal').modal();
   if (data.status == 'complete')
     showComplete(data);
   else {
-    showIncomplete(data);
+    frequency = 500;
+    showIncomplete(data, frequency);
     setTimeout(function() {
       poll_sidekiq(job_id)
-    }, 3000);
+    }, frequency);
   }
 
   function showComplete (data) {
-    $('.redis-status').removeClass('incomplete').addClass('complete')
-      .find('.inner').html('complete: ' + data.address_set_id);
       var link = '/address_sets/' + data.address_set_id;
       window.location = link;
   }
-  function showIncomplete (data) {
-    $('#adress-set-progress-modal').find('.row-count')
-      .html(data.num + ' / ' + data.row_count );
-    var bar = $('#adress-set-progress-modal').find('.progress-bar');
+  function showIncomplete (data, frequency) {
+    var modal = $('#adress-set-progress-modal');
+    if (data.num !== undefined) {
+      modal.find('.current-row').animateNumbers(data.num, true, frequency, 'linear');
+      modal.find('.total-rows').html(' / ' + data.row_count);
+    }
+      
+    
+    var bar = modal.find('.progress-bar');
     var percent_done = data.num * 100 / data.row_count;
-    bar.width(percent_done + '%');
+    bar.width(percent_done + '%')
   }
 };
-
-function animateProgressBar (seconds) {
-  var bar = $('#adress-set-progress-modal').find('.progress-bar');
-  var current_percent = 0;
-  var percent_per_second = 100/seconds;
-  nextStep();
-
-  function nextStep () {
-    current_percent += percent_per_second;
-    bar.width(current_percent + '%');
-    console.log(current_percent);
-    setTimeout(nextStep, 1000);
-  }
-}

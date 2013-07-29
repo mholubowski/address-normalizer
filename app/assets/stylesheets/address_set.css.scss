@@ -4,22 +4,6 @@
 
 // #show page
 
-.redis-status {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  width: 200px;
-  height: 130px;
-
-  &.incomplete {
-    background-color: yellow;
-  }
-
-  &.complete {
-    background-color: green;
-  }
-}
-
 
 // Popup Modal which shows progress
 #adress-set-progress-modal {
@@ -33,5 +17,9 @@
   .row-count {
     text-align: center;
     font-size: 24px;
+    .current-row, .total-rows {
+      display: inline-block;
+    }
   }
+
 }
