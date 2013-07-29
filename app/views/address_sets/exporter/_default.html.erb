@@ -6,7 +6,7 @@
   <h2>Exporter</h2>
   <div class="exporter-options">
     <% @set.accepted.each do |type| %>
-    <div class="btn <%= 'btn-info' if type == @export_type %> btn-large "><%= type.to_s.humanize %></div>
+    <div class="btn <%= 'btn-info' if type == @export_type %> "><%= type.to_s.humanize %></div>
     <% end %>
   </div>
 </div>
@@ -37,6 +37,6 @@
       </tbody>
     </table>
   </div>
-  <%= link_to 'CSV', address_sets_exporter_path(@set, format: 'csv', export_type: @export_type, id: @set.id) %>
+  <%= link_to 'Export as CSV', address_sets_exporter_path(@set, format: 'csv', export_type: @export_type, id: @set.id) %>
 </div>
 

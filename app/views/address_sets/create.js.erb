@@ -18,14 +18,14 @@ var animation_running = false;
 
 function displaySideqikStatus (data, job_id) {
   if (!animation_running) {
-    animateProgressBar(30);
+    // animateProgressBar(30);
     animation_running = true;
   };
   $('#adress-set-progress-modal').modal();
   if (data.status == 'complete')
     showComplete(data);
   else {
-    showIncomplete();
+    showIncomplete(data);
     setTimeout(function() {
       poll_sidekiq(job_id)
     }, 3000);
@@ -37,10 +37,12 @@ function displaySideqikStatus (data, job_id) {
       var link = '/address_sets/' + data.address_set_id;
       window.location = link;
   }
-  function showIncomplete () {
-    $('#adress-set-progress-modal').modal();
-    $('.redis-status').addClass('incomplete')
-      .find('.inner').html('incomplete');
+  function showIncomplete (data) {
+    $('#adress-set-progress-modal').find('.row-count')
+      .html(data.num + ' / ' + data.row_count );
+    var bar = $('#adress-set-progress-modal').find('.progress-bar');
+    var percent_done = data.num * 100 / data.row_count;
+    bar.width(percent_done + '%');
   }
 };
 

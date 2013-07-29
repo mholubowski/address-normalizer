@@ -1,12 +1,12 @@
 class FileParser
 
-  def self.create_address_set_from_file uploaded_file
+  def self.create_address_set_from_file uploaded_file, status_proc = nil
     set = AddressSet.new
     set.uploaded_file = uploaded_file
 
     # source_encoding = get_encoding(filename)
 
-    self.process_csv(uploaded_file, set)
+    self.process_csv(uploaded_file, set, status_proc)
     return set
     #TODO handle malformed (in address_set?)
     #     create Malformed class?
@@ -14,19 +14,20 @@ class FileParser
 
   private
 
-  def self.process_csv(file, set)
+  def self.process_csv(file, set, status_proc)
     counter = 0
     CSV.parse(file.content).each do |line|
       if counter == 0
         # do nothing
       else
-        self.normalize_line(line, file, set)
+        self.normalize_line(line, file, set, status_proc)
+        status_proc.call(counter, 100)
       end
       counter += 1
     end
   end
 
-  def self.normalize_line(line, file, set)
+  def self.normalize_line(line, file, set, status_proc)
     t = TokenizedAddress.new
     if file.column_information.single_column_address
       t.init_string = line[file.column_information.single_column_index]
