@@ -46,8 +46,13 @@ $sexyGreen: #DAFFDB;
 }
 
 .attention-arrow {
+  position: relative; 
+  top: 45px;
   float: left;
   padding: 5px;
+  i {
+    float: right;
+  }
 }
 
 .step-header {
@@ -60,7 +65,7 @@ $sexyGreen: #DAFFDB;
 
 #column-selector-table {
   max-width: 980px;
-  max-height: 350px;
+  max-height: 300px;
   overflow-x: auto;
   box-shadow: inset 0px 0px 6px 2px #ccc;
   margin: 0 0px 20px 0px;

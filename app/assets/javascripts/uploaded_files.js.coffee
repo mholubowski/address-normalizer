@@ -52,6 +52,7 @@ jQuery ->
 
     collect_answer: (answer) ->
       @result_hash[@current_step.answer_for] = answer
+      console.log @result_hash
       # @update_view()
       @next_step(answer)
 

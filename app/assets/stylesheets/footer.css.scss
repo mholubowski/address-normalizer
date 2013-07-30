@@ -1,11 +1,20 @@
 #footer {
-  height: 130px;
+  height: 100px;
   background-color: #2f2f2f;
   box-shadow: inset 1px 1px 2px 6px rgba(44, 44, 44, 0.14);
-  border-top: 1px solid #bbb;
+  border-top: 1px solid #646464;
+  padding: 20px;
+  padding-left: 130px;
+
+  a {
+    opacity: .4;
+  }
   
   .content {
     text-align: center;
     color: #ddd;
+  }
+  .shoutout {
+    color: #555;
   }
 }

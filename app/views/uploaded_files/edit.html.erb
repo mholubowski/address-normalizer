@@ -4,9 +4,9 @@
 </div>
 
 
-<div class="attention-arrow" style="position: relative; top: 35px;"><i class="icon-arrow-right icon-3x color-orange"></i> </div>
 
 <div class="row">
+  <div class="span2 attention-arrow"><i class="icon-arrow-right icon-2x color-orange"></i> </div>
 
   <div class="span10">
     <h5>Preview <small>(first 50 rows)</small></h5>
@@ -64,15 +64,17 @@
       <div class="question-text">Question goes here</div>
       <div class="btn-container">Buttons!</div>
     </div>
-    <div class="span6 examples">
+    <div class="span6">
+
+      <div class="proceed-btn">
+        <%= button_to 'Process File', address_sets_path(uploaded_file_id: @file.id), class: 'disabled process btn btn-success btn-large text-center', onclick: "$(this).removeClass('btn-success').val('Processing..')", remote: true %>
+        <p>Will take about <strong><%= time_to_address_set(@file.row_count) %></strong></p>  
+      </div>
       
     </div>
   </div>
 </div>
 
-<div class="proceed-btn">
-  <%= button_to 'Process File', address_sets_path(uploaded_file_id: @file.id), class: 'disabled process btn btn-success btn-large text-center', onclick: "$(this).removeClass('btn-success').val('Processing..')", remote: true %>
-  <p>Will take about <strong><%= time_to_address_set(@file.row_count) %></strong></p>  
-</div>
+
 
 <%= render 'address_sets/progress_modal' %>
