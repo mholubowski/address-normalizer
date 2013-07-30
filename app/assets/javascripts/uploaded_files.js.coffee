@@ -174,7 +174,7 @@ jQuery ->
   step0_opts = {
     step_wizard: window.wiz,
     answer_for: 'single_column_address',
-    question_text: 'Is your address info all in one column?',
+    question_text: 'Is all the address information contained within a <strong>single</strong> column? \n <small>(Including Street, City, Postal Code etc..)</small>',
     fork: true,
     next_path: null,
     option_a: true,

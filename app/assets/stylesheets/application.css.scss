@@ -18,3 +18,12 @@ $sexyBlue: #64C9E7;
 $linkColor: $sexyBlue;
 @import "bootstrap";
 @import "font-awesome";
+
+body {
+  background-color: #f3f3f3;
+  background-image: url(image-path('bg_pattern.png'));
+}
+
+.hero-unit {
+  background: transparent;
+}

@@ -14,6 +14,12 @@ $sexyGreen: #DAFFDB;
 }
 
 // ---------- UploadedFiles#new ---------
+.new-uploaded-file {
+  .hero-unit {
+    text-align: center;
+  }
+}
+
 .upload-file-form {
   text-align: center;
   margin-top: 50px;
@@ -63,10 +69,15 @@ $sexyGreen: #DAFFDB;
   }
 }
 
+.row.selector-table {
+  padding: 20px 10px;
+}
+
 #column-selector-table {
   max-width: 980px;
   max-height: 300px;
   overflow-x: auto;
+  background-color: #fff;
   box-shadow: inset 0px 0px 6px 2px #ccc;
   margin: 0 0px 20px 0px;
   padding: 10px 10px;
