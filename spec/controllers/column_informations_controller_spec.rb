@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ColumnInformationController do
+describe ColumnInformationsController do
 
   describe "GET 'create'" do
     it "returns http success" do

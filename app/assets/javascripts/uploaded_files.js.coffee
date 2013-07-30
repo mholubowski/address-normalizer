@@ -138,6 +138,7 @@ jQuery ->
 
       container_elem.find('.question-text').html(@question_text)
       button_type = if @fork then 'yes-no' else 'NA'
+      button_type = 'mandatory' if @answer_for == 'single_column_index'
       container_elem.find('.btn-container').html(@create_buttons(button_type))
 
       # TODO example address
@@ -145,6 +146,9 @@ jQuery ->
 
     create_buttons: (type) ->
       switch type
+        when 'mandatory'
+          """
+          """
         when 'NA'
           """
           <div class="btn" data-wizard_value="">No Column</div>

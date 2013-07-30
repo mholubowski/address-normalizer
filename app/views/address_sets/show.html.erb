@@ -1,16 +1,10 @@
-<div class="row">
-  <div class="span12 well">
-    <h2>Here is your processed file</h2>
-    <h4>You can <strong>export</strong> the data</h4>
-  </div>
-</div>
-
-<div class="row">
-  <div class="span6 well">
+<div class="row well">
+  <div class="span6">
     <%= render 'address_sets/stats' %>
   </div>
 </div>
 
+
 <div class="exporter-wrapper" data-id="<%= @set.id %>">
-<%= render 'address_sets/exporter/default' %>
+  <%= render 'address_sets/exporter/default' %>
 </div>

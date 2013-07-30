@@ -2,15 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .welcome-screen {
-  background-color: blue;
-  // width: 100%;
-  height: 300px;
-  background-color: #fff;
-  text-align: center;
-  // background-image:
-  // linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-  // linear-gradient(#eee .1em, transparent .1em);
-  // background-size: 100% 1.2em;
+  background-image: url(image-path('screenshot1.png'));
+  padding: 80px;
+  .hero-unit {
+    background: transparent;
+    // width: 100%;
+    height: 300px;
+    text-align: center;
+    // background-image:
+    // linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+    // linear-gradient(#eee .1em, transparent .1em);
+    // background-size: 100% 1.2em;
+  }
 }
 
 .slogan {
@@ -18,6 +21,10 @@
   padding: 10px;
   margin: 10px;
   text-align: center;
+  position: relative;
+  bottom: 65px;
+  color: #fdfdfd;
+  text-shadow: 0px 0px 1px #000;
   &.small {
     font-size: 25px;
     color: #555;
@@ -27,4 +34,7 @@
 .intro-btns {
   text-align: center;
   margin-top: 55px;
+  .btn {
+    box-shadow: 1px 1px 4px 0px #333;
+  }
 }

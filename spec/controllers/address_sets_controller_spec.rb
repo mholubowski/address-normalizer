@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AddressSetController do
+describe AddressSetsController do
 
   describe "GET 'new'" do
     it "returns http success" do

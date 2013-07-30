@@ -15,7 +15,7 @@ function displaySideqikStatus (data, job_id) {
   if (data.status == 'complete')
     showComplete(data);
   else {
-    frequency = 500;
+    frequency = 1500;
     showIncomplete(data, frequency);
     setTimeout(function() {
       poll_sidekiq(job_id)
