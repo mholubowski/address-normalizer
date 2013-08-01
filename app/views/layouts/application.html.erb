@@ -9,6 +9,7 @@
 <body>
 
     <%= render 'shared/nav' unless current_page?(:controller => 'welcome', :action => 'home')%>
+    <%= render 'shared/beta_notice' unless current_page?(:controller => 'welcome', :action => 'home')%>
     <div class="main-wrapper" style="min-height: 550px;">
       <%= yield %>
     </div>
