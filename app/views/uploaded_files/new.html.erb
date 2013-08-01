@@ -2,6 +2,9 @@
   <div class="span12 hero-unit">
     <div class="slogan">Upload a CSV file with your address data</div>
 
+    <div class="csv-help" data-modal="#help-modal">
+      Need help?
+    </div>
     <%= debug(@uploaded_file.errors) if false%>
 
     <div class="upload-file-form">
@@ -17,5 +20,5 @@
   </div>
 </div>
 
-
+<%= render 'shared/help_modal' %>
 

@@ -14,6 +14,11 @@ $sexyGreen: #DAFFDB;
 }
 
 // ---------- UploadedFiles#new ---------
+.csv-help {
+  margin-top: 20px;
+  color: blue;
+}
+
 .new-uploaded-file {
   .hero-unit {
     text-align: center;
@@ -22,7 +27,7 @@ $sexyGreen: #DAFFDB;
 
 .upload-file-form {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 30px;
   padding: 10px;
   display: inline-block;

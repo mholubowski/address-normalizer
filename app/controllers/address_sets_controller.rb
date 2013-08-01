@@ -5,9 +5,7 @@ class AddressSetsController < ApplicationController
   def create
     #todo move to sidekiq
     @file_id = params[:uploaded_file_id]
-
     @job_id = FileParserWorker.perform_async(@file_id)
-    @test = 'hi'
 
     respond_to do |format|
       format.html {} 

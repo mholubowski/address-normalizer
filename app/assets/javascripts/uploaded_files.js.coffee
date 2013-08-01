@@ -5,6 +5,11 @@
 # ---- Column Selector ----
 jQuery ->
 
+  # modal clicking
+  $('[data-modal]').on 'click', ->
+    modal_id = $(this).data('modal')
+    $(modal_id).modal()
+
   # -------- File Upload Validation ------
   window.validateFiles = (input) -> 
     format = input.value.split('.')[1]
@@ -75,12 +80,14 @@ jQuery ->
       @current_step.decide_next(answer)
 
     finish: ->
+      @send_data_to_server() if @active
       @active = false
-      @send_data_to_server()
       @readyToProceed()
 
     send_data_to_server: ->
       # vulnerability? just change the id?
+      console.log('Sending data....')
+      console.log 'here: ' + JSON.stringify(@result_hash)
       id = $('#column-selector-table').data('id')
       results = JSON.stringify(@result_hash)
       $.ajax({
@@ -89,6 +96,7 @@ jQuery ->
         dataType: 'json',
         data: {column_info: results, file_id: id}
         }).done (data) ->
+          console.log('DONE!!')
           console.log(data)
     
     readyToProceed: ->

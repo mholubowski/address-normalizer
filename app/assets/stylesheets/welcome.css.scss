@@ -15,10 +15,10 @@
     // background-size: 100% 1.2em;
   }
   .slogan {
-      position: relative;
-  bottom: 65px;
-  color: #fdfdfd;
-  text-shadow: 0px 0px 1px #000;
+    position: relative;
+    bottom: 65px;
+    color: #fdfdfd;
+    text-shadow: 0px 0px 1px #000;
 
   }
 }
@@ -41,4 +41,38 @@
   .btn {
     box-shadow: 1px 1px 4px 0px #333;
   }
+}
+
+//  ----- Info/About
+.instructions-wrapper {
+  .row {
+    margin-top: 10px;
+    .well {
+      margin-top: 60px;
+    }
+  }
+}
+
+.panel {
+  padding: 15px;
+  margin: 10px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+  .panel-title {
+    font-size: 18px;
+  }
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  margin: -15px -15px 15px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #dddddd;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
 }

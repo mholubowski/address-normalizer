@@ -1,3 +1,79 @@
-<h1>Welcome#about</h1>
-<p>Find me in app/views/welcome/about.html.erb</p>
-<h1>HEREEEEEEE</h1>
+<div class="row instructions-wrapper">
+  <div class="span12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">Instructions for use (non-technical)</div>
+      </div>
+
+      <div class="row">
+        <div class="span5">
+          <h3>Two simple steps</h3>
+          This app is designed to be easy to use and flexible. There are only two requirements: 
+          <ol>
+            <li>A <strong>.CSV</strong> file with your address information</li>
+            <li>Your input in deciding which columns contain the address info</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span5">
+          <h3>The CSV file</h3>
+          A powerful feature of this app is that there are <strong>no strict requirements</strong> for the way your CSV is formatted. Most likely, you can use your existing datasets without any extra work!
+          <ul>
+            <li>Address info can be contained in <strong>one column</strong> or spread across <strong>multiple columns</strong></li>
+            <li>Address info and other info (names, phone numbers) <strong>cannot</strong> be mixed together in the same column</li>
+          </ul>
+        </div>
+
+        <div class="span3 offset1 well">
+        <!-- <h3>Example data sets:</h3> -->
+          <div class="data-examples">
+            These files will work just fine: <br>
+            <ul>
+              <li><%= link_to 'Single Column', "/single_column_example.csv" %></li>
+              <li><%= link_to 'Multiple Column', "/multiple_column_example.csv" %></li>
+            </ul>
+          </div>
+
+          <div class="data-examples">
+            This one has other info mixed in with address columns:
+            <ul>
+              <li><%= link_to 'Incompatible Example', "/incompatible_example.csv" %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span5">
+          <h3>Selecting columns</h3>
+          It only takes a few clicks to inform the app about your dataset
+          <ul>
+            <li>Just follow the steps</li>
+          </ul>
+        </div>
+    </div>
+  
+    <div class="row">
+      <div class="span10">
+        <div class="video instruciton1">
+          <iframe width="660" height="450" src="//www.youtube.com/embed/ig9Pi1Dl_xU" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>    
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12">
+    <div class="panel">
+      <div class="panel-heading">
+        <div class="panel-title">Instructions for use (developers)</div>
+      </div>
+      Panel content
+    </div>
+  </div>
+</div>
+

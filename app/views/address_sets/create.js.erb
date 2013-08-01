@@ -11,7 +11,7 @@ function poll_sidekiq (job_id) {
 
 
 function displaySideqikStatus (data, job_id) {
-  $('#adress-set-progress-modal').modal();
+  $('#address-set-progress-modal').modal();
   if (data.status == 'complete')
     showComplete(data);
   else {
@@ -27,7 +27,7 @@ function displaySideqikStatus (data, job_id) {
       window.location = link;
   }
   function showIncomplete (data, frequency) {
-    var modal = $('#adress-set-progress-modal');
+    var modal = $('#address-set-progress-modal');
     if (data.num !== undefined) {
       modal.find('.current-row').animateNumbers(data.num, true, frequency, 'linear');
       modal.find('.total-rows').html(' / ' + data.row_count);

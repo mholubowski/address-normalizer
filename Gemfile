@@ -58,6 +58,8 @@ gem 'sidekiq'
 gem 'sidekiq-status'
 gem 'sinatra', require: false
 gem 'slim'
+
+gem 'fly-swatter'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

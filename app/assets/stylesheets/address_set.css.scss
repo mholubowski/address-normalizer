@@ -6,7 +6,7 @@
 
 
 // Popup Modal which shows progress
-#adress-set-progress-modal {
+#address-set-progress-modal {
   display: none;
   // why the f*()k does this not work by default..
   .progress-bar {
@@ -21,5 +21,8 @@
       display: inline-block;
     }
   }
+}
 
+.modal {
+  display: none;
 }

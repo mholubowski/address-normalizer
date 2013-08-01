@@ -1,13 +1,13 @@
 class FileParser
 
-  def self.create_address_set_from_file uploaded_file, status_proc = nil
+  def self.create_address_set_from_file(uploaded_file, status_proc = nil)
     set = AddressSet.new
     set.uploaded_file = uploaded_file
 
     # source_encoding = get_encoding(filename)
 
     self.process_csv(uploaded_file, set, status_proc)
-    return set
+    # return set
     #TODO handle malformed (in address_set?)
     #     create Malformed class?
   end
@@ -21,10 +21,11 @@ class FileParser
         # do nothing
       else
         self.normalize_line(line, file, set, status_proc)
-        status_proc.call(counter, 100)
+        status_proc.call(counter, 100) unless status_proc.nil?
       end
       counter += 1
     end
+    return set
   end
 
   def self.normalize_line(line, file, set, status_proc)
