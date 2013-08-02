@@ -2,10 +2,12 @@
   <div class="span12 hero-unit">
     <div class="slogan">Upload a CSV file with your address data</div>
 
-    <div class="csv-help" data-modal="#help-modal">
+   <!--  <div class="csv-help" data-modal="#help-modal">
       Need help?
-    </div>
-    <%= debug(@uploaded_file.errors) if false%>
+    </div> -->
+
+    <%= link_to 'Need help?', welcome_help_path %> <br>
+
 
     <div class="upload-file-form">
     <%= form_for @uploaded_file do |f| %>
