@@ -5,7 +5,7 @@ module Exporter
   end
 
   def accepted
-    [:just_addresses, :addon_address]
+    [:just_addresses, :addon_address, :seperate_columns]
   end
 
   def export_content(export_type = :addon_address)
@@ -22,6 +22,7 @@ module Exporter
     end
   end
 
+  # Logic for column_headers for each export type
   def export_column_headers(export_type = :addon_address)
     unless self.accepted.include? export_type
       raise ArgumentError, "Invalid export_type. Try one of these: \n \t #{self.accepted.join ' '}" 
@@ -32,6 +33,9 @@ module Exporter
     case export_type
     when :addon_address then headers += ['NORMALIZED']
     when :just_addresses then headers = ['Normalized Addresses']
+    when :seperate_columns 
+      keys = self.tokenized_addresses.first.to_hash.keys
+      headers = keys.map { |key| key.to_s}
     end
   end
 
@@ -44,7 +48,12 @@ module Exporter
       return [self.tokenized_addresses[i-1].address]
     when :addon_address
       return row + [self.tokenized_addresses[i-1].address]
+    when :seperate_columns
+      keys = self.tokenized_addresses.first.to_hash.keys
+      addr = self.tokenized_addresses[i-1]
+      return keys.map { |key| addr[key] }
     end
+
   end
 
 end
