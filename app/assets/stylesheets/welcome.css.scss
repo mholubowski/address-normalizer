@@ -76,3 +76,34 @@
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
+
+// ABOUT + CONTACT + DEVELOPERS page
+
+.pictures-and-social {
+  margin-top: 20px;
+
+  .picture-wrapper {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  .social-wrapper {
+    display: inline-block;
+    position: relative;
+    bottom: 40px;
+  }
+  .social-icon {
+    font-size: 75px;
+
+    // remove hover underline
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .developer-email {
+    text-align: center;
+  }
+}

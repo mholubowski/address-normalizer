@@ -6,6 +6,7 @@ AddressNormalizer::Application.routes.draw do
   root "welcome#home"
 
   get "welcome/home"
+  get "welcome/help"
   get "welcome/about"
 
   get "address_sets/exporter"
